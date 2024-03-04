@@ -16,4 +16,7 @@ O jogo foi feito em Python 3 utilizando o framework Pygame e MySQL como banco de
 ## Desenvolvedores
 - Gabriel Festa Pinheiro - 24.00199-6
 - Guilherme Loschiavo Alvarez  -  23.00821-0
+- Pedro Bueno da Silveira Pinto  - 24.00561-4
 - Sophia Heringer Coelho - 24.01202-5
+- Tiago Tokugi de Albuquerque Massuda - 24.01217-3
+
