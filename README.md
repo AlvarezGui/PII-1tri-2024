@@ -2,7 +2,7 @@
 
 
 # Sobre o jogo
-"Nome do Jogo" é um jogo de corrida educativo com uma perspectiva "Top-Down", onde o jogador responde a perguntas no final de cada volta para ganhar benefícios durante a corrida.
+FAST FOOD é um jogo de corrida educativo com uma perspectiva "Top-Down", onde o jogador responde a perguntas no final de cada volta para ganhar benefícios durante a corrida.
 
 **foto*
 

@@ -5,25 +5,25 @@ import random
 # Initialize Pygame
 pygame.init()
 
-# Set up the screen
+# setqar tela 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Fast Food")
 
-# Colors
+# cores
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 
-# Car properties
+# variaveis do carro
 CAR_WIDTH = 50
 CAR_HEIGHT = 80
 
-# Load car image
+# sprites do carro
 # car_img = pygame.image.load('car.png')  # You need to have an image named 'car.png' in your directory
 
-# Set up the clock
+# setar relógio
 clock = pygame.time.Clock()
 
 def draw_car(x, y):
@@ -34,7 +34,7 @@ def draw_obstacle(cordenadas_obstaculo_x, cordenadas_obstaculo_y):
     pygame.draw.circle(screen, "blue", (cordenadas_obstaculo_x, cordenadas_obstaculo_y), 40)
 
 def game():
-    # Initial car position
+    # poss inicial do carro
     car_x = (SCREEN_WIDTH - CAR_WIDTH) // 2
     car_y = SCREEN_HEIGHT - CAR_HEIGHT - 20
     car_speed = 6
@@ -44,7 +44,7 @@ def game():
     velocidade_obstaculo = 4
 
 
-    # Main game loop
+    # Loop principal do jogo
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -62,7 +62,7 @@ def game():
         if keys[pygame.K_DOWN]:
             car_y += car_speed
 
-        # Boundary check
+        # checar se o carro está dentro da tela
         if car_x < 0:
             car_x = 0
         elif car_x > SCREEN_WIDTH - CAR_WIDTH:
@@ -75,10 +75,11 @@ def game():
         # Clear the screen
         screen.fill(WHITE)
 
-        # Draw car
+        # desenhar carro
         draw_car(car_x, car_y)
-        draw_obstacle(cordenadas_obstaculo_x ,cordenadas_obstaculo_y)
 
+        # desenhar obstáculos
+        draw_obstacle(cordenadas_obstaculo_x ,cordenadas_obstaculo_y)
         cordenadas_obstaculo_y += velocidade_obstaculo
 
         # Update the display
