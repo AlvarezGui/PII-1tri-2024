@@ -9,7 +9,7 @@ pygame.init()
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption("Top-Down Racing Game")
+pygame.display.set_caption("Fast Food")
 
 # Colors
 WHITE = (255, 255, 255)
@@ -25,15 +25,12 @@ CAR_HEIGHT = 80
 
 # Set up the clock
 clock = pygame.time.Clock()
-cordenadas_obstaculo_x = random.randrange(1, 800)
-cordenadas_obstaculo_y = random.randrange(1, 800)
-print(cordenadas_obstaculo_x)
 
 def draw_car(x, y):
     # screen.blit(car_img, (x, y))
     pygame.draw.circle(screen, "red", (x, y), 40)
 
-def draw_obstacle():
+def draw_obstacle(cordenadas_obstaculo_x, cordenadas_obstaculo_y):
     pygame.draw.circle(screen, "blue", (cordenadas_obstaculo_x, cordenadas_obstaculo_y), 40)
 
 def game():
@@ -41,6 +38,11 @@ def game():
     car_x = (SCREEN_WIDTH - CAR_WIDTH) // 2
     car_y = SCREEN_HEIGHT - CAR_HEIGHT - 20
     car_speed = 6
+
+    cordenadas_obstaculo_x = random.randrange(0, SCREEN_WIDTH)
+    cordenadas_obstaculo_y = -20
+    velocidade_obstaculo = 4
+
 
     # Main game loop
     while True:
@@ -75,7 +77,9 @@ def game():
 
         # Draw car
         draw_car(car_x, car_y)
-        draw_obstacle()
+        draw_obstacle(cordenadas_obstaculo_x ,cordenadas_obstaculo_y)
+
+        cordenadas_obstaculo_y += velocidade_obstaculo
 
         # Update the display
         pygame.display.flip()
