@@ -1,0 +1,17 @@
+Criando Rep:
+    1 - git init
+    2 - git config --local user.name "Nome"
+        git config --local user.email "Email"
+    3 - git config --global core.editor "code --wait"
+    4 - git config --global init.defaultBranch main
+
+*para vizualizar Configurações realizadas* - "git config --list" ou "git config --list --show-origins"
+*para vizualizar status* - "git status"
+
+Usando Git
+    1 - "git add *" //add tudo que está untracked
+    2 - git commit -m "Mensagem"
+
+
+
+ver também: https://dontpad.com/guialvarez-git
