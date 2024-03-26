@@ -82,6 +82,7 @@ def game():
         draw_car(car_x, car_y)
 
         # desenhar obstáculos
+        # 2
         obs1 = obstaculo(coordenadas_obstaculo_x, coordenadas_obstaculo_y, velocidade_obstaculo)
         obs1.draw_obstacle()
         obs1.coordenadas_obstaculo_y += velocidade_obstaculo
