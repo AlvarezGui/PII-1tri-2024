@@ -10,12 +10,10 @@ class obstaculo():
         self.velocidade_obstaculo = vel
 
     def draw_obstacle(self):
-        
         while self.coordenadas_obstaculo_y <= SCREEN_HEIGHT + 10:
-            if timer == pygame.time.get_ticks():
-                # pygame.time.delay(pygame.time.get_ticks())
-                self.coordenadas_obstaculo_y += self.velocidade_obstaculo
-                print(self.coordenadas_obstaculo_y)
+            pygame.time.delay(pygame.time.get_ticks())
+            self.coordenadas_obstaculo_y += self.velocidade_obstaculo
+            print(self.coordenadas_obstaculo_y)
 
         if self.coordenadas_obstaculo_y > SCREEN_HEIGHT + 10:
             self.coordenadas_obstaculo_x = random.randrange(0, SCREEN_WIDTH)
