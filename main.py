@@ -1,6 +1,7 @@
 import pygame
 import sys
 import random
+from obstaculo import *
 
 # Initialize Pygame
 pygame.init()
@@ -30,8 +31,10 @@ def draw_car(x, y):
     # screen.blit(car_img, (x, y))
     pygame.draw.circle(screen, "red", (x, y), 40)
 
-def draw_obstacle(cordenadas_obstaculo_x, cordenadas_obstaculo_y):
-    pygame.draw.circle(screen, "blue", (cordenadas_obstaculo_x, cordenadas_obstaculo_y), 40)
+# def draw_obstacle(cordenadas_obstaculo_x, cordenadas_obstaculo_y):
+#     pygame.draw.circle(screen, "blue", (cordenadas_obstaculo_x, cordenadas_obstaculo_y), 40)
+    
+
 
 def game():
     # poss inicial do carro
@@ -39,8 +42,8 @@ def game():
     car_y = SCREEN_HEIGHT - CAR_HEIGHT - 20
     car_speed = 6
 
-    cordenadas_obstaculo_x = random.randrange(0, SCREEN_WIDTH)
-    cordenadas_obstaculo_y = -20
+    coordenadas_obstaculo_y = -20
+    coordenadas_obstaculo_x = random.randrange(0, SCREEN_WIDTH)
     velocidade_obstaculo = 4
 
 
@@ -79,8 +82,10 @@ def game():
         draw_car(car_x, car_y)
 
         # desenhar obstáculos
-        draw_obstacle(cordenadas_obstaculo_x ,cordenadas_obstaculo_y)
-        cordenadas_obstaculo_y += velocidade_obstaculo
+        obs1 = obstaculo(coordenadas_obstaculo_x, coordenadas_obstaculo_y, velocidade_obstaculo)
+        obs1.draw_obstacle()
+        obs1.coordenadas_obstaculo_y += velocidade_obstaculo
+        
 
         # Update the display
         pygame.display.flip()
