@@ -14,6 +14,8 @@ class jogador():
         self.y = self.SH - self.JOGADOR_HEIGHT - 20
         self.speed = 6
 
+        self.rect = pygame.Rect(self.x, self.y, self.JOGADOR_WIDTH, self.JOGADOR_HEIGHT)
+
     @staticmethod
     def desenhar_jogador(self):
         # TODO adicionar sprite do jogador :3

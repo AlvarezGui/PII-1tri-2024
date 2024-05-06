@@ -18,8 +18,9 @@ def game():
     running = True
     
     jgdr = jogador(SCREEN_WIDTH, SCREEN_HEIGHT, screen)
-    obs = obstaculo(SCREEN_WIDTH, SCREEN_HEIGHT, screen)
-    obs2 = obstaculo(SCREEN_WIDTH, SCREEN_HEIGHT, screen)
+    obs = []
+
+    dificuldade = 5
 
     while running:
         for event in pygame.event.get():
@@ -32,8 +33,9 @@ def game():
         jgdr.mover_jogador(jgdr, keys)
 
         # obstáculos
-        obs.desenhar_obstaculo(obs)
-        obs2.desenhar_obstaculo(obs2)
+        for i in range(dificuldade):
+            obs.append(obstaculo(SCREEN_WIDTH, SCREEN_HEIGHT, screen))
+            obs[i].desenhar_obstaculo(obs[i], jgdr)
 
         # Update display
         pygame.display.flip()
