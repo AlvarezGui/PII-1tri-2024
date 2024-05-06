@@ -20,6 +20,7 @@ def game():
     jgdr = jogador(SCREEN_WIDTH, SCREEN_HEIGHT, screen)
     obs = []
 
+    # TODO adicionar dificuldade dinâmica
     dificuldade = 5
 
     while running:
@@ -27,13 +28,14 @@ def game():
             if event.type == pygame.QUIT:
                 running = False
                 
-        # métodos do objeto jogador
-        keys = keys = pygame.key.get_pressed()
+        # métodos e variaveis do objeto jogador
+        keys = pygame.key.get_pressed()
         jgdr.desenhar_jogador(jgdr)
         jgdr.mover_jogador(jgdr, keys)
 
         # obstáculos
         for i in range(dificuldade):
+            # TODO adicionar tipos diferentes de obstáculos ??
             obs.append(obstaculo(SCREEN_WIDTH, SCREEN_HEIGHT, screen))
             obs[i].desenhar_obstaculo(obs[i], jgdr)
 
@@ -44,6 +46,10 @@ def game():
         clock.tick(60)
 
         screen.fill('white')
+
+def Menu():
+    # TODO Menu (tudo)
+    pass
 
 if __name__ == "__main__":
     game()

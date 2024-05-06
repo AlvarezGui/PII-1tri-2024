@@ -22,8 +22,9 @@ class obstaculo():
         self.y += self.speed
 
         rect = pygame.Rect(self.x, self.y, self.WIDTH, self.HEIGHT)
+        rectJogador = pygame.Rect(jogador.x, jogador.y, jogador.JOGADOR_WIDTH, jogador.JOGADOR_HEIGHT)
 
-        if rect.colliderect(jogador.rect):
+        if rect.colliderect(rectJogador):
             # TODO game over.
             print("Colidiu")
 
