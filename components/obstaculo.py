@@ -16,10 +16,16 @@ class obstaculo():
         self.x = random.randrange(0, self.SW)
         self.y = -20
         if dific <= 5:
+            self.velocidade_range_min = 1
+            self.velocidade_range_max = 6
             self.speed = random.randrange(1,6)
         elif 5 < dific <= 10:
-            self.speed = random.randrange(5,9)
+                self.velocidade_range_min = 5
+                self.velocidade_range_max = 9
+                self.speed = random.randrange(5,9)
         elif 10 < dific <= 15:
+            self.velocidade_range_min = 8
+            self.velocidade_range_max = 12
             self.speed = random.randrange(8, 12)
 
     @staticmethod
@@ -40,4 +46,4 @@ class obstaculo():
         if self.y > self.SH + 50:
             self.x = random.randrange(0, self.SW)
             self.y = -20
-            self.speed = random.randrange(2,6)
+            self.speed = random.randrange(self.velocidade_range_min, self.velocidade_range_max)

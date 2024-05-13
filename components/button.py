@@ -3,7 +3,7 @@ import sys
 
 
 pygame.init()
-CAMINHO_FONTE = "/Users/TiagoTokugi/Documents/Materias/Pi's/PII-1tri-2024/ComicsCarToon.ttf"
+CAMINHO_FONTE = "./ComicsCarToon.ttf"
 fonte = pygame.font.Font(CAMINHO_FONTE, 30)
 
 class Button():

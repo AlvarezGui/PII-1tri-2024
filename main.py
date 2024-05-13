@@ -5,10 +5,6 @@ from screens.screen import Screen_manager
 
 pygame.init()
 
-def Menu():
-    # TODO Menu (tudo)
-    pass
-
 screen_manager = Screen_manager()
 
 while True:
