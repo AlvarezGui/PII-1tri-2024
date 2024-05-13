@@ -38,6 +38,7 @@ class jogador():
         #Posição atual do jogador
         pos_atual = (self.x, self.y)
 
+        # pos
         if pos_antiga!=pos_atual:
             self.is_moving = True
         else:

@@ -15,6 +15,8 @@ class obstaculo():
 
         self.x = random.randrange(0, self.SW)
         self.y = -20
+
+        # setar velocidade de acordo com a velocidade
         if dific <= 5:
             self.velocidade_range_min = 1
             self.velocidade_range_max = 6

@@ -1,5 +1,4 @@
 import pygame
-# from screens.fase import fase
 from screens.menu_principal import main_menu
 from screens.screen import Screen_manager
 
