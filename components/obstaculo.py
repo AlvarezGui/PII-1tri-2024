@@ -18,6 +18,8 @@ class obstaculo():
         self.x = random.randrange(0, self.SW)
         self.y = -20
 
+        self.e_primeira = True
+
         # setar velocidade de acordo com a velocidade
         if dific <= 5:
             self.velocidade_range_min = 1
@@ -45,12 +47,18 @@ class obstaculo():
             time.sleep(random.randrange(1, 4))
             self.x = random.randrange(0, self.SW)
             self.speed = random.randrange(self.velocidade_range_min, self.velocidade_range_max)
+            self.color = "blue"
         t1 = threading.Thread(target=esperar)
 
         pygame.draw.circle(self.screen, self.color, (self.x, self.y), 40)
+        if self.e_primeira:
+            t1.start()
+            self.e_primeira = False
+
         self.y += self.speed
+       
 
-
+        # coll
         rect = pygame.Rect(self.x, self.y, self.WIDTH, self.HEIGHT)
         rectJogador = pygame.Rect(jogador.x, jogador.y, jogador.JOGADOR_WIDTH, jogador.JOGADOR_HEIGHT)
 
@@ -60,8 +68,20 @@ class obstaculo():
             jogador.tira_pontos()
             print(jogador.pontos)
 
+        # checar se o objeto está fora da tela
         if self.y > self.SH + 50:
             t1.start()
+
+            '''
+            
+            achar um equilibrio entre a 1 e 3 fase no que se trata de velocidade e quantidade
+            e decidir se terá ou não um timer para esperar o spawn dos obstáculos
+
+            '''
+            
+            # self.y = -100
+            # self.x = random.randrange(0, self.SW)
+            # self.speed = random.randrange(self.velocidade_range_min, self.velocidade_range_max)
 
             
 
