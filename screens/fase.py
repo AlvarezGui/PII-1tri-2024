@@ -58,7 +58,7 @@ def fase(dific):
 
         # Update display
         pygame.display.update()
-        if jgdr.pontos <= 0:
+        if jgdr.vida <= 0:
             running = False
             screen_manager.pop_screen()
 

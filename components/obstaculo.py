@@ -65,8 +65,8 @@ class obstaculo():
         if rect.colliderect(rectJogador):
             # TODO game over.
             self.color = "green"
-            jogador.tira_pontos()
-            print(jogador.pontos)
+            jogador.tira_vida()
+            print(jogador.vida)
 
         # checar se o objeto está fora da tela
         if self.y > self.SH + 50:

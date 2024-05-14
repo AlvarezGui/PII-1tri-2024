@@ -16,6 +16,7 @@ class jogador():
         self.is_moving = False
         self.color = "red"
         self.pontos = 10
+        self.vida = 10
 
     def desenhar_jogador(self):
         # TODO adicionar sprite do jogador :3
@@ -60,8 +61,9 @@ class jogador():
         elif self.y > self.SH - self.JOGADOR_HEIGHT:
             self.y = self.SH - self.JOGADOR_HEIGHT
 
-    def tira_pontos(self):
-        self.pontos -= 1
+    def tira_vida(self):
+        self.vida -= 1
+        self.pontos -=1
 
     def colisao():
         '''
