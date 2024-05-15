@@ -36,11 +36,15 @@ def selecao_fase():
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if botao_fase1.checkForInput(selecao_mouse):
-                    screen_manager.push_screen(fase(3))
+                    fs = fase(3)
+                    screen_manager.push_screen(fs.desenhar_fase())
                 if botao_fase2.checkForInput(selecao_mouse):
-                    screen_manager.push_screen(fase(6))
+                    fs = fase(6)
+                    screen_manager.push_screen(fs.desenhar_fase())
                 if botao_fase3.checkForInput(selecao_mouse):
-                    screen_manager.push_screen(fase(12))
+                    fs = fase(12)
+                    screen_manager.push_screen(fs.desenhar_fase())
                 if botao_voltar.checkForInput(selecao_mouse):
                     screen_manager.pop_screen()  # Volta para a tela anterior
                     return
+                
