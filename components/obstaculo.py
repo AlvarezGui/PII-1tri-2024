@@ -10,10 +10,13 @@ class obstaculo():
         self.SW = SCREEN_WIDTH
         self.SH = SCREEN_HEIGHT
         self.screen = screen
-        self.color = "blue"
 
-        self.WIDTH = 50
-        self.HEIGHT = 80
+        # Carregando imagem 
+        self.image = pygame.image.load("assets/enzima.png").convert_alpha()
+
+        self.WIDTH = 100
+        aspect_ratio = self.image.get_width() / self.image.get_height()
+        self.HEIGHT = int(self.WIDTH / aspect_ratio)
 
         self.x = random.randrange(0, self.SW)
         self.y = -20
@@ -36,6 +39,15 @@ class obstaculo():
 
     def desenhar_obstaculo(self, jogador):
         # TODO impedir os obstáculos de spawnarem em cima uns dos outros
+
+        # Fazendo o retângulo
+        # rect = pygame.draw.circle(self.screen, self.color, (self.x, self.y), 40)
+        self.image_rect = self.image.get_rect()
+        self.image_obstacle = pygame.transform.scale(self.image, (self.WIDTH, self.HEIGHT))
+        self.image_rect = pygame.Rect(self.x, self.y, self.WIDTH, self.HEIGHT)
+
+        pygame.draw.rect(self.screen, (0, 255, 255), self.image_rect)
+        self.screen.blit(self.image_obstacle, self.image_rect)
         # TODO timer randomico para o primeiro spawn
 
         # esperar para respawnar o obstáculo
@@ -48,7 +60,6 @@ class obstaculo():
             self.color = "blue"
         t1 = threading.Thread(target=esperar)
 
-        pygame.draw.circle(self.screen, self.color, (self.x, self.y), 40)
         if self.e_primeira:
             t1.start()
             self.e_primeira = False
@@ -57,12 +68,10 @@ class obstaculo():
        
 
         # coll
-        rect = pygame.Rect(self.x, self.y, self.WIDTH, self.HEIGHT)
         rectJogador = pygame.Rect(jogador.x, jogador.y, jogador.JOGADOR_WIDTH, jogador.JOGADOR_HEIGHT)
 
-        if rect.colliderect(rectJogador):
+        if self.image_rect.colliderect(rectJogador):
             # TODO game over.
-            self.color = "green"
             jogador.tira_vida()
             print(jogador.vida)
 

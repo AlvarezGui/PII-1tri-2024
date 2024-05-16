@@ -3,8 +3,8 @@ import pygame
 class jogador:
     def __init__(self, SCREEN_WIDTH, SCREEN_HEIGHT, screen):
         # Carregar imagem normal
-        self.image_normal = pygame.image.load("assets/hotdog_normal.png").convert_alpha()
-        # self.image_normal = pygame.image.load("assets/hamburguer_normal.png").convert_alpha()
+        # self.image_normal = pygame.image.load("assets/hotdog_normal.png").convert_alpha()
+        self.image_normal = pygame.image.load("assets/hamburguer_normal.png").convert_alpha()
 
         self.SW = SCREEN_WIDTH
         self.SH = SCREEN_HEIGHT
@@ -14,7 +14,6 @@ class jogador:
         
         # Carregar e redimensionar imagem original
         aspect_ratio = self.image_normal.get_width() / self.image_normal.get_height()
-        print(self.image_normal.get_width(), self.image_normal.get_height())
         self.JOGADOR_HEIGHT = int(self.JOGADOR_WIDTH / aspect_ratio)
 
         self.x = (self.SW - self.JOGADOR_WIDTH) // 2
@@ -25,13 +24,13 @@ class jogador:
         self.vida = 10
 
         # Imagem para indicar movimento
-        self.image_boost = pygame.image.load("assets/hotdog_boost.png").convert_alpha()
-        # self.image_boost = pygame.image.load("assets/hamburguer_boost.png").convert_alpha()
+        # self.image_boost = pygame.image.load("assets/hotdog_boost.png").convert_alpha()
+        self.image_boost = pygame.image.load("assets/hamburguer_boost.png").convert_alpha()
 
         # Criando retângulo
         self.image_rect = self.image_normal.get_rect()
-        self.image_rect = pygame.Rect(self.x, self.y, self.JOGADOR_WIDTH, self.JOGADOR_HEIGHT)
         self.player_image = pygame.transform.scale(self.image_normal, (self.JOGADOR_WIDTH, self.JOGADOR_HEIGHT))
+        self.image_rect = pygame.Rect(self.x, self.y, self.JOGADOR_WIDTH, self.JOGADOR_HEIGHT)
         # self.rect = pygame.Rect(self.image_rect.x, self.image_rect.y, self.JOGADOR_WIDTH, self.JOGADOR_HEIGHT)
 
     def desenhar_jogador(self):
