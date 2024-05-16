@@ -33,7 +33,7 @@ class fase():
         dificuldade = self.dific
 
         while running:
-            self.screen.fill("black")
+            self.screen.fill("white")
             
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
