@@ -3,6 +3,8 @@ import pygame
 from components.button import Button
 from components.jogador import jogador
 from components.obstaculo import obstaculo
+from components.perguntaBox import PerguntaBox
+from screens.config import SCREEN_WIDTH
 from screens.screen import Screen_manager
 # from Componentes_fase.PerguntaBox import PerguntaBox 
 
@@ -26,14 +28,14 @@ class fase():
         
         jgdr = jogador(self.SCREEN_WIDTH, self.SCREEN_HEIGHT, self.screen)
         obs = []
-        # quest = []
+        quest = []
 
 
         # TODO adicionar dificuldade dinâmica √
         dificuldade = self.dific
 
         while running:
-            self.screen.fill("black")
+            self.screen.fill("white")
             
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -55,12 +57,12 @@ class fase():
             for i in range(dificuldade):
                 # TODO adicionar tipos diferentes de obstáculos ?? 
                 obs.append(obstaculo(self.SCREEN_WIDTH, self.SCREEN_HEIGHT, self.screen, dificuldade))
-                obs[i].desenhar_obstaculo(obs[i], jgdr)
+                obs[i].desenhar_obstaculo(jgdr)
 
             #Perguntas
-            # for c in range(dificuldade//5):
-            #     quest.append(PerguntaBox(self.SCREEN_HEIGHT, SCREEN_WIDTH, screen))
-            #     quest[c].desenhar_perguntas(quest[c], jgdr)
+            for c in range(dificuldade//5):
+                quest.append(PerguntaBox(self.SCREEN_HEIGHT, SCREEN_WIDTH, self.screen))
+                quest[c].desenhar_perguntas(jgdr)
 
             # Update display
             pygame.display.update()
