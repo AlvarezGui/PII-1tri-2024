@@ -6,8 +6,8 @@ class jogador:
         self.SH = SCREEN_HEIGHT
         self.screen = screen
 
-        self.JOGADOR_WIDTH = 50
-        self.JOGADOR_HEIGHT = 80
+        self.JOGADOR_WIDTH = 150
+        self.JOGADOR_HEIGHT = 220
 
         self.x = (self.SW - self.JOGADOR_WIDTH) // 2
         self.y = self.SH - self.JOGADOR_HEIGHT - 20
@@ -21,18 +21,22 @@ class jogador:
 
         # Carregar e redimensionar imagem original
         aspect_ratio = self.image_normal.get_width() / self.image_normal.get_height()
-        new_height = 4*int(self.JOGADOR_WIDTH / aspect_ratio)
-        self.player_image = pygame.transform.scale(self.image_normal, (4*self.JOGADOR_WIDTH, new_height))
+        new_height = int(self.JOGADOR_WIDTH / aspect_ratio)
+        self.player_image = pygame.transform.scale(self.image_normal, (self.JOGADOR_WIDTH, new_height))
 
         # Imagem para indicar movimento
         self.image_boost = pygame.image.load("assets/hotdog_boost.png").convert_alpha()
 
         # Criando retângulo
-        self.rect = self.player_image.get_rect(topleft=(self.x, self.y))
+        self.rect = pygame.Rect((self.x, self.y), (self.JOGADOR_WIDTH, self.JOGADOR_HEIGHT))
 
     def desenhar_jogador(self):
+        # Centralizar imagem dentro do hitbox
+        centro_x = (self.JOGADOR_WIDTH - self.player_image.get_width()) // 2
+        centro_y = (self.JOGADOR_HEIGHT - self.player_image.get_height()) // 2
+
         # Desenhar jogador
-        self.screen.blit(self.player_image, (self.x, self.y))
+        self.screen.blit(self.player_image, self.rect)
 
     def mover_jogador(self, keys):
         # Posição antiga do jogador
@@ -53,6 +57,9 @@ class jogador:
 
         # Verificar se está se movendo
         self.is_moving = pos_antiga != pos_atual
+
+        self.rect.x = self.x
+        self.rect.y = self.y
 
         # Alternar entre imagem normal e imagem de movimento
         if self.is_moving:
