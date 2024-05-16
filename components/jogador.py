@@ -1,8 +1,7 @@
 import pygame
 
-class jogador():
-
-    def __init__(self, SCREEN_WIDTH, SCREEN_HEIGHT, screen) -> None:
+class jogador:
+    def __init__(self, SCREEN_WIDTH, SCREEN_HEIGHT, screen):
         self.SW = SCREEN_WIDTH
         self.SH = SCREEN_HEIGHT
         self.screen = screen
@@ -14,24 +13,32 @@ class jogador():
         self.y = self.SH - self.JOGADOR_HEIGHT - 20
 
         self.speed = 6
-        self.is_moving = False
         self.pontos = 10
         self.vida = 10
-        self.image = pygame.image.load("assets/hotdog_normal.png").convert_alpha()
-        self.player_image = pygame.transform.scale(self.image, (self.JOGADOR_WIDTH, self.JOGADOR_HEIGHT))
 
-        # Criando retangulo
+        # Carregar imagem normal
+        self.image_normal = pygame.image.load("assets/hotdog_normal.png").convert_alpha()
+
+        # Carregar e redimensionar imagem original
+        aspect_ratio = self.image_normal.get_width() / self.image_normal.get_height()
+        new_height = 4*int(self.JOGADOR_WIDTH / aspect_ratio)
+        self.player_image = pygame.transform.scale(self.image_normal, (4*self.JOGADOR_WIDTH, new_height))
+
+        # Imagem para indicar movimento
+        self.image_boost = pygame.image.load("assets/hotdog_boost.png").convert_alpha()
+
+        # Criando retângulo
         self.rect = self.player_image.get_rect(topleft=(self.x, self.y))
 
     def desenhar_jogador(self):
-        # TODO adicionar sprite do jogador :3
+        # Desenhar jogador
         self.screen.blit(self.player_image, (self.x, self.y))
 
     def mover_jogador(self, keys):
-        #Posição antiga do jogador:
+        # Posição antiga do jogador
         pos_antiga = (self.x, self.y)
 
-        # input do usuario
+        # Input do usuário
         if keys[pygame.K_LEFT]:
             self.x -= self.speed
         if keys[pygame.K_RIGHT]:
@@ -41,43 +48,26 @@ class jogador():
         if keys[pygame.K_DOWN]:
             self.y += self.speed
 
-        #Posição atual do jogador
+        # Posição atual do jogador
         pos_atual = (self.x, self.y)
 
-        # pos
-        if pos_antiga!=pos_atual:
-            self.is_moving = True
-        else:
-            self.is_moving = False
+        # Verificar se está se movendo
+        self.is_moving = pos_antiga != pos_atual
 
-        #mudando de cor se estiver movendo
+        # Alternar entre imagem normal e imagem de movimento
         if self.is_moving:
-            self.image = pygame.image.load("assets/hotdog_boost.png").convert_alpha()
-            self.screen.blit(self.player_image, (self.x, self.y))
+            self.player_image = pygame.transform.scale(self.image_boost, (self.JOGADOR_WIDTH, self.JOGADOR_HEIGHT))
         else:
-            self.image = pygame.image.load("assets/hotdog_normal.png").convert_alpha()
-            self.screen.blit(self.player_image, (self.x, self.y))
+            self.player_image = pygame.transform.scale(self.image_normal, (self.JOGADOR_WIDTH, self.JOGADOR_HEIGHT))
 
-        # garantir que o jogador não saia da tela e não passe da metade de sua altura
-        if self.x < 0:
-            self.x = 0
-        elif self.x > self.SW - self.JOGADOR_WIDTH:
-            self.x = self.SW - self.JOGADOR_WIDTH
-        if self.y < self.SH / 2:
-            self.y = self.SH / 2
-        elif self.y > self.SH - self.JOGADOR_HEIGHT:
-            self.y = self.SH - self.JOGADOR_HEIGHT
+        # Garantir que o jogador não saia da tela
+        self.x = max(0, min(self.x, self.SW - self.JOGADOR_WIDTH))
+        self.y = max(self.SH // 2, min(self.y, self.SH - self.JOGADOR_HEIGHT))
 
     def tira_vida(self):
         self.vida -= 1
-        self.pontos -=1
+        self.pontos -= 1
 
-    def colisao():
-        '''
-
-        foi feita no objeto obstaculo pois um obstaculo pode colidir apenas com um jogador,
-        mas um jogador pode colidir com varios obstaculos.
-        manterei a função aqui para caso eu queira lidar com outros tipos de colisão.
-
-        '''
+    def colisao(self):
+        # Tratar colisões (se necessário)
         pass
