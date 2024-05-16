@@ -16,7 +16,7 @@ class PerguntaBox():
         self.speed = random.randrange(1,6)
 
     def desenhar_perguntas(self, jogador):
-                # Carregar imagem
+        # Carregar imagem
         image_normal = pygame.image.load("assets/question.png").convert_alpha()
 
         # Calcular altura proporcional

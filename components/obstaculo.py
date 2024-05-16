@@ -34,8 +34,6 @@ class obstaculo():
             self.velocidade_range_max = 12
             self.speed = random.randrange(8, 12)
 
-
-    @staticmethod
     def desenhar_obstaculo(self, jogador):
         # TODO impedir os obstáculos de spawnarem em cima uns dos outros
         # TODO timer randomico para o primeiro spawn

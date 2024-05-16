@@ -57,7 +57,7 @@ class fase():
             for i in range(dificuldade):
                 # TODO adicionar tipos diferentes de obstáculos ?? 
                 obs.append(obstaculo(self.SCREEN_WIDTH, self.SCREEN_HEIGHT, self.screen, dificuldade))
-                obs[i].desenhar_obstaculo(obs[i], jgdr)
+                obs[i].desenhar_obstaculo(jgdr)
 
             #Perguntas
             for c in range(dificuldade//5):
