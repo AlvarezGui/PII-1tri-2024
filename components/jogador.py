@@ -18,6 +18,7 @@ class jogador:
 
         # Carregar imagem normal
         self.image_normal = pygame.image.load("assets/hotdog_normal.png").convert_alpha()
+        # self.image_normal = pygame.image.load("assets/hamburguer_normal.png").convert_alpha()
 
         # Carregar e redimensionar imagem original
         aspect_ratio = self.image_normal.get_width() / self.image_normal.get_height()
@@ -26,6 +27,7 @@ class jogador:
 
         # Imagem para indicar movimento
         self.image_boost = pygame.image.load("assets/hotdog_boost.png").convert_alpha()
+        # self.image_boost = pygame.image.load("assets/hamburguer_boost.png").convert_alpha()
 
         # Criando retângulo
         self.rect = pygame.Rect((self.x, self.y), (self.JOGADOR_WIDTH, self.JOGADOR_HEIGHT))
@@ -69,7 +71,7 @@ class jogador:
 
         # Garantir que o jogador não saia da tela
         self.x = max(0, min(self.x, self.SW - self.JOGADOR_WIDTH))
-        self.y = max(self.SH // 2, min(self.y, self.SH - self.JOGADOR_HEIGHT))
+        self.y = max(0, min(self.y, self.SH - self.JOGADOR_HEIGHT))
 
     def tira_vida(self):
         self.vida -= 1

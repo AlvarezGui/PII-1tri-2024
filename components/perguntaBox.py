@@ -15,16 +15,29 @@ class PerguntaBox():
         self.y = -20
         self.speed = random.randrange(1,6)
 
-    @staticmethod
     def desenhar_perguntas(self, jogador):
-        # TODO impedir os obstáculos de spawnarem em cima uns dos outros
-        pygame.draw.circle(self.screen, "yellow", (self.x, self.y), 40)
+                # Carregar imagem
+        image_normal = pygame.image.load("assets/question.png").convert_alpha()
+
+        # Calcular altura proporcional
+        aspect_ratio = image_normal.get_width() / image_normal.get_height()
+        new_height = int(self.WIDTH / aspect_ratio)
+
+        # Redimensionar imagem
+        question_image = pygame.transform.scale(image_normal, (self.WIDTH, new_height))
+
+        # Desenhar imagem
+        self.screen.blit(question_image, (self.x, self.y))
+
+        # Movimentar pergunta
         self.y += self.speed
 
+        # Checar colisão com jogador
         rect = pygame.Rect(self.x, self.y, self.WIDTH, self.HEIGHT)
-        rectJogador = pygame.Rect(jogador.x, jogador.y, jogador.JOGADOR_WIDTH, jogador.JOGADOR_HEIGHT)
+        jogador.rect_jogador = pygame.Rect(jogador.x, jogador.y, jogador.JOGADOR_WIDTH, jogador.JOGADOR_HEIGHT)
 
-        if rect.colliderect(rectJogador):
+
+        if rect.colliderect(jogador.rect_jogador):
             # TODO acessar pergunta.
             print("Colidiu")
 

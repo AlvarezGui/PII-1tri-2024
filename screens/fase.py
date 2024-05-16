@@ -62,7 +62,7 @@ class fase():
             #Perguntas
             for c in range(dificuldade//5):
                 quest.append(PerguntaBox(self.SCREEN_HEIGHT, SCREEN_WIDTH, self.screen))
-                quest[c].desenhar_perguntas(quest[c], jgdr)
+                quest[c].desenhar_perguntas(jgdr)
 
             # Update display
             pygame.display.update()
