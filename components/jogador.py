@@ -18,7 +18,7 @@ class jogador():
         self.pontos = 10
         self.vida = 10
         self.image = pygame.image.load("assets/hotdog_normal.png").convert_alpha()
-        self.player_image = pygame.transform.scale(self.image, (200, 200))
+        self.player_image = pygame.transform.scale(self.image, (self.JOGADOR_WIDTH, self.JOGADOR_HEIGHT))
 
         # Criando retangulo
         self.rect = self.player_image.get_rect(topleft=(self.x, self.y))
