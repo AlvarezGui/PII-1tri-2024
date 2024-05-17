@@ -3,14 +3,14 @@ import pygame
 class jogador:
     def __init__(self, SCREEN_WIDTH, SCREEN_HEIGHT, screen):
         # Carregar imagem normal
-        # self.image_normal = pygame.image.load("assets/hotdog_normal.png").convert_alpha()
-        self.image_normal = pygame.image.load("assets/hamburguer_normal.png").convert_alpha()
+        self.image_normal = pygame.image.load("assets/hotdog_normal.png").convert_alpha()
+        # self.image_normal = pygame.image.load("assets/hamburguer_normal.png").convert_alpha()
 
         self.SW = SCREEN_WIDTH
         self.SH = SCREEN_HEIGHT
         self.screen = screen
 
-        self.JOGADOR_WIDTH = 150
+        self.JOGADOR_WIDTH = 100
         
         # Carregar e redimensionar imagem original
         aspect_ratio = self.image_normal.get_width() / self.image_normal.get_height()
@@ -24,8 +24,8 @@ class jogador:
         self.vida = 10
 
         # Imagem para indicar movimento
-        # self.image_boost = pygame.image.load("assets/hotdog_boost.png").convert_alpha()
-        self.image_boost = pygame.image.load("assets/hamburguer_boost.png").convert_alpha()
+        self.image_boost = pygame.image.load("assets/hotdog_boost.png").convert_alpha()
+        # self.image_boost = pygame.image.load("assets/hamburguer_boost.png").convert_alpha()
 
         # Criando retângulo
         self.image_rect = self.image_normal.get_rect()
