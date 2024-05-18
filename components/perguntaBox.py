@@ -39,6 +39,7 @@ class PerguntaBox():
 
         if rect.colliderect(jogador.rect_jogador):
             # TODO acessar pergunta.
+            
             print("Colidiu")
 
         if self.y > self.SH + 50:

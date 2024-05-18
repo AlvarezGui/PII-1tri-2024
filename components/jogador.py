@@ -1,20 +1,20 @@
 import pygame
 
 class jogador:
-    def __init__(self, SCREEN_WIDTH, SCREEN_HEIGHT, screen):
+    def __init__(self, SCREEN_WIDTH, SCREEN_HEIGHT, screen, model):
         # Carregar imagem normal
-        self.image_normal = pygame.image.load("assets/hotdog_normal.png").convert_alpha()
-        # self.image_normal = pygame.image.load("assets/hamburguer_normal.png").convert_alpha()
+        modelo = self.carro_modelo(model)
+        self.image_normal = pygame.image.load(modelo[0]).convert_alpha()
 
         self.SW = SCREEN_WIDTH
         self.SH = SCREEN_HEIGHT
         self.screen = screen
-
-        self.JOGADOR_WIDTH = 100
         
         # Carregar e redimensionar imagem original
+        self.JOGADOR_WIDTH = 80
         aspect_ratio = self.image_normal.get_width() / self.image_normal.get_height()
         self.JOGADOR_HEIGHT = int(self.JOGADOR_WIDTH / aspect_ratio)
+        self.player_image = pygame.transform.scale(self.image_normal, (self.JOGADOR_WIDTH, self.JOGADOR_HEIGHT))
 
         self.x = (self.SW - self.JOGADOR_WIDTH) // 2
         self.y = self.SH - self.JOGADOR_HEIGHT - 20
@@ -24,17 +24,15 @@ class jogador:
         self.vida = 10
 
         # Imagem para indicar movimento
-        self.image_boost = pygame.image.load("assets/hotdog_boost.png").convert_alpha()
-        # self.image_boost = pygame.image.load("assets/hamburguer_boost.png").convert_alpha()
+        self.image_boost = pygame.image.load(modelo[1]).convert_alpha()
 
         # Criando retângulo
         self.image_rect = self.image_normal.get_rect()
-        self.player_image = pygame.transform.scale(self.image_normal, (self.JOGADOR_WIDTH, self.JOGADOR_HEIGHT))
         self.image_rect = pygame.Rect(self.x, self.y, self.JOGADOR_WIDTH, self.JOGADOR_HEIGHT)
         # self.rect = pygame.Rect(self.image_rect.x, self.image_rect.y, self.JOGADOR_WIDTH, self.JOGADOR_HEIGHT)
 
     def desenhar_jogador(self):
-        pygame.draw.rect(self.screen, (255, 0, 255), self.image_rect)
+        # pygame.draw.rect(self.screen, (255, 0, 255), self.image_rect)
         # Desenhar jogador
         self.screen.blit(self.player_image, self.image_rect)
 
@@ -80,3 +78,17 @@ class jogador:
     def colisao(self):
         # Tratar colisões (se necessário)
         pass
+
+    def mostra_imagem(imagem):
+        IMAGE_WIDTH = 80
+        aspect_ratio = imagem.get_width() / imagem.get_height()
+        IMAGE_HEIGHT = int(IMAGE_WIDTH / aspect_ratio)
+        image = pygame.transform.scale(imagem, (IMAGE_WIDTH, IMAGE_HEIGHT))
+        return image
+
+    @staticmethod
+    def carro_modelo(modelo):
+        if modelo == "hamburguer":
+            return("assets/hamburguer_normal.png", "assets/hamburguer_boost.png")
+        if modelo == "hotdog":
+            return("assets/hotdog_normal.png", "assets/hotdog_boost.png")
