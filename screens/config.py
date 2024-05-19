@@ -12,14 +12,29 @@ def config():
     pygame.display.set_caption("ajustes")
     running = True
 
+    # FUNDO DA TELA
+    fundo = pygame.image.load("assets/mapa.png").convert_alpha()
+    FUNDO_WIDTH = SCREEN_WIDTH
+    aspect_ratio = fundo.get_width() / fundo.get_height()
+    FUNDO_HEIGHT = int(FUNDO_WIDTH / aspect_ratio)
+    fundo_image = pygame.transform.scale(fundo, (FUNDO_WIDTH, FUNDO_HEIGHT))
+
+    # IMAGEM DO BOTÃO
+    button = pygame.image.load("assets/button.png")
+    aspect_ratio_button = button.get_width() / button.get_height()
+    BUTTON_WIDTH = 250
+    BUTTON_HEIGHT = int(BUTTON_WIDTH / aspect_ratio_button)
+    fundo_button = pygame.transform.scale(button, (BUTTON_WIDTH, BUTTON_HEIGHT))
+
     while running:
         screen.fill("white")
+        screen.blit(fundo_image, (0,0))
 
         selecao_mouse = pygame.mouse.get_pos()
 
-        botao_muda_dificuldade = Button(image=None, pos=(SCREEN_WIDTH/2, 150), text_input="DIFICULDADE")
-        botao_muda_volume = Button(image=None, pos=(SCREEN_WIDTH/2, 400), text_input="VOLUME")
-        botao_voltar = Button(image=None, pos=(SCREEN_WIDTH/3, 400), text_input="VOLTAR")
+        botao_muda_dificuldade = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 150), text_input="DIFICULDADE")
+        botao_muda_volume = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 400), text_input="VOLUME")
+        botao_voltar = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 650), text_input="VOLTAR")
 
         for button in [botao_muda_dificuldade, botao_muda_volume, botao_voltar]:
             button.changeColor(selecao_mouse)
