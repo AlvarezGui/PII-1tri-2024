@@ -15,7 +15,7 @@ def selecao_fase():
     # IMAGEM DO BOTÃO
     button = pygame.image.load("assets/button.png")
     aspect_ratio_button = button.get_width() / button.get_height()
-    BUTTON_WIDTH = 300
+    BUTTON_WIDTH = 200
     BUTTON_HEIGHT = int(BUTTON_WIDTH / aspect_ratio_button)
     fundo_button = pygame.transform.scale(button, (BUTTON_WIDTH, BUTTON_HEIGHT))
 
@@ -80,7 +80,7 @@ def selecao_carro():
     # IMAGEM DO BOTÃO
     button = pygame.image.load("assets/button.png")
     aspect_ratio_button = button.get_width() / button.get_height()
-    BUTTON_WIDTH = 300
+    BUTTON_WIDTH = 200
     BUTTON_HEIGHT = int(BUTTON_WIDTH / aspect_ratio_button)
     fundo_button = pygame.transform.scale(button, (BUTTON_WIDTH, BUTTON_HEIGHT))
 
@@ -94,6 +94,7 @@ def selecao_carro():
     FUNDO_HEIGHT = int(FUNDO_WIDTH / aspect_ratio)
     fundo_image = pygame.transform.scale(fundo, (FUNDO_WIDTH, FUNDO_HEIGHT))
 
+    # IMAGEM PAINEL
     painel = pygame.image.load("assets/painel.png").convert_alpha()
     PAINEL_WIDTH = SCREEN_WIDTH + 50
     aspect_ratio = painel.get_width() / painel.get_height()

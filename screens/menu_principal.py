@@ -31,7 +31,7 @@ class main_menu():
     # IMAGEM DO BOTÃO
     button = pygame.image.load("assets/button.png")
     aspect_ratio_button = button.get_width() / button.get_height()
-    BUTTON_WIDTH = 300
+    BUTTON_WIDTH = 200
     BUTTON_HEIGHT = int(BUTTON_WIDTH / aspect_ratio_button)
     fundo_button = pygame.transform.scale(button, (BUTTON_WIDTH, BUTTON_HEIGHT))
 
