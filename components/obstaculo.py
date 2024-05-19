@@ -13,8 +13,10 @@ class obstaculo():
 
         # Carregando imagem 
         self.image = pygame.image.load("assets/enzima.png").convert_alpha()
+        self.image.convert()
 
-        self.WIDTH = 100
+
+        self.WIDTH = 80
         aspect_ratio = self.image.get_width() / self.image.get_height()
         self.HEIGHT = int(self.WIDTH / aspect_ratio)
 
@@ -46,7 +48,7 @@ class obstaculo():
         self.image_obstacle = pygame.transform.scale(self.image, (self.WIDTH, self.HEIGHT))
         self.image_rect = pygame.Rect(self.x, self.y, self.WIDTH, self.HEIGHT)
 
-        pygame.draw.rect(self.screen, (0, 255, 255), self.image_rect)
+        # pygame.draw.rect(self.screen, (0, 255, 255), self.image_rect)
         self.screen.blit(self.image_obstacle, self.image_rect)
         # TODO timer randomico para o primeiro spawn
 
@@ -80,10 +82,8 @@ class obstaculo():
             t1.start()
 
             '''
-            
             achar um equilibrio entre a 1 e 3 fase no que se trata de velocidade e quantidade
             e decidir se terá ou não um timer para esperar o spawn dos obstáculos
-
             '''
             
             # self.y = -100

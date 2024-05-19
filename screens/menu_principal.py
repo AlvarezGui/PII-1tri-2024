@@ -23,7 +23,7 @@ class main_menu():
 
     while running:
         #Sobreposição de telas
-        screen.fill("black")
+        screen.fill("white")
 
         menu_mouse = pygame.mouse.get_pos()
 

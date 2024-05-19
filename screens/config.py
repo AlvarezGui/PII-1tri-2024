@@ -13,7 +13,7 @@ def config():
     running = True
 
     while running:
-        screen.fill("black")
+        screen.fill("white")
 
         selecao_mouse = pygame.mouse.get_pos()
 

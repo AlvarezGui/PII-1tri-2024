@@ -15,18 +15,19 @@ clock = pygame.time.Clock()
 class fase():
 
 
-    def __init__(self, dific):
+    def __init__(self, dific, model):
         self.dific = dific
         self.SCREEN_WIDTH = 1020
         self.SCREEN_HEIGHT = 800
         self.screen = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
         self.screen_manager = Screen_manager()
+        self.model = model
 
     
     def desenhar_fase(self):
         running = True
         
-        jgdr = jogador(self.SCREEN_WIDTH, self.SCREEN_HEIGHT, self.screen)
+        jgdr = jogador(self.SCREEN_WIDTH, self.SCREEN_HEIGHT, self.screen, self.model)
         obs = []
         quest = []
 
