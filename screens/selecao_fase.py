@@ -96,7 +96,7 @@ def selecao_carro():
 
     # IMAGEM PAINEL
     painel = pygame.image.load("assets/painel.png").convert_alpha()
-    PAINEL_WIDTH = SCREEN_WIDTH + 50
+    PAINEL_WIDTH = SCREEN_WIDTH + 100
     aspect_ratio = painel.get_width() / painel.get_height()
     PAINEL_HEIGHT = int(PAINEL_WIDTH / aspect_ratio)
     painel_image = pygame.transform.scale(painel, (PAINEL_WIDTH, PAINEL_HEIGHT))

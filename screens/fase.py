@@ -25,6 +25,8 @@ class fase():
     
     def desenhar_fase(self):
         running = True
+
+        # FUNDO IMAGEM 
         fundo = pygame.image.load("assets/mapa.png").convert_alpha()
         FUNDO_WIDTH = SCREEN_WIDTH
         aspect_ratio = fundo.get_width() / fundo.get_height()
@@ -42,7 +44,7 @@ class fase():
         while running:
             self.screen.fill("white")
             self.screen.blit(fundo_image, (0,0))
-            
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
@@ -82,7 +84,6 @@ class fase():
                     if botao_sair.checkForInput(jogar_mouse):
                         running = False
                         self.screen_manager.pop_screen()
-
 
 
             # setar taxa de quadros pra 60 fps

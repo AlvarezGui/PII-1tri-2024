@@ -24,3 +24,4 @@ class Screen_manager:
         if self.screen_stack:
             return self.screen_stack[-1]
         return None
+        

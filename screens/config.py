@@ -12,6 +12,13 @@ def config():
     pygame.display.set_caption("ajustes")
     running = True
 
+    # IMAGEM PAINEL
+    painel = pygame.image.load("assets/painel.png").convert_alpha()
+    PAINEL_WIDTH = SCREEN_WIDTH + 250
+    aspect_ratio = painel.get_width() / painel.get_height()
+    PAINEL_HEIGHT = int(PAINEL_WIDTH / aspect_ratio)
+    painel_image = pygame.transform.scale(painel, (PAINEL_WIDTH, PAINEL_HEIGHT))
+
     # FUNDO DA TELA
     fundo = pygame.image.load("assets/mapa.png").convert_alpha()
     FUNDO_WIDTH = SCREEN_WIDTH
@@ -29,6 +36,7 @@ def config():
     while running:
         screen.fill("white")
         screen.blit(fundo_image, (0,0))
+        screen.blit(painel_image, (-125,-230))
 
         selecao_mouse = pygame.mouse.get_pos()
 
