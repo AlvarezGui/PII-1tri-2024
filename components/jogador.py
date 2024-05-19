@@ -92,3 +92,11 @@ class jogador:
             return("assets/hamburguer_normal.png", "assets/hamburguer_boost.png")
         if modelo == "hotdog":
             return("assets/hotdog_normal.png", "assets/hotdog_boost.png")
+        if modelo == "donut":
+            return("assets/donut_normal.png", "assets/donut_boost.png")
+        if modelo == "abacate":
+            return("assets/abacate_normal.png", "assets/abacate_boost.png")
+        if modelo == "ovo":
+            return("assets/ovo_normal.png", "assets/ovo_boost.png")
+        if modelo == None:
+            return("assets/hamburguer_normal.png", "assets/hamburguer_boost.png")
