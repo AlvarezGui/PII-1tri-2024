@@ -18,12 +18,18 @@ screen_manager = Screen_manager()
 
 
 class main_menu():
+    fundo = pygame.image.load("assets/mapa.png").convert_alpha()
+    FUNDO_WIDTH = SCREEN_WIDTH
+    aspect_ratio = fundo.get_width() / fundo.get_height()
+    FUNDO_HEIGHT = int(FUNDO_WIDTH / aspect_ratio)
+    fundo_image = pygame.transform.scale(fundo, (FUNDO_WIDTH, FUNDO_HEIGHT))
     pygame.display.set_caption("Menu")
     running = True
 
     while running:
         #Sobreposição de telas
         screen.fill("white")
+        screen.blit(fundo_image, (0,0))
 
         menu_mouse = pygame.mouse.get_pos()
 
