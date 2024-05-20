@@ -1,10 +1,8 @@
 import pygame
 import sys
 from components.button import Button
-from components.jogador import jogador
-from components.obstaculo import obstaculo
 from screens.screen import Screen_manager
-from screens.selecao_fase import selecao_fase
+from screens.selecao_fase import Selecao_fase
 from screens.config import config
 
 ''''
@@ -61,9 +59,9 @@ class main_menu():
             #Manejando os botões
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if botao_jogar.checkForInput(menu_mouse):
-                    screen_manager.push_screen(selecao_fase())
+                    screen_manager.push_screen(Selecao_fase.seleciona_fase())
                 if botao_config.checkForInput(menu_mouse):
-                    screen_manager.push_screen(config())
+                    screen_manager.push_screen(config.mostra_config())
                 if botao_sair.checkForInput(menu_mouse):
                     pygame.quit()
                     sys.exit()

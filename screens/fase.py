@@ -4,9 +4,7 @@ from components.button import Button
 from components.jogador import jogador
 from components.obstaculo import obstaculo
 from components.perguntaBox import PerguntaBox
-from screens.config import SCREEN_WIDTH
-from screens.screen import Screen_manager
-# from Componentes_fase.PerguntaBox import PerguntaBox 
+from screens.screen import Screen_manager, Screen
 
 
 # setar relógio
@@ -27,11 +25,7 @@ class fase():
         running = True
 
         # FUNDO IMAGEM 
-        fundo = pygame.image.load("assets/mapa.png").convert_alpha()
-        FUNDO_WIDTH = SCREEN_WIDTH
-        aspect_ratio = fundo.get_width() / fundo.get_height()
-        FUNDO_HEIGHT = int(FUNDO_WIDTH / aspect_ratio)
-        fundo_image = pygame.transform.scale(fundo, (FUNDO_WIDTH, FUNDO_HEIGHT))
+        fundo_image = Screen.cria_fundo(self.SCREEN_WIDTH)
         
         jgdr = jogador(self.SCREEN_WIDTH, self.SCREEN_HEIGHT, self.screen, self.model)
         obs = []
@@ -69,7 +63,7 @@ class fase():
 
             #Perguntas
             for c in range(dificuldade//5):
-                quest.append(PerguntaBox(self.SCREEN_HEIGHT, SCREEN_WIDTH, self.screen))
+                quest.append(PerguntaBox(self.SCREEN_HEIGHT, self.SCREEN_WIDTH, self.screen))
                 quest[c].desenhar_perguntas(jgdr)
 
             # Update display
@@ -82,8 +76,8 @@ class fase():
             for event in pygame.event.get():
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_sair.checkForInput(jogar_mouse):
-                        running = False
                         self.screen_manager.pop_screen()
+                        running = False
 
 
             # setar taxa de quadros pra 60 fps
