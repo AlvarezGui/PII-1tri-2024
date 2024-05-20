@@ -12,11 +12,7 @@ screen_manager = Screen_manager()
 class Selecao_carro():
     def escolhe_modelo():
         # IMAGEM DO BOTÃO
-        button = pygame.image.load("assets/button.png")
-        aspect_ratio_button = button.get_width() / button.get_height()
-        BUTTON_WIDTH = 200
-        BUTTON_HEIGHT = int(BUTTON_WIDTH / aspect_ratio_button)
-        fundo_button = pygame.transform.scale(button, (BUTTON_WIDTH, BUTTON_HEIGHT))
+        fundo_button = Screen.cria_fundo_botao(200)
 
         pygame.display.set_caption("SELECAO DE CARRO")
         running = True

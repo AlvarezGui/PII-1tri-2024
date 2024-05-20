@@ -1,7 +1,7 @@
 import pygame
 import sys
 from components.button import Button
-from screens.screen import Screen_manager
+from screens.screen import Screen_manager, Screen
 from screens.selecao_fase import Selecao_fase
 from screens.config import config
 
@@ -17,22 +17,15 @@ screen_manager = Screen_manager()
 
 
 class main_menu():
+
     # FUNDO DA TELA
-    fundo = pygame.image.load("assets/mapa.png").convert_alpha()
-    FUNDO_WIDTH = SCREEN_WIDTH
-    aspect_ratio = fundo.get_width() / fundo.get_height()
-    FUNDO_HEIGHT = int(FUNDO_WIDTH / aspect_ratio)
-    fundo_image = pygame.transform.scale(fundo, (FUNDO_WIDTH, FUNDO_HEIGHT))
+    fundo_image = Screen.cria_fundo(SCREEN_WIDTH)
 
     pygame.display.set_caption("Menu")
     running = True
 
     # IMAGEM DO BOTÃO
-    button = pygame.image.load("assets/button.png")
-    aspect_ratio_button = button.get_width() / button.get_height()
-    BUTTON_WIDTH = 200
-    BUTTON_HEIGHT = int(BUTTON_WIDTH / aspect_ratio_button)
-    fundo_button = pygame.transform.scale(button, (BUTTON_WIDTH, BUTTON_HEIGHT))
+    fundo_button = Screen.cria_fundo_botao(200)
 
     while running:
         #Sobreposição de telas
