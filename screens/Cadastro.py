@@ -31,6 +31,15 @@ class Cadastro():
         self.label_rect_pass = pygame.Rect(200, 266, 110, 36)
         self.color = pygame.Color('black')
 
+    def validar_usuario(self, user, pas):
+        # 1 checar a estrutura do email
+        if user.endswith("@jpiaget.g12.br"):
+            print("Estrutura de email correta")
+        elif user.endswith("@jpiaget.pro.br"):
+            print("Você é um professor")
+        else:
+            print("Email inválido")
+
     def run(self):
         pygame.display.set_caption("Login")
         
@@ -106,3 +115,9 @@ class Cadastro():
             self.input_rect_pass.h = 70
 
             pygame.display.update()
+
+            self.validar_usuario(self.user_text, self.pass_text)
+
+            
+
+    
