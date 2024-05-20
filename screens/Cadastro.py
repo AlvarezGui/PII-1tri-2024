@@ -95,23 +95,26 @@ class Cadastro():
                         else:
                             self.pass_text += event.unicode
 
+            # LABEL USUARIO
             pygame.draw.rect(screen, self.color, self.label_rect_user, 2)
-            label_user = base_font.render(self.login_label, True, ('white'), (0,0,0))
+            label_user = base_font.render(self.login_label, True, ('white'))
             screen.blit(label_user, (self.label_rect_user.x + 5, self.label_rect_user.y + 3))
             self.label_rect_user.w = max(0, label_user.get_width()+10)
 
+            # INPUT BOX USUARIO
             pygame.draw.rect(screen, self.color, self.input_rect_user, 2)
             user_surface = base_font.render(self.user_text, True, (255, 255, 255))
             screen.blit(user_surface, (self.input_rect_user.x + 5, self.input_rect_user.y + 5))
             self.input_rect_user.w = max(600, user_surface.get_width())
             self.input_rect_user.h = 70
             
+            # LABEL SENHA
             pygame.draw.rect(screen, self.color, self.label_rect_pass, 2)
-            label_pass = base_font.render(self.pass_label, True, ('white'), (0,0,0))
+            label_pass = base_font.render(self.pass_label, True, ('white'))
             screen.blit(label_pass, (self.label_rect_pass.x + 5, self.label_rect_pass.y + 3))
             self.label_rect_pass.w = max(0, label_pass.get_width()+10)
 
-
+            # INPUT BOX SENHA
             pygame.draw.rect(screen, self.color, self.input_rect_pass, 2)
             pass_surface = base_font.render('*' * len(self.pass_text), True, (255, 255, 255))
             screen.blit(pass_surface, (self.input_rect_pass.x + 5, self.input_rect_pass.y + 5))
