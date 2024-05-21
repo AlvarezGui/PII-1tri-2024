@@ -12,7 +12,7 @@ class InputBox():
         self.active = False
 
         # FONTE
-        CAMINHO_FONTE = "./ComicsCarToon.ttf"
+        CAMINHO_FONTE = "./m6x11plus.ttf"
         self.base_font = pygame.font.Font(CAMINHO_FONTE, 32)
 
     def checkForInput(self, position):
