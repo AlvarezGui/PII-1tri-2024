@@ -2,8 +2,9 @@ import pygame
 import sys
 # from components.connector import connector
 from screens.screen import Screen, Screen_manager
-from components.button import Button
+from screens.Cria_cadastro import Cria_cadastro
 from screens.menu_principal import main_menu
+from components.button import Button
 from components.Inputbox import InputBox
 
 # SCREEN PARAMETERS
@@ -56,6 +57,7 @@ class Validar():
                         screen_manager.push_screen(main_menu.abre_menu_principal())
                     if botao_criar_conta.checkForInput(logar_mouse):
                         print("Tentou criar conta")
+                        screen_manager.push_screen(Cria_cadastro().run())
                     if botao_sair.checkForInput(logar_mouse):
                         pygame.quit()
                         sys.exit()
@@ -63,9 +65,4 @@ class Validar():
             self.input_usuario.run_inputbox()
             self.input_senha.run_inputbox()
             pygame.display.update()
-
-
-
-            
-
     
