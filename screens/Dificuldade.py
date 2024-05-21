@@ -39,17 +39,17 @@ class Dificuldade:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_1.checkForInput(selecao_mouse):
                         print("dific 1")
-                        self.dific = 1
+                        dificuldade_selecionada = 1 
                         screen_manager.pop_screen()
                         running = False
                     if botao_2.checkForInput(selecao_mouse):
                         print("dific 2")
-                        self.dific = 2
+                        dificuldade_selecionada = 2
                         screen_manager.pop_screen()
                         running = False
                     if botao_3.checkForInput(selecao_mouse):
                         print("dific 3")
-                        self.dific = 3
+                        dificuldade_selecionada = 3
                         screen_manager.pop_screen()
                         running = False
                     if botao_voltar.checkForInput(selecao_mouse):

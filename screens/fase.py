@@ -20,7 +20,7 @@ class fase():
         self.screen_manager = Screen_manager()
         self.model = model
 
-    
+    @staticmethod
     def desenhar_fase(self):
         running = True
 

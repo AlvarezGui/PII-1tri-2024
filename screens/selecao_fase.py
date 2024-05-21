@@ -3,7 +3,7 @@ import sys
 from components.button import Button
 from screens.fase import fase
 from screens.screen import Screen_manager, Screen
-from screens.Dificuldade import Dificuldade
+from components.jogador import jogador
 from screens.Selecao_carro import Selecao_carro
 
 SCREEN_WIDTH = 1020
@@ -49,14 +49,13 @@ class Selecao_fase():
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_fase1.checkForInput(selecao_mouse):
-                        fs = fase(3*Dificuldade().get_dific(), model)
+                        fs = fase(3, model)
                         screen_manager.push_screen(fs.desenhar_fase())
                     if botao_fase2.checkForInput(selecao_mouse):
-                        print(Dificuldade().get_dific())
-                        fs = fase(6*Dificuldade().get_dific(), model)
+                        fs = fase(6, model)
                         screen_manager.push_screen(fs.desenhar_fase())
                     if botao_fase3.checkForInput(selecao_mouse):
-                        fs = fase(12*Dificuldade().get_dific(), model)
+                        fs = fase(12, model)
                         screen_manager.push_screen(fs.desenhar_fase())
                     if botao_selecionar_veiculo.checkForInput(selecao_mouse):
                         model = Selecao_carro.escolhe_modelo()
