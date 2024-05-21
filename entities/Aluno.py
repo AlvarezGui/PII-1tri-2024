@@ -14,6 +14,12 @@ class Aluno:
         valida_nome = self.validate_nome(nome)
         if valida_nome[0] == False:
             raise ParamNotValidated("nome", valida_nome[1])
+        self.nome = nome
+
+        valida_email = self.valida_email(email)
+        if valida_email[0] == False:
+            raise ParamNotValidated("email", valida_email[1])
+        self.email = email
     
     @staticmethod
     def validate_nome(nome: str) -> Tuple[bool, str]:
@@ -30,3 +36,9 @@ class Aluno:
         if type(email) != str:
             return(False, "O email deve ser uma string")
         return(True, "")
+    
+    def to_dict(self):
+        return {
+            "nome": self.nome,
+            "email": self.email
+        }
