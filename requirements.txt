@@ -1,6 +1,2 @@
+mysql-connector==2.2.9
 pygame==2.5.2
-
-
-
-# pip freeze > requirements.txt - para add novos requerimentos
-# pip install -r requirements.txt - para instalar requerimentos

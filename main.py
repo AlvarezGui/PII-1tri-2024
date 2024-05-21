@@ -12,3 +12,7 @@ while True:
     current_screen = screen_manager.current_screen()
     if current_screen:
         current_screen() 
+
+
+# pip freeze > requirements.txt - para add novos requerimentos
+# pip install -r requirements.txt - para instalar requerimentos
