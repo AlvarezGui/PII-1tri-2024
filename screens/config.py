@@ -2,6 +2,7 @@ import sys
 import pygame
 from components.button import Button
 from screens.screen import Screen_manager, Screen
+from screens.Dificuldade import Dificuldade
 
 SCREEN_WIDTH = 1020
 SCREEN_HEIGHT = 800
@@ -41,7 +42,7 @@ class config():
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_muda_dificuldade.checkForInput(selecao_mouse):
-                        print("Tela de mudar dificuldade")
+                        screen_manager.push_screen(Dificuldade.mostra_niveis())
                     if botao_muda_volume.checkForInput(selecao_mouse):
                         print("Tela de mudar volume")
                     if botao_manter.checkForInput(selecao_mouse):
