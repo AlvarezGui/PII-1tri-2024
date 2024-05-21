@@ -54,7 +54,7 @@ class Validar():
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_logar.checkForInput(logar_mouse):
                         print(f"Tentou logar com usuário: {self.input_usuario.get_input()} e senha: {self.input_senha.get_input()}")
-                        screen_manager.push_screen(main_menu.abre_menu_principal())
+                        screen_manager.push_screen(main_menu().abre_menu_principal())
                     if botao_criar_conta.checkForInput(logar_mouse):
                         print("Tentou criar conta")
                         screen_manager.push_screen(Cria_cadastro().run())

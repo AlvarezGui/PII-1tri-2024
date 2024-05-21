@@ -20,7 +20,6 @@ class fase():
         self.screen_manager = Screen_manager()
         self.model = model
 
-    @staticmethod
     def desenhar_fase(self):
         running = True
 
@@ -34,6 +33,8 @@ class fase():
 
         # TODO adicionar dificuldade dinâmica √
         dificuldade = self.dific
+
+        print(dificuldade)
 
         while running:
             self.screen.fill("white")

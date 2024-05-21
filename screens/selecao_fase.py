@@ -13,7 +13,7 @@ screen_manager = Screen_manager()
 
 
 class Selecao_fase():
-    def seleciona_fase():
+    def seleciona_fase(dific):
         # IMAGEM DO BOTÃO
         fundo_button = Screen.cria_fundo_botao(200)
 
@@ -49,13 +49,13 @@ class Selecao_fase():
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_fase1.checkForInput(selecao_mouse):
-                        fs = fase(3, model)
+                        fs = fase(3*dific, model)
                         screen_manager.push_screen(fs.desenhar_fase())
                     if botao_fase2.checkForInput(selecao_mouse):
-                        fs = fase(6, model)
+                        fs = fase(6*dific, model)
                         screen_manager.push_screen(fs.desenhar_fase())
                     if botao_fase3.checkForInput(selecao_mouse):
-                        fs = fase(12, model)
+                        fs = fase(12*dific, model)
                         screen_manager.push_screen(fs.desenhar_fase())
                     if botao_selecionar_veiculo.checkForInput(selecao_mouse):
                         model = Selecao_carro.escolhe_modelo()

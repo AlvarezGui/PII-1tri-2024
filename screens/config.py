@@ -10,7 +10,10 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 screen_manager = Screen_manager()
 
 class config():
-    def mostra_config():
+    def __init__(self):
+        self.dificuldade = None
+
+    def mostra_config(self):
         pygame.display.set_caption("ajustes")
         running = True
 
@@ -19,6 +22,8 @@ class config():
 
         # IMAGEM DO BOTÃO
         fundo_button = Screen.cria_fundo_botao(250)
+
+        dific = Dificuldade()
 
         while running:
             screen.blit(painel_image, (-125,-230))
@@ -42,7 +47,9 @@ class config():
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_muda_dificuldade.checkForInput(selecao_mouse):
-                        screen_manager.push_screen(Dificuldade().mostra_niveis())
+                        screen_manager.push_screen(dific.mostra_niveis())
+                        self.dificuldade = dific.get_dific()
+                        print(self.dificuldade)
                     if botao_muda_volume.checkForInput(selecao_mouse):
                         print("Tela de mudar volume")
                     if botao_manter.checkForInput(selecao_mouse):
@@ -50,3 +57,6 @@ class config():
                     if botao_voltar.checkForInput(selecao_mouse):
                         screen_manager.pop_screen()
                         running = False
+    
+    def get_dific(self):
+        return self.dificuldade

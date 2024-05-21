@@ -17,15 +17,18 @@ screen_manager = Screen_manager()
 
 
 class main_menu():
+
+    @staticmethod
     def abre_menu_principal():
+        pygame.display.set_caption("Menu")
+        running = True
+        configu = config()
+
         # FUNDO DA TELA
         fundo_image = Screen.cria_fundo(SCREEN_WIDTH)
 
         # IMAGEM DO BOTÃO
         fundo_button = Screen.cria_fundo_botao(200)
-
-        pygame.display.set_caption("Menu")
-        running = True
 
         while running:
             #Sobreposição de telas
@@ -53,13 +56,14 @@ class main_menu():
                 #Manejando os botões
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_jogar.checkForInput(menu_mouse):
-                        screen_manager.push_screen(Selecao_fase.seleciona_fase())
+                        screen_manager.push_screen(Selecao_fase.seleciona_fase(dific))
                     if botao_config.checkForInput(menu_mouse):
-                        screen_manager.push_screen(config.mostra_config())
+                        screen_manager.push_screen(configu.mostra_config())
+                        dific = configu.get_dific()
+                        print(dific)
                     if botao_deslogar.checkForInput(menu_mouse):
                         screen_manager.pop_screen()
                         running = False
                     if botao_sair.checkForInput(menu_mouse):
                         pygame.quit()
                         sys.exit()
-        
