@@ -1,5 +1,5 @@
 import pygame
-from screens.Cadastro import Cadastro
+from screens.Validar import Cadastro
 from screens.screen import Screen_manager
 
 pygame.init()

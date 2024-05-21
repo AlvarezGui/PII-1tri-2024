@@ -15,7 +15,7 @@ screen_manager = Screen_manager()
 CAMINHO_FONTE = "./ComicsCarToon.ttf"
 base_font = pygame.font.Font(CAMINHO_FONTE, 32)
 
-class Cadastro():
+class Validar():
     def __init__(self):
         self.fundo_image = Screen.cria_fundo(Screen.SCREEN_WIDTH)
         self.fundo_button = Screen.cria_fundo_botao(250)
