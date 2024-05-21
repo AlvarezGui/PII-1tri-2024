@@ -16,22 +16,17 @@ class config():
         # IMAGEM PAINEL
         painel_image = Screen.cria_painel(SCREEN_WIDTH+250)
 
-        # FUNDO DA TELA
-        fundo_image = Screen.cria_fundo(SCREEN_WIDTH)
-
         # IMAGEM DO BOTÃO
         fundo_button = Screen.cria_fundo_botao(250)
 
         while running:
-            screen.fill("white")
-            screen.blit(fundo_image, (0,0))
             screen.blit(painel_image, (-125,-230))
 
             selecao_mouse = pygame.mouse.get_pos()
 
             botao_muda_dificuldade = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 150), text_input="DIFICULDADE")
             botao_muda_volume = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 400), text_input="VOLUME")
-            botao_manter = Button(image=fundo_button, pos=(SCREEN_WIDTH - 100, 400), text_input="MANTER")
+            botao_manter = Button(image=fundo_button, pos=(SCREEN_WIDTH/2 + 300, 400), text_input="MANTER")
             botao_voltar = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 650), text_input="VOLTAR")
 
             for button in [botao_muda_dificuldade, botao_muda_volume,botao_manter, botao_voltar]:
