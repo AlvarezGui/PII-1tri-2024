@@ -30,7 +30,7 @@ class config():
             botao_manter = Button(image=fundo_button, pos=(SCREEN_WIDTH/2 + 300, 400), text_input="MANTER")
             botao_voltar = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 650), text_input="VOLTAR")
 
-            for button in [botao_muda_dificuldade, botao_muda_volume,botao_manter, botao_voltar]:
+            for button in [botao_muda_dificuldade, botao_muda_volume, botao_manter, botao_voltar]:
                 button.changeColor(selecao_mouse)
                 button.update(screen)
 
@@ -42,7 +42,7 @@ class config():
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_muda_dificuldade.checkForInput(selecao_mouse):
-                        screen_manager.push_screen(Dificuldade.mostra_niveis())
+                        screen_manager.push_screen(Dificuldade().mostra_niveis())
                     if botao_muda_volume.checkForInput(selecao_mouse):
                         print("Tela de mudar volume")
                     if botao_manter.checkForInput(selecao_mouse):

@@ -9,7 +9,7 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 screen_manager = Screen_manager()
 
 class Dificuldade:
-    dific = int
+    dific = 1
 
     def mostra_niveis(self):
         pygame.display.set_caption("ajustes")
