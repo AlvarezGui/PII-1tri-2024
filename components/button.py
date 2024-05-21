@@ -1,8 +1,8 @@
 import pygame
 import sys
 
-
 pygame.init()
+# FONTE
 CAMINHO_FONTE = "./ComicsCarToon.ttf"
 fonte = pygame.font.Font(CAMINHO_FONTE, 30)
 
@@ -36,3 +36,5 @@ class Button():
 			self.text = self.font.render(self.text_input, True, self.hovering_color)
 		else:
 			self.text = self.font.render(self.text_input, True, self.base_color)
+
+	

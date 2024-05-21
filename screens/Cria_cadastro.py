@@ -1,6 +1,6 @@
 import pygame
 import sys
-from components.connector import connector
+# from components.connector import connector
 from screens.screen import Screen, Screen_manager
 from components.button import Button
 from screens.menu_principal import main_menu
@@ -88,6 +88,7 @@ class Cria_cadastro():
                         pygame.quit()
                         sys.exit()
 
+                # FUNCIONALIDADE DE ESCREVER
                 if event.type == pygame.KEYDOWN:
                     if self.active_input == 'user':
                         if event.key == pygame.K_BACKSPACE:
