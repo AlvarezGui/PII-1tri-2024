@@ -14,7 +14,7 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 screen_manager = Screen_manager()
 
 # FONTE
-CAMINHO_FONTE = "./ComicsCarToon.ttf"
+CAMINHO_FONTE = "./m6x11plus.ttf"
 base_font = pygame.font.Font(CAMINHO_FONTE, 32)
 
 class Validar():

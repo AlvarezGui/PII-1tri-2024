@@ -2,8 +2,7 @@ import pygame
 import sys
 
 pygame.init()
-# FONTE
-CAMINHO_FONTE = "./ComicsCarToon.ttf"
+CAMINHO_FONTE = "./m6x11plus.ttf"
 fonte = pygame.font.Font(CAMINHO_FONTE, 30)
 
 class Button():

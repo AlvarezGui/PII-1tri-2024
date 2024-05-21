@@ -9,12 +9,12 @@ FAST FOOD é um jogo de corrida educativo com uma perspectiva "Top-Down", onde o
 ## Detalhes Técnicos
 O jogo foi feito em Python 3 utilizando o framework Pygame e MySQL como banco de dados.
 
-``` python main.py ``` para rodar o jogo
+Primeiro rode ```pip install -r requirements.txt``` para instalar os requerimentos, depois ``` python main.py ``` para rodar o jogo
 
 **foto*
 
 ## Desenvolvedores
-- Gabriel Festa Pinheiro - 24.00199-6
+- Beatriz Diziró de Sant’Anna - 24.01818-0
 - Guilherme Loschiavo Alvarez  -  23.00821-0
 - Pedro Bueno da Silveira Pinto  - 24.00561-4
 - Sophia Heringer Coelho - 24.01202-5
