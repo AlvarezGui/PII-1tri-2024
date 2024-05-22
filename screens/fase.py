@@ -37,7 +37,6 @@ class fase():
         print(dificuldade)
 
         while running:
-            self.screen.fill("white")
             self.screen.blit(fundo_image, (0,0))
 
             for event in pygame.event.get():

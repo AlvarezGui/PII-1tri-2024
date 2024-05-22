@@ -30,7 +30,6 @@ class Validar():
         pygame.display.set_caption("Login")
         
         while self.running:
-            screen.fill("white")
             screen.blit(self.fundo_image, (0, 0))
             screen.blit(self.painel_image, (-80, -190))
 

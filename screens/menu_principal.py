@@ -17,7 +17,6 @@ screen_manager = Screen_manager()
 
 
 class main_menu():
-
     @staticmethod
     def abre_menu_principal():
         pygame.display.set_caption("Menu")
@@ -39,8 +38,8 @@ class main_menu():
             menu_mouse = pygame.mouse.get_pos()
 
             #Criando os botões
-            botao_jogar = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 350), text_input="JOGAR")
-            botao_config = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 500), text_input="AJUSTES")
+            botao_jogar = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 400), text_input="JOGAR")
+            botao_config = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 525), text_input="AJUSTES")
             botao_sair = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 650), text_input="SAIR")
             botao_deslogar = Button(image=fundo_button, pos=(100, 70), text_input="DESLOGAR")
             for button in [botao_jogar, botao_config, botao_sair, botao_deslogar]:
