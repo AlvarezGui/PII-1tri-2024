@@ -26,7 +26,7 @@ class Aluno:
         self.senha = senha
 
         valida_turma = self.validate_turma(turma)
-        if valida_turma[0] == False;
+        if valida_turma[0] == False:
             raise ParamNotValidated("turma", valida_turma[1])
         self.turma
         
