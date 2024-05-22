@@ -23,6 +23,7 @@ class main_menu():
         pygame.display.set_caption("Menu")
         running = True
         configu = config()
+        dific = 1
 
         # FUNDO DA TELA
         fundo_image = Screen.cria_fundo(SCREEN_WIDTH)
@@ -60,7 +61,6 @@ class main_menu():
                     if botao_config.checkForInput(menu_mouse):
                         screen_manager.push_screen(configu.mostra_config())
                         dific = configu.get_dific()
-                        print(dific)
                     if botao_deslogar.checkForInput(menu_mouse):
                         screen_manager.pop_screen()
                         running = False

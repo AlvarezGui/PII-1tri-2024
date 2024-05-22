@@ -39,7 +39,6 @@ class InputBox():
 
     def run_inputbox(self):
         # LABEL 
-        pygame.draw.rect(self.screen, self.color, self.label_rect, 2)
         label_user = self.base_font.render(self.login_label, True, ('white'))
         self.screen.blit(label_user, (self.label_rect.x + 5, self.label_rect.y + 3))
         self.label_rect.w = max(0, label_user.get_width()+10)
