@@ -3,6 +3,7 @@ import pygame
 from components.button import Button
 from screens.screen import Screen_manager, Screen
 from screens.Dificuldade import Dificuldade
+from screens.Volume import Volume
 
 SCREEN_WIDTH = 1020
 SCREEN_HEIGHT = 800
@@ -32,7 +33,7 @@ class config():
 
             botao_muda_dificuldade = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 150), text_input="DIFICULDADE")
             botao_muda_volume = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 400), text_input="VOLUME")
-            botao_manter = Button(image=fundo_button, pos=(SCREEN_WIDTH/2 + 300, 400), text_input="MANTER")
+            botao_manter = Button(image=fundo_button, pos=(SCREEN_WIDTH/2 + 300, 650), text_input="MANTER")
             botao_voltar = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 650), text_input="VOLTAR")
 
             for button in [botao_muda_dificuldade, botao_muda_volume, botao_manter, botao_voltar]:
@@ -51,7 +52,7 @@ class config():
                         self.dificuldade = dific.get_dific()
                         print(self.dificuldade)
                     if botao_muda_volume.checkForInput(selecao_mouse):
-                        print("Tela de mudar volume")
+                        screen_manager.push_screen(Volume().mostra_Volume())
                     if botao_manter.checkForInput(selecao_mouse):
                         print("Tentou manter")
                     if botao_voltar.checkForInput(selecao_mouse):

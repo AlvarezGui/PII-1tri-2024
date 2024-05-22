@@ -33,7 +33,7 @@ class Cria_cadastro():
             screen.blit(self.painel_image, (-80, -190))
 
             logar_mouse = pygame.mouse.get_pos()
-
+        
             botao_cadastrar = Button(image=self.fundo_button, pos=(SCREEN_WIDTH/2 + 150, 650), text_input="CADASTRAR")
             botao_sair = Button(image=self.fundo_button, pos=(SCREEN_WIDTH/2 - 150, 650), text_input="CANCELAR")
             for button in [botao_cadastrar, botao_sair]:
@@ -56,14 +56,9 @@ class Cria_cadastro():
                     if botao_sair.checkForInput(logar_mouse):
                         screen_manager.pop_screen()
                         self.running = False
-
+            
             self.input_nome.run_inputbox()
             self.input_email.run_inputbox()
             self.input_senha.run_inputbox()
             self.input_turma.run_inputbox()
             pygame.display.update()
-
-
-            
-
-    
