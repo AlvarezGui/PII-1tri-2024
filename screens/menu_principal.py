@@ -17,12 +17,15 @@ screen_manager = Screen_manager()
 
 
 class main_menu():
-    @staticmethod
-    def abre_menu_principal():
+    dific: int
+
+    def __init__(self):
+        self.dific = 1
+
+    def abre_menu_principal(self):
         pygame.display.set_caption("Menu")
         running = True
         configu = config()
-        dific = 1
 
         # FUNDO DA TELA
         fundo_image = Screen.cria_fundo(SCREEN_WIDTH)
@@ -56,10 +59,10 @@ class main_menu():
                 #Manejando os botões
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_jogar.checkForInput(menu_mouse):
-                        screen_manager.push_screen(Selecao_fase.seleciona_fase(dific))
+                        screen_manager.push_screen(Selecao_fase.seleciona_fase(self.dific))
                     if botao_config.checkForInput(menu_mouse):
                         screen_manager.push_screen(configu.mostra_config())
-                        dific = configu.get_dific()
+                        self.dific = configu.get_dific()
                     if botao_deslogar.checkForInput(menu_mouse):
                         screen_manager.pop_screen()
                         running = False
