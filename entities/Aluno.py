@@ -9,7 +9,7 @@ class Aluno:
     senha: str
     turma: str
 
-    def __init__(self, nome: str=None, email: str=None, senha: str=None, id: int=None, turma: str=None):
+    def __init__(self, nome: str=None, email: str=None, senha: str=None, turma: str=None):
         valida_nome = self.validate_nome(nome)
         if valida_nome[0] == False:
             raise ParamNotValidated("nome", valida_nome[1])
@@ -42,6 +42,8 @@ class Aluno:
     
     @staticmethod
     def validate_email(email: str) -> Tuple[bool, str]:
+        if email is None:
+            return(False, "O email não pode ser None")
         if "@" not in email:
             return (False, "O email deve ser válido")
         if type(email) != str:
@@ -50,6 +52,8 @@ class Aluno:
     
     @staticmethod
     def validate_senha(senha: str) -> Tuple[bool, str]:
+        if senha is None:
+            return(False, "A senha não pode ser None")
         if type(senha) != str:
             return (False, "A senha deve ser uma string")
         if len(senha) < 8:
@@ -58,6 +62,8 @@ class Aluno:
     
     @staticmethod
     def validate_turma(turma: str) -> Tuple[bool, str]:
+        if turma is None:
+            return (False, "A turma não pode ser None")
         if type(turma) != str:
             return (False, "A turma deve ser uma string")
         if len(turma) > 10:
