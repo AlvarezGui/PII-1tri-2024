@@ -66,6 +66,8 @@ class obstaculo():
             t1.start()
             self.e_primeira = False
 
+        self.y += self.speed
+
         # coll
         rectJogador = pygame.Rect(jogador.x, jogador.y, jogador.JOGADOR_WIDTH, jogador.JOGADOR_HEIGHT)
 
