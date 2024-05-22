@@ -13,7 +13,7 @@ class InputBox():
 
         # FONTE
         CAMINHO_FONTE = "./m6x11plus.ttf"
-        self.base_font = pygame.font.Font(CAMINHO_FONTE, 32)
+        self.base_font = pygame.font.Font(CAMINHO_FONTE, 50)
 
     def checkForInput(self, position):
         if self.input_rect.collidepoint(position):
@@ -40,7 +40,7 @@ class InputBox():
     def run_inputbox(self):
         # LABEL 
         label_user = self.base_font.render(self.login_label, True, ('white'))
-        self.screen.blit(label_user, (self.label_rect.x + 5, self.label_rect.y + 3))
+        self.screen.blit(label_user, (self.label_rect.x + 5, self.label_rect.y - 15))
         self.label_rect.w = max(0, label_user.get_width()+10)
 
         # INPUT BOX Rectangle
