@@ -12,8 +12,6 @@ class connector():
 
 
     def adicionar_aluno(self, nome, email, senha, turma):
-        # TODO fazer essa lógica funcionar com a tabela dos alunos, e depois com as demais tabelas
-
 
         sql = "INSERT INTO alunos (emailAluno, senhaAluno, nomeAluno, turmaAluno) VALUES (%s, %s, %s, %s)"
         val = [
@@ -23,11 +21,20 @@ class connector():
         self.cursor.executemany(sql, val)
         self.cnx.commit()
 
-        # self.cursor.execute("SELECT nome FROM testeTabela")
-
         # for i in self.cursor:
         #     print(i)
 
     def verificar_aluno(self, email, senha):
         # TODO verificar se o aluno existe na tabela
-        pass
+
+        sql = "SELECT CASE WHEN EXISTS(SELECT * FROM alunos WHERE emailAluno = %s AND senhaAluno = %s) THEN 1 ELSE 0 END AS RESULT"
+        val = [(email, senha)]
+        
+        self.cursor.executemany(sql, val)
+        resultado = self.cursor.fetchone()
+        
+    
+        if resultado[0] == 1: print("Essa conta existe")
+        else: print("Essa conta não existe")
+
+    # TODO funções dos professores e das perguntas

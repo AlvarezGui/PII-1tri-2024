@@ -1,6 +1,6 @@
 import pygame
 import sys
-# from components.connector import connector
+from components.connector import connector
 from screens.screen import Screen, Screen_manager
 from screens.Cria_cadastro import Cria_cadastro
 from screens.menu_principal import main_menu
@@ -12,6 +12,7 @@ SCREEN_WIDTH = 1020
 SCREEN_HEIGHT = 800
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 screen_manager = Screen_manager()
+cnx = connector()
 
 # FONTE
 CAMINHO_FONTE = "./m6x11plus.ttf"
@@ -29,6 +30,7 @@ class Validar():
     # TODO usar essa função para entrar em contato com o banco de dados
     def entrar(self, usuario, senha):
         print(f"Usuario: {usuario} \nSenha: {senha}")
+        cnx.verificar_aluno(usuario, senha)
     
 
     def run(self):
