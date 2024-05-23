@@ -1,3 +1,4 @@
+
 import pygame
 import sys
 from components.button import Button
@@ -20,8 +21,8 @@ class Volume:
             selecao_mouse = pygame.mouse.get_pos()
 
             botao_muda_dificuldade = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 150), text_input="DIFICULDADE")
-            botao_maior = Button(image=fundo_button, pos=(SCREEN_WIDTH/2 - 250 , 400), text_input="-")
-            botao_menor = Button(image=fundo_button, pos=(SCREEN_WIDTH/2 + 250, 400), text_input="+")
+            botao_menor = Button(image=fundo_button, pos=(SCREEN_WIDTH/2 - 250, 400), text_input="-")
+            botao_maior = Button(image=fundo_button, pos=(SCREEN_WIDTH/2 + 250 , 400), text_input="+")
             botao_voltar = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 650), text_input="VOLTAR")
 
             for button in [botao_muda_dificuldade, botao_menor, botao_maior, botao_voltar]:
