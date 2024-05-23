@@ -26,6 +26,11 @@ class Validar():
         self.input_usuario = InputBox("E-MAIL:", screen, 200, 196, 600, 40)
         self.input_senha = InputBox("SENHA:", screen, 200, 296, 600, 40)
 
+    # TODO usar essa função para entrar em contato com o banco de dados
+    def entrar(self, usuario, senha):
+        print(f"Usuario: {usuario} \nSenha: {senha}")
+    
+
     def run(self):
         pygame.display.set_caption("Login")
         
@@ -53,6 +58,7 @@ class Validar():
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_logar.checkForInput(logar_mouse):
                         print(f"Tentou logar com usuário: {self.input_usuario.get_input()} e senha: {self.input_senha.get_input()}")
+                        self.entrar(self.input_usuario.get_input(), self.input_senha.get_input())
                         screen_manager.push_screen(main_menu().abre_menu_principal())
                     if botao_criar_conta.checkForInput(logar_mouse):
                         print("Tentou criar conta")
@@ -64,4 +70,3 @@ class Validar():
             self.input_usuario.run_inputbox()
             self.input_senha.run_inputbox()
             pygame.display.update()
-    

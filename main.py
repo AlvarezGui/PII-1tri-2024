@@ -4,7 +4,7 @@ from screens.screen import Screen_manager
 
 pygame.init()
 
-musica_de_fundo = pygame.mixer.music.load('man-is-he-mega-glbml-22045.mp3')
+# musica_de_fundo = pygame.mixer.music.load('man-is-he-mega-glbml-22045.mp3')
 pygame.mixer.music.play(-1)
 
 screen_manager = Screen_manager()
