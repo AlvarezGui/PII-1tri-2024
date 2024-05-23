@@ -1,6 +1,7 @@
 import sys
 import pygame
 from components.button import Button
+from screens.Manter import Manter
 from screens.screen import Screen_manager, Screen
 from screens.Dificuldade import Dificuldade
 from screens.Volume import Volume
@@ -54,7 +55,7 @@ class config():
                     if botao_muda_volume.checkForInput(selecao_mouse):
                         screen_manager.push_screen(Volume().mostra_Volume())
                     if botao_manter.checkForInput(selecao_mouse):
-                        print("Tentou manter")
+                        screen_manager.push_screen(Manter().mostra_Manter())
                     if botao_voltar.checkForInput(selecao_mouse):
                         screen_manager.pop_screen()
                         running = False
