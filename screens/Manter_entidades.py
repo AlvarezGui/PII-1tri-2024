@@ -9,8 +9,18 @@ SCREEN_HEIGHT = 800
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 screen_manager = Screen_manager()
 
-class Manter_Turmas:
-    def mostra_Turmas(self):
+class Manter_coisas():
+    tipo : str
+    def __init__(self, tipo):
+        self.tipo = tipo
+        if self.tipo == 'turmas':
+                print('tela de mudar turmas')
+        if self.tipo == 'perguntas':
+            print('tela de mudar perguntas')
+        if self.tipo == 'contas':
+            print('tela de mudar contas')
+
+    def mostra_manter(self):
         pygame.display.set_caption("ajustes")
         running = True
 
@@ -25,9 +35,9 @@ class Manter_Turmas:
 
             selecao_mouse = pygame.mouse.get_pos()
 
-            botao_criar = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 150), text_input="CRIAR")
-            botao_atualizar = Button(image=fundo_button, pos=(SCREEN_WIDTH/2 - 250, 650), text_input="ATUALIZAR")
-            botao_deletar = Button(image=fundo_button, pos=(SCREEN_WIDTH/2 + 250 , 650), text_input="DELETAR")
+            botao_criar = Button(image=fundo_button, pos=(SCREEN_WIDTH/2 - 250, 150), text_input="CRIAR")
+            botao_atualizar = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 150), text_input="ATUALIZAR")
+            botao_deletar = Button(image=fundo_button, pos=(SCREEN_WIDTH/2 + 250 , 150), text_input="DELETAR")
             botao_voltar = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 650), text_input="VOLTAR")
 
             for button in [botao_criar, botao_atualizar, botao_deletar, botao_voltar]:
@@ -42,11 +52,11 @@ class Manter_Turmas:
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_criar.checkForInput(selecao_mouse):
-                        print("criar pergunta")
+                        print("")
                     if botao_atualizar.checkForInput(selecao_mouse):
-                        print("atualizar pergunta")
+                        print("")
                     if botao_deletar.checkForInput(selecao_mouse):
-                        print("deletar pergunta")
+                        print("")
                     if botao_voltar.checkForInput(selecao_mouse):
                         screen_manager.pop_screen()
                         running = False
