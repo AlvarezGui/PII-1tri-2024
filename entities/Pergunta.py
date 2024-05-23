@@ -2,7 +2,7 @@
 from typing import Tuple
 
 from entities.Entity_error import ParamNotValidated
-from enum.answer_type_enum import AnswerTypeEnum
+from ..enum.answer_type_enum import AnswerTypeEnum
 
 class Pergunta:
     enunciado: str
