@@ -14,6 +14,7 @@ class InputBox():
         # FONTE
         CAMINHO_FONTE = "./m6x11plus.ttf"
         self.base_font = pygame.font.Font(CAMINHO_FONTE, 50)
+        self.input_font = pygame.font.Font(CAMINHO_FONTE, 32)
 
     def checkForInput(self, position):
         if self.input_rect.collidepoint(position):
@@ -45,7 +46,7 @@ class InputBox():
 
         # INPUT BOX Rectangle
         pygame.draw.rect(self.screen, self.color, self.input_rect, 2)
-        user_surface = self.base_font.render(self.user_text, True, (255, 255, 255))
+        user_surface = self.input_font.render(self.user_text, True, (255, 255, 255))
         self.screen.blit(user_surface, (self.input_rect.x + 5, self.input_rect.y + 5))
 
 
