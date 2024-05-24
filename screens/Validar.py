@@ -3,7 +3,7 @@ import sys
 # from components.connector import connector
 from screens.screen import Screen, Screen_manager
 from screens.Cria_cadastro import Cria_cadastro
-from screens.menu_principal import main_menu
+from screens.menu_principal import Main_menu
 from components.button import Button
 from components.Inputbox import InputBox
 
@@ -53,7 +53,7 @@ class Validar():
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_logar.checkForInput(logar_mouse):
                         print(f"Tentou logar com usuário: {self.input_usuario.get_input()} e senha: {self.input_senha.get_input()}")
-                        screen_manager.push_screen(main_menu().abre_menu_principal())
+                        screen_manager.push_screen(Main_menu().abre_menu_principal())
                     if botao_criar_conta.checkForInput(logar_mouse):
                         print("Tentou criar conta")
                         screen_manager.push_screen(Cria_cadastro().run())

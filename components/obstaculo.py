@@ -2,9 +2,9 @@ import pygame
 import random
 import time
 import threading
-from components.jogador import jogador
+from components.jogador import Jogador
 
-class obstaculo():
+class Obstaculo():
 
     def __init__(self, SCREEN_WIDTH, SCREEN_HEIGHT, screen, dific) -> None:
         self.SW = SCREEN_WIDTH

@@ -1,8 +1,8 @@
 from time import sleep
 import pygame
 from components.button import Button
-from components.jogador import jogador
-from components.obstaculo import obstaculo
+from components.jogador import Jogador
+from components.obstaculo import Obstaculo
 from components.perguntaBox import PerguntaBox
 from screens.screen import Screen_manager, Screen
 
@@ -10,7 +10,7 @@ from screens.screen import Screen_manager, Screen
 # setar relógio
 clock = pygame.time.Clock()
 
-class fase():
+class Fase():
 
     def __init__(self, dific, model):
         self.dific = dific
@@ -26,7 +26,7 @@ class fase():
         # FUNDO IMAGEM 
         fundo_image = Screen.cria_fundo(self.SCREEN_WIDTH)
         
-        jgdr = jogador(self.SCREEN_WIDTH, self.SCREEN_HEIGHT, self.screen, self.model)
+        jgdr = Jogador(self.SCREEN_WIDTH, self.SCREEN_HEIGHT, self.screen, self.model)
         obs = []
         quest = []
 
@@ -58,7 +58,7 @@ class fase():
             # obstáculos
             for i in range(dificuldade):
                 # TODO adicionar tipos diferentes de obstáculos ?? 
-                obs.append(obstaculo(self.SCREEN_WIDTH, self.SCREEN_HEIGHT, self.screen, dificuldade))
+                obs.append(Obstaculo(self.SCREEN_WIDTH, self.SCREEN_HEIGHT, self.screen, dificuldade))
                 obs[i].desenhar_obstaculo(jgdr)
 
             #Perguntas

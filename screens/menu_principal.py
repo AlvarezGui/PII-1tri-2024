@@ -16,7 +16,7 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 screen_manager = Screen_manager()
 
 
-class main_menu():
+class Main_menu():
     dific: int
 
     def __init__(self):

@@ -4,7 +4,6 @@ import sys
 from components.Inputbox import InputBox
 from screens.screen import Screen, Screen_manager
 from components.button import Button
-from screens.menu_principal import main_menu
 
 # SCREEN PARAMETERS
 SCREEN_WIDTH = 1020
