@@ -1,8 +1,8 @@
 from time import sleep
 import pygame
 from components.button import Button
-from components.levels.jogador import jogador
-from components.levels.obstaculo import obstaculo
+from components.levels.jogador import Jogador
+from components.levels.obstaculo import Obstaculo
 from components.levels.perguntaBox import PerguntaBox
 from screens.screen import Screen_manager, Screen
 
