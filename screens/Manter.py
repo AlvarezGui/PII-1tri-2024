@@ -1,7 +1,7 @@
 import pygame
 import sys
 from components.button import Button
-from screens.Manter_entidades import Manter_coisas
+from screens.Manter_enitdades import Manter_entidades
 from screens.screen import Screen, Screen_manager
 
 SCREEN_WIDTH = 1020
@@ -41,11 +41,13 @@ class Manter:
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_turma.checkForInput(selecao_mouse):
-                        screen_manager.push_screen(Manter_coisas('turmas').mostra_manter())
+                        print("Tentou manter turmas")
+                        screen_manager.push_screen(Manter_entidades('turmas').mostra_entidades())
                     if botao_conta.checkForInput(selecao_mouse):
-                        screen_manager.push_screen(Manter_coisas('contas').mostra_manter())
+                        screen_manager.push_screen(Manter_entidades('contas').mostra_entidades())
                     if botao_pergunta.checkForInput(selecao_mouse):
-                        screen_manager.push_screen(Manter_coisas('perguntas').mostra_manter())
+                        screen_manager.push_screen(Manter_entidades('perguntas').mostra_entidades())
                     if botao_voltar.checkForInput(selecao_mouse):
                         screen_manager.pop_screen()
+                        pygame.display.set_caption("Ajustes")
                         running = False

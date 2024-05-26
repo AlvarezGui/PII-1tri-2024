@@ -2,7 +2,7 @@ import pygame
 
 class InputBox():
 
-    def __init__(self, label, screen, x, y, width, height):
+    def __init__(self, label, screen, x, y, width, height, font):
         self.login_label = label
         self.user_text = ""
         self.input_rect = pygame.Rect(x, y, width, height)
@@ -14,7 +14,7 @@ class InputBox():
         # FONTE
         CAMINHO_FONTE = "./m6x11plus.ttf"
         self.base_font = pygame.font.Font(CAMINHO_FONTE, 50)
-        self.input_font = pygame.font.Font(CAMINHO_FONTE, 32)
+        self.input_font = pygame.font.Font(CAMINHO_FONTE, font)
 
     def checkForInput(self, position):
         if self.input_rect.collidepoint(position):

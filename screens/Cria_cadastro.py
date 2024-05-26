@@ -20,10 +20,10 @@ class Cria_cadastro():
         self.fundo_button = Screen.cria_fundo_botao(250)
         self.painel_image = Screen.cria_painel(SCREEN_WIDTH + 150)
         self.running = True
-        self.input_nome = InputBox("NOME:", screen, 200, 146, 600, 40)
-        self.input_email = InputBox("E-MAIL:", screen, 200, 246, 600, 40)
-        self.input_senha = InputBox("SENHA:", screen, 200, 346, 600, 40)
-        self.input_turma = InputBox("TURMA:", screen, 200, 446, 600, 40)
+        self.input_nome = InputBox("NOME:", screen, 200, 146, 600, 40, 32)
+        self.input_email = InputBox("E-MAIL:", screen, 200, 246, 600, 40, 32)
+        self.input_senha = InputBox("SENHA:", screen, 200, 346, 600, 40, 32)
+        self.input_turma = InputBox("TURMA:", screen, 200, 446, 600, 40, 32)
 
     def run(self):
         pygame.display.set_caption("Login")
