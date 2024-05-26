@@ -2,7 +2,7 @@ import pygame
 import sys
 from components.button import Button
 from screens.screen import Screen_manager, Screen
-from components.jogador import jogador
+from components.levels.jogador import jogador
 
 SCREEN_WIDTH = 1020
 SCREEN_HEIGHT = 800

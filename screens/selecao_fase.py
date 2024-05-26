@@ -3,7 +3,7 @@ import sys
 from components.button import Button
 from screens.fase import fase
 from screens.screen import Screen_manager, Screen
-from components.jogador import jogador
+from components.levels.jogador import jogador
 from screens.Selecao_carro import Selecao_carro
 
 SCREEN_WIDTH = 1020

@@ -2,7 +2,7 @@ import pygame
 import random
 import time
 import threading
-from components.jogador import jogador
+from components.levels.jogador import jogador
 
 class obstaculo():
 
