@@ -3,7 +3,6 @@ import sys
 from components.button import Button
 from screens.screen import Screen_manager, Screen
 from components.levels.jogador import jogador
-
 SCREEN_WIDTH = 1020
 SCREEN_HEIGHT = 800
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -31,15 +30,15 @@ class Selecao_carro():
             selecao_carro_mouse = pygame.mouse.get_pos()
 
             hamburguer = pygame.image.load("assets/hamburguer_normal.png")
-            botao_hamburguer = Button(image=jogador.mostra_imagem(hamburguer), pos=(SCREEN_WIDTH*2 / 3 + 100, 450), text_input="")
+            botao_hamburguer = Button(image=Jogador.mostra_imagem(hamburguer), pos=(SCREEN_WIDTH*2 / 3 + 100, 450), text_input="")
             hotdog = pygame.image.load("assets/hotdog_normal.png")
-            botao_hotdog = Button(image=jogador.mostra_imagem(hotdog), pos=(SCREEN_WIDTH / 2, 450), text_input="") 
+            botao_hotdog = Button(image=Jogador.mostra_imagem(hotdog), pos=(SCREEN_WIDTH / 2, 450), text_input="") 
             donut = pygame.image.load("assets/donut_normal.png")
-            botao_donut = Button(image=jogador.mostra_imagem(donut), pos=(SCREEN_WIDTH / 3 - 100, 450), text_input="") 
+            botao_donut = Button(image=Jogador.mostra_imagem(donut), pos=(SCREEN_WIDTH / 3 - 100, 450), text_input="") 
             abacate = pygame.image.load("assets/abacate_normal.png")
-            botao_abacate = Button(image=jogador.mostra_imagem(abacate), pos=(SCREEN_WIDTH / 2, 200), text_input="") 
+            botao_abacate = Button(image=Jogador.mostra_imagem(abacate), pos=(SCREEN_WIDTH / 2, 200), text_input="") 
             ovo = pygame.image.load("assets/ovo_normal.png")
-            botao_ovo = Button(image=jogador.mostra_imagem(ovo), pos=(SCREEN_WIDTH / 3 - 100, 200), text_input="") 
+            botao_ovo = Button(image=Jogador.mostra_imagem(ovo), pos=(SCREEN_WIDTH / 3 - 100, 200), text_input="") 
 
             botao_voltar = Button(image=fundo_button, pos=(SCREEN_WIDTH / 2, 650), text_input="VOLTAR")
 

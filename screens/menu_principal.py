@@ -2,8 +2,8 @@ import pygame
 import sys
 from components.button import Button
 from screens.screen import Screen_manager, Screen
-from screens.selecao_fase import Selecao_fase
-from screens.config import config
+from screens.play.selecao_fase import Selecao_fase
+from screens.settings.config import config
 
 ''''
 PARA OS BOTÕES DE VOLTAR, SEGUNDO O VIDEO, FOI COLOCADO TODAS AS SCREENS NO MSM ARQUIVO, PARA VOLTAR BASTAVA-SE COLOCAR O ONCLICK RODAR A TELA ANTERIOR, NÃO PODEMOS FAZER ISSO AQUI
@@ -16,7 +16,7 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 screen_manager = Screen_manager()
 
 
-class main_menu():
+class Main_menu():
     dific: int
 
     def __init__(self):

@@ -1,6 +1,6 @@
 import pygame
 
-class jogador:
+class Jogador:
     def __init__(self, SCREEN_WIDTH, SCREEN_HEIGHT, screen, model):
         # Carregar imagem normal
         modelo = self.carro_modelo(model)
