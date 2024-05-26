@@ -1,9 +1,9 @@
 import pygame
 import sys
 from components.button import Button
-from screens.fase import Fase
+from screens.play.fase import Fase
 from screens.screen import Screen_manager, Screen
-from screens.Selecao_carro import Selecao_carro
+from screens.play.Selecao_carro import Selecao_carro
 
 SCREEN_WIDTH = 1020
 SCREEN_HEIGHT = 800

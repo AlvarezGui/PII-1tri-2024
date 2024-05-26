@@ -3,7 +3,7 @@ import pygame
 import sys
 from components.button import Button
 from screens.screen import Screen, Screen_manager
-from screens.Criar_pergunta_tela import Cria_pergunta
+from screens.settings.CRUD.Criar_pergunta_tela import Cria_pergunta
 
 SCREEN_WIDTH = 1020
 SCREEN_HEIGHT = 800

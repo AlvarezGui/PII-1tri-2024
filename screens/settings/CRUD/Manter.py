@@ -1,7 +1,7 @@
 import pygame
 import sys
 from components.button import Button
-from screens.Manter_enitdades import Manter_entidades
+from screens.settings.CRUD.Manter_enitdades import Manter_entidades
 from screens.screen import Screen, Screen_manager
 
 SCREEN_WIDTH = 1020

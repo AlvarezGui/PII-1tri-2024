@@ -1,10 +1,10 @@
 import sys
 import pygame
 from components.button import Button
-from screens.Manter import Manter
+from screens.settings.CRUD.Manter import Manter
 from screens.screen import Screen_manager, Screen
-from screens.Dificuldade import Dificuldade
-from screens.Volume import Volume
+from screens.settings.Dificuldade import Dificuldade
+from screens.settings.Volume import Volume
 
 SCREEN_WIDTH = 1020
 SCREEN_HEIGHT = 800
