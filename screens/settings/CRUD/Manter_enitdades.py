@@ -34,7 +34,7 @@ class Manter_entidades:
                 pygame.display.set_caption("Turmas")
             if self.tipo == 'contas':
                 pygame.display.set_caption("Contas")
-                
+
             screen.blit(fundo_painel, (-125, -230))
 
             selecao_mouse = pygame.mouse.get_pos()
@@ -68,5 +68,4 @@ class Manter_entidades:
                         print("deletar pergunta")
                     if botao_voltar.checkForInput(selecao_mouse):
                         screen_manager.pop_screen()
-                        pygame.display.set_caption("Manter")
                         running = False

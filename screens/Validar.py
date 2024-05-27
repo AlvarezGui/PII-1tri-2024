@@ -27,9 +27,9 @@ class Validar():
         self.input_senha = InputBox("SENHA:", screen, 200, 296, 600, 40, 32)
 
     def run(self):
-        pygame.display.set_caption("Login")
-        
         while self.running:
+            pygame.display.set_caption("Login")
+
             screen.blit(self.fundo_image, (0, 0))
             screen.blit(self.painel_image, (-80, -190))
 

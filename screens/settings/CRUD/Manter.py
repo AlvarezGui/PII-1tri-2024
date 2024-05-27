@@ -49,5 +49,4 @@ class Manter:
                         screen_manager.push_screen(Manter_entidades('perguntas').mostra_entidades())
                     if botao_voltar.checkForInput(selecao_mouse):
                         screen_manager.pop_screen()
-                        pygame.display.set_caption("Ajustes")
                         running = False

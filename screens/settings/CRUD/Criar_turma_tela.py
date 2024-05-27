@@ -19,9 +19,7 @@ class Cria_turma():
         self.base_font = pygame.font.Font(CAMINHO_FONTE, 32)
 
     def run(self):
-        pygame.display.set_caption("Cria pergunta")
         running = True
-
 
         # IMAGEM DO BOTÃO
         fundo_button = Screen.cria_fundo_botao(250)
@@ -31,6 +29,7 @@ class Cria_turma():
         fundo_painel = Screen.cria_painel(SCREEN_WIDTH+250)
 
         while running:
+            pygame.display.set_caption("Cria turma")
             screen.blit(fundo_painel, (-125, -230))
 
             selecao_mouse = pygame.mouse.get_pos()
@@ -54,11 +53,9 @@ class Cria_turma():
                     if botao_criar.checkForInput(selecao_mouse):
                         print("Turma criada")
                         screen_manager.pop_screen()
-                        pygame.display.set_caption("Turma")
                         running = False
                     if botao_voltar.checkForInput(selecao_mouse):
                         screen_manager.pop_screen()
-                        pygame.display.set_caption("Turma")
                         running = False
 
             self.input_nome_turma.run_inputbox()

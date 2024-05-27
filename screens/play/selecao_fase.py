@@ -16,7 +16,6 @@ class Selecao_fase():
         # IMAGEM DO BOTÃO
         fundo_button = Screen.cria_fundo_botao(200)
 
-        pygame.display.set_caption("selecao_fase")
 
         # FUNDO DA TELA
         fundo_image = Screen.cria_fundo(SCREEN_WIDTH)
@@ -25,7 +24,8 @@ class Selecao_fase():
         model = None
 
         while running:
-            screen.fill("white")
+            pygame.display.set_caption("Seleção de level")
+
             screen.blit(fundo_image, (0,0))
 
             selecao_mouse = pygame.mouse.get_pos()

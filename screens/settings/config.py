@@ -16,7 +16,6 @@ class config():
         self.dificuldade = None
 
     def mostra_config(self):
-        pygame.display.set_caption("Ajustes")
         running = True
 
         # IMAGEM PAINEL
@@ -28,6 +27,8 @@ class config():
         dific = Dificuldade()
 
         while running:
+            pygame.display.set_caption("Ajustes")
+
             screen.blit(painel_image, (-125,-230))
 
             selecao_mouse = pygame.mouse.get_pos()
@@ -58,7 +59,6 @@ class config():
                         screen_manager.push_screen(Manter().mostra_Manter())
                     if botao_voltar.checkForInput(selecao_mouse):
                         screen_manager.pop_screen()
-                        pygame.display.set_caption("Menu Principal")
                         running = False
     
     def get_dific(self):

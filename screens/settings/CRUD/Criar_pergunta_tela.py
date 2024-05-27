@@ -19,7 +19,6 @@ class Cria_pergunta():
         self.base_font = pygame.font.Font(CAMINHO_FONTE, 32)
 
     def run(self):
-        pygame.display.set_caption("Cria pergunta")
         running = True
 
 
@@ -31,6 +30,8 @@ class Cria_pergunta():
         fundo_painel = Screen.cria_painel(SCREEN_WIDTH+250)
 
         while running:
+            pygame.display.set_caption("Cria pergunta")
+
             screen.blit(fundo_painel, (-125, -230))
 
             selecao_mouse = pygame.mouse.get_pos()
@@ -72,11 +73,9 @@ class Cria_pergunta():
                     if botao_criar.checkForInput(selecao_mouse):
                         print("Pergunta criada")
                         screen_manager.pop_screen()
-                        pygame.display.set_caption("Perguntas")
                         running = False
                     if botao_voltar.checkForInput(selecao_mouse):
                         screen_manager.pop_screen()
-                        pygame.display.set_caption("Perguntas")
                         running = False
 
             self.input_enunciado.run_inputbox()

@@ -11,7 +11,6 @@ screen_manager = Screen_manager()
 
 class Volume:
     def mostra_Volume(self):
-        pygame.display.set_caption("ajustes")
         running = True
 
         # IMAGEM DO BOTÃO

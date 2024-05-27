@@ -26,8 +26,6 @@ class Cria_cadastro():
         self.input_turma = InputBox("TURMA:", screen, 200, 446, 600, 40, 32)
 
     def run(self):
-        pygame.display.set_caption("Login")
-        
         while self.running:
             screen.blit(self.painel_image, (-80, -190))
 
