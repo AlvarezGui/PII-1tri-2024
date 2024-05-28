@@ -29,6 +29,7 @@ class Fase():
         jgdr = Jogador(self.SCREEN_WIDTH, self.SCREEN_HEIGHT, self.screen, self.model)
         obs = []
         quest = []
+        is_active = False
 
 
         # TODO adicionar dificuldade dinâmica √
@@ -65,6 +66,14 @@ class Fase():
             for c in range(dificuldade//5):
                 quest.append(PerguntaBox(self.SCREEN_HEIGHT, self.SCREEN_WIDTH, self.screen))
                 quest[c].desenhar_perguntas(jgdr)
+                
+            # for q in quest:
+            #     if q.is_active:
+            #         is_active = True
+            
+            # if is_active:
+            #     for o in obs:
+            #         o.esperar()
 
             # Update display
             pygame.display.update()

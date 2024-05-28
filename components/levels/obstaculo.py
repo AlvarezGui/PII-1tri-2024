@@ -51,15 +51,7 @@ class Obstaculo():
 
         # TODO timer randomico para o primeiro spawn
 
-        # esperar para respawnar o obstáculo
-        def esperar():
-            self.y = -100
-            self.speed = 0
-            time.sleep(random.randrange(1, 4))
-            self.x = random.randrange(0, self.SW)
-            self.speed = random.randrange(self.velocidade_range_min, self.velocidade_range_max)
-            self.color = "blue"
-        t1 = threading.Thread(target=esperar)
+        t1 = threading.Thread(target=self.esperar())
         if self.e_primeira:
             t1.start()
             self.e_primeira = False
@@ -88,7 +80,11 @@ class Obstaculo():
             # self.x = random.randrange(0, self.SW)
             # self.speed = random.randrange(self.velocidade_range_min, self.velocidade_range_max)
 
-            
-
-    
-    
+    # esperar para respawnar o obstáculo
+    def esperar(self):
+        self.y = -100
+        self.speed = 0
+        time.sleep(random.randrange(1, 4))
+        self.x = random.randrange(0, self.SW)
+        self.speed = random.randrange(self.velocidade_range_min, self.velocidade_range_max)
+        self.color = "blue"
