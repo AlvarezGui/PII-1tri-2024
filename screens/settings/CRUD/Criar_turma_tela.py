@@ -12,7 +12,7 @@ screen_manager = Screen_manager()
 
 class Cria_turma():
     def __init__(self):
-        self.input_nome_turma = InputBox("Coloque o nome da turma:", screen, x=100, y=200, width=825, height=100, font=30)
+        self.input_nome_turma = InputBox("Coloque o nome da turma:", screen, x=100, y=200, width=825, height=100, font_size=30)
 
         # FONTE
         CAMINHO_FONTE = "./m6x11plus.ttf"

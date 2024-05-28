@@ -14,6 +14,7 @@ class PerguntaBox():
         self.x = random.randrange(0, self.SW)
         self.y = -20
         self.speed = random.randrange(1,6)
+        self.is_active = False
 
     def desenhar_perguntas(self, jogador):
         # Carregar imagem
@@ -39,8 +40,7 @@ class PerguntaBox():
 
         if rect.colliderect(jogador.rect_jogador):
             # TODO acessar pergunta.
-            
-            print("Colidiu")
+            self.is_active = True
 
         if self.y > self.SH + 50:
             self.x = random.randrange(0, self.SW)
