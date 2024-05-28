@@ -2,8 +2,10 @@
 import pygame
 import sys
 from components.button import Button
+from screens.Cria_cadastro import Cria_cadastro
 from screens.screen import Screen, Screen_manager
 from screens.settings.CRUD.Criar_pergunta_tela import Cria_pergunta
+from screens.settings.CRUD.Criar_turma_tela import Cria_turma
 
 SCREEN_WIDTH = 1020
 SCREEN_HEIGHT = 800
@@ -16,12 +18,6 @@ class Manter_entidades:
         self.tipo = tipo
 
     def mostra_entidades(self):
-        if self.tipo == 'perguntas':
-            pygame.display.set_caption("Perguntas")
-        if self.tipo == 'turmas':
-            pygame.display.set_caption("Turmas")
-        if self.tipo == 'contas':
-            pygame.display.set_caption("Contas")
 
         running = True
 
@@ -32,6 +28,13 @@ class Manter_entidades:
         fundo_painel = Screen.cria_painel(SCREEN_WIDTH+250)
 
         while running:
+            if self.tipo == 'perguntas':
+                pygame.display.set_caption("Perguntas")
+            if self.tipo == 'turmas':
+                pygame.display.set_caption("Turmas")
+            if self.tipo == 'contas':
+                pygame.display.set_caption("Contas")
+
             screen.blit(fundo_painel, (-125, -230))
 
             selecao_mouse = pygame.mouse.get_pos()
@@ -55,11 +58,14 @@ class Manter_entidades:
                     if botao_criar.checkForInput(selecao_mouse):
                         if self.tipo == 'perguntas':
                             screen_manager.push_screen(Cria_pergunta().run())
+                        if self.tipo == 'turmas':
+                            screen_manager.push_screen(Cria_turma().run())
+                        if self.tipo == 'contas':
+                            screen_manager.push_screen(Cria_cadastro().run())
                     if botao_atualizar.checkForInput(selecao_mouse):
                         print("atualizar pergunta")
                     if botao_deletar.checkForInput(selecao_mouse):
                         print("deletar pergunta")
                     if botao_voltar.checkForInput(selecao_mouse):
                         screen_manager.pop_screen()
-                        pygame.display.set_caption("Manter")
                         running = False

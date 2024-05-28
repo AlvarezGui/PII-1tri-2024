@@ -13,7 +13,6 @@ class Selecao_carro():
         # IMAGEM DO BOTÃO
         fundo_button = Screen.cria_fundo_botao(200)
 
-        pygame.display.set_caption("SELECAO DE CARRO")
         running = True
 
         # IMAGEM DO FUNDO
@@ -23,6 +22,7 @@ class Selecao_carro():
         painel_image = Screen.cria_painel(SCREEN_WIDTH+100)
 
         while running:
+            pygame.display.set_caption("Selecionando skin")
             screen.fill("white")
             screen.blit(fundo_image, (0,0))
             screen.blit(painel_image, (-25,-150))

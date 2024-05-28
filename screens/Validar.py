@@ -1,6 +1,8 @@
 import pygame
 import sys
+import pygame.mixer
 # from components.connector import connector
+from components.music import Music
 from screens.screen import Screen, Screen_manager
 from screens.Cria_cadastro import Cria_cadastro
 from screens.menu_principal import Main_menu
@@ -27,9 +29,12 @@ class Validar():
         self.input_senha = InputBox("SENHA:", screen, 200, 296, 600, 40, 32)
 
     def run(self):
-        pygame.display.set_caption("Login")
-        
         while self.running:
+            musica = Music()
+            musica.play()
+
+            pygame.display.set_caption("Login")
+
             screen.blit(self.fundo_image, (0, 0))
             screen.blit(self.painel_image, (-80, -190))
 

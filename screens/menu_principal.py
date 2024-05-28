@@ -23,7 +23,6 @@ class Main_menu():
         self.dific = 1
 
     def abre_menu_principal(self):
-        pygame.display.set_caption("Menu")
         running = True
         configu = config()
 
@@ -34,8 +33,9 @@ class Main_menu():
         fundo_button = Screen.cria_fundo_botao(200)
 
         while running:
+            pygame.display.set_caption("Menu")
+
             #Sobreposição de telas
-            screen.fill("white")
             screen.blit(fundo_image, (0,0))
 
             menu_mouse = pygame.mouse.get_pos()

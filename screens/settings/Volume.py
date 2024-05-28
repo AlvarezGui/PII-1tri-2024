@@ -2,6 +2,7 @@
 import pygame
 import sys
 from components.button import Button
+from components.music import Music
 from screens.screen import Screen, Screen_manager
 
 SCREEN_WIDTH = 1020
@@ -11,7 +12,6 @@ screen_manager = Screen_manager()
 
 class Volume:
     def mostra_Volume(self):
-        pygame.display.set_caption("ajustes")
         running = True
 
         # IMAGEM DO BOTÃO
@@ -37,9 +37,9 @@ class Volume:
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_menor.checkForInput(selecao_mouse):
-                        print("diminuiu volume")
+                        Music.diminui_volume()
                     if botao_maior.checkForInput(selecao_mouse):
-                        print("aumentou volume")
+                        Music.aumenta_volume()
                     if botao_voltar.checkForInput(selecao_mouse):
                         screen_manager.pop_screen()
                         running = False

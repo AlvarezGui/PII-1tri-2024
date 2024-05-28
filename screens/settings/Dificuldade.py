@@ -13,7 +13,6 @@ class Dificuldade:
         self.dificuldade_selecionada = None
 
     def mostra_niveis(self):
-        pygame.display.set_caption("ajustes")
         running = True
 
         # IMAGEM DO BOTÃO
