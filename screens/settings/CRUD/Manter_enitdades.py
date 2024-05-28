@@ -4,8 +4,10 @@ import sys
 from components.Button import Button
 from screens.Cria_cadastro import Cria_cadastro
 from screens.screen import Screen, Screen_manager
+from screens.settings.CRUD.Atualiza_tela import Atualiza
 from screens.settings.CRUD.Criar_pergunta_tela import Cria_pergunta
 from screens.settings.CRUD.Criar_turma_tela import Cria_turma
+from screens.settings.CRUD.Delete_tela import Delete
 
 SCREEN_WIDTH = 1020
 SCREEN_HEIGHT = 800
@@ -63,9 +65,9 @@ class Manter_entidades:
                         if self.tipo == 'contas':
                             screen_manager.push_screen(Cria_cadastro().run())
                     if botao_atualizar.checkForInput(selecao_mouse):
-                        print("atualizar pergunta")
+                        screen_manager.push_screen(Atualiza(self.tipo).select_atualiza())
                     if botao_deletar.checkForInput(selecao_mouse):
-                        print("deletar pergunta")
+                        screen_manager.push_screen(Delete(self.tipo).select_delete())
                     if botao_voltar.checkForInput(selecao_mouse):
                         screen_manager.pop_screen()
                         running = False
