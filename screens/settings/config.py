@@ -1,6 +1,6 @@
 import sys
 import pygame
-from components.button import Button
+from components.Button import Button
 from screens.settings.CRUD.Manter import Manter
 from screens.screen import Screen_manager, Screen
 from screens.settings.Dificuldade import Dificuldade

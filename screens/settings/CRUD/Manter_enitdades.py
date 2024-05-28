@@ -1,7 +1,7 @@
 
 import pygame
 import sys
-from components.button import Button
+from components.Button import Button
 from screens.Cria_cadastro import Cria_cadastro
 from screens.screen import Screen, Screen_manager
 from screens.settings.CRUD.Criar_pergunta_tela import Cria_pergunta

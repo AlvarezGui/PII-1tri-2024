@@ -3,7 +3,7 @@ import sys
 # from components.connector import connector
 from components.Inputbox import InputBox
 from screens.screen import Screen, Screen_manager
-from components.button import Button
+from components.Button import Button
 
 # SCREEN PARAMETERS
 SCREEN_WIDTH = 1020

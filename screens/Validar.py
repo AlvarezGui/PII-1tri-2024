@@ -2,11 +2,11 @@ import pygame
 import sys
 import pygame.mixer
 # from components.connector import connector
-from components.music import Music
+from components.Music import Music
 from screens.screen import Screen, Screen_manager
 from screens.Cria_cadastro import Cria_cadastro
 from screens.menu_principal import Main_menu
-from components.button import Button
+from components.Button import Button
 from components.Inputbox import InputBox
 
 # SCREEN PARAMETERS

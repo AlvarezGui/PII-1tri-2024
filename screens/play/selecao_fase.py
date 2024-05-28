@@ -1,6 +1,6 @@
 import pygame
 import sys
-from components.button import Button
+from components.Button import Button
 from screens.play.fase import Fase
 from screens.screen import Screen_manager, Screen
 from .Selecao_carro import Selecao_carro

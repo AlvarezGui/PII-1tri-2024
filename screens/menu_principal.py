@@ -1,6 +1,6 @@
 import pygame
 import sys
-from components.button import Button
+from components.Button import Button
 from screens.screen import Screen_manager, Screen
 from screens.play.selecao_fase import Selecao_fase
 from screens.settings.config import config
