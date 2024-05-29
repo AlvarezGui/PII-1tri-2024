@@ -24,13 +24,6 @@ class SpriteSheet():
             image.set_colorkey(colorkey, pygame.RLEACCEL)
         return image
     
-    # Load a whole strip of images
-    def load_strip(self, rect, image_count, colorkey = None):
-        "Loads a strip of images and returns them as a list"
-        tups = [(rect[0]+rect[2]*x, rect[1], rect[2], rect[3])
-                for x in range(image_count)]
-        return self.images_at(tups, colorkey)
-    
     def cria_fundo_botao(self, width):
         # IMAGEM DO BOTÃO
         button = self.image_at((340,0,590,313), -1).convert_alpha()
