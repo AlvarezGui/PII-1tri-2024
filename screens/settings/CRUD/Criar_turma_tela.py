@@ -2,12 +2,8 @@
 import pygame
 import sys
 from components.Inputbox import InputBox
-<<<<<<< HEAD
-from components.button import Button
-=======
 from components.Button import Button
 from components.SpriteSheet import SpriteSheet
->>>>>>> e91f491ce415064e5f52df6419698699bf210220
 from screens.screen import Screen, Screen_manager
 
 SCREEN_WIDTH = 1020
@@ -28,7 +24,6 @@ class Cria_turma():
 
         # IMAGEM DO BOTÃO
         fundo_button = SpriteSheet().cria_fundo_botao(250)
-        fundo_button_alternativas = Screen.cria_fundo_botao(100)
 
         # IMAGEM PAINEL
         fundo_painel = SpriteSheet().cria_painel(SCREEN_WIDTH-100)
