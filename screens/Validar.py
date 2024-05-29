@@ -30,7 +30,12 @@ class Validar():
     # TODO usar essa função para entrar em contato com o banco de dados
     def entrar(self, usuario, senha):
         print(f"Usuario: {usuario} \nSenha: {senha}")
-        cnx.verificar_aluno(usuario, senha)
+        if usuario.endswith("@jpiaget.pro.br"):
+            cnx.verificar_professor(usuario, senha)
+        elif usuario.endswith("@jpiaget.g12.br"):
+            cnx.verificar_aluno(usuario, senha)
+            
+        
     
 
     def run(self):

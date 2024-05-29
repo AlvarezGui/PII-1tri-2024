@@ -33,8 +33,27 @@ class connector():
         self.cursor.executemany(sql, val)
         resultado = self.cursor.fetchone()
         
-    
+        # TODO recusar entrada caso senha ou email esteja errado
+        if resultado[0] == 1: print("Essa conta existe")
+        else: print("Essa conta não existe")
+
+    def adicionar_professor(self, nome, email, senha):
+        sql = "INSERT INTO professores (emailProfessor, senhaProfessor, nomeProfessor) VALUES (%s, %s, %s)"
+        val = [(email, senha, nome)]
+
+        self.cursor.executemany(sql, val)
+        self.cnx.commit()
+
+    def verificar_professor(self, email, senha):
+        sql = "SELECT CASE WHEN EXISTS(SELECT * FROM professores WHERE emailProfessor = %s AND senhaProfessor = %s) THEN 1 ELSE 0 END AS RESULT"
+        val = [(email, senha)]
+
+        self.cursor.executemany(sql, val)
+        resultado = self.cursor.fetchone()
+
         if resultado[0] == 1: print("Essa conta existe")
         else: print("Essa conta não existe")
 
     # TODO funções dos professores e das perguntas
+
+    # TODO close na conexão

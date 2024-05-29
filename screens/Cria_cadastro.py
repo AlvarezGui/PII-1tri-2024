@@ -29,7 +29,10 @@ class Cria_cadastro():
 
     def criar_conta(self, nome, email, senha, turma):
         print(f"Nome: {nome} \nEmail: {email} \nSenha: {senha} \nTurma: {turma}")
-        cnx.adicionar_aluno(nome, email, senha, turma)
+        if turma.lower() == "professor":
+            cnx.adicionar_professor(nome, email, senha)
+        else:
+            cnx.adicionar_aluno(nome, email, senha, turma)
         
 
     def run(self):
