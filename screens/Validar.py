@@ -1,13 +1,14 @@
 import pygame
 import sys
 import pygame.mixer
-# from components.connector import connector
+# from components.connector import conne
 from components.Music import Music
 from screens.screen import Screen, Screen_manager
 from screens.Cria_cadastro import Cria_cadastro
 from screens.menu_principal import Main_menu
 from components.Button import Button
 from components.Inputbox import InputBox
+from components.SpriteSheet import SpriteSheet
 
 # SCREEN PARAMETERS
 SCREEN_WIDTH = 1020
@@ -19,11 +20,12 @@ screen_manager = Screen_manager()
 CAMINHO_FONTE = "./m6x11plus.ttf"
 base_font = pygame.font.Font(CAMINHO_FONTE, 32)
 
+
 class Validar():
     def __init__(self):
-        self.fundo_image = Screen.cria_fundo(Screen.SCREEN_WIDTH)
-        self.fundo_button = Screen.cria_fundo_botao(250)
-        self.painel_image = Screen.cria_painel(SCREEN_WIDTH + 150)
+        self.fundo_image = Screen.cria_fundo(SCREEN_WIDTH)
+        self.fundo_button = SpriteSheet().cria_fundo_botao(200)
+        self.painel_image = SpriteSheet().cria_painel(SCREEN_WIDTH-100)
         self.running = True
         self.input_usuario = InputBox("E-MAIL:", screen, 200, 196, 600, 40, 32)
         self.input_senha = InputBox("SENHA:", screen, 200, 296, 600, 40, 32)
@@ -36,7 +38,7 @@ class Validar():
             pygame.display.set_caption("Login")
 
             screen.blit(self.fundo_image, (0, 0))
-            screen.blit(self.painel_image, (-80, -190))
+            screen.blit(self.painel_image, (50, 20))
 
             logar_mouse = pygame.mouse.get_pos()
 

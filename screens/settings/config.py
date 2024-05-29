@@ -1,6 +1,7 @@
 import sys
 import pygame
 from components.Button import Button
+from components.SpriteSheet import SpriteSheet
 from screens.settings.CRUD.Manter import Manter
 from screens.screen import Screen_manager, Screen
 from screens.settings.Dificuldade import Dificuldade
@@ -19,17 +20,17 @@ class config():
         running = True
 
         # IMAGEM PAINEL
-        painel_image = Screen.cria_painel(SCREEN_WIDTH+250)
+        painel_image = SpriteSheet().cria_painel(SCREEN_WIDTH-100)
 
         # IMAGEM DO BOTÃO
-        fundo_button = Screen.cria_fundo_botao(250)
+        fundo_button = SpriteSheet().cria_fundo_botao(250)
 
         dific = Dificuldade()
 
         while running:
             pygame.display.set_caption("Ajustes")
 
-            screen.blit(painel_image, (-125,-230))
+            screen.blit(painel_image, (50,20))
 
             selecao_mouse = pygame.mouse.get_pos()
 

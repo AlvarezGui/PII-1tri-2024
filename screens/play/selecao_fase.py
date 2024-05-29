@@ -1,6 +1,7 @@
 import pygame
 import sys
 from components.Button import Button
+from components.SpriteSheet import SpriteSheet
 from screens.play.fase import Fase
 from screens.screen import Screen_manager, Screen
 from .Selecao_carro import Selecao_carro
@@ -14,7 +15,7 @@ screen_manager = Screen_manager()
 class Selecao_fase():
     def seleciona_fase(dific):
         # IMAGEM DO BOTÃO
-        fundo_button = Screen.cria_fundo_botao(200)
+        fundo_button = SpriteSheet().cria_fundo_botao(200)
 
 
         # FUNDO DA TELA

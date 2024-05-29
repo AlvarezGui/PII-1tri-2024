@@ -1,6 +1,7 @@
 import pygame
 import sys
 from components.Button import Button
+from components.SpriteSheet import SpriteSheet
 from screens.screen import Screen_manager, Screen
 from components.levels.jogador import Jogador
 SCREEN_WIDTH = 1020
@@ -11,7 +12,7 @@ screen_manager = Screen_manager()
 class Selecao_carro():
     def escolhe_modelo():
         # IMAGEM DO BOTÃO
-        fundo_button = Screen.cria_fundo_botao(200)
+        fundo_button = SpriteSheet().cria_fundo_botao(200)
 
         running = True
 
@@ -19,13 +20,13 @@ class Selecao_carro():
         fundo_image = Screen.cria_fundo(SCREEN_WIDTH)
 
         # IMAGEM PAINEL
-        painel_image = Screen.cria_painel(SCREEN_WIDTH+100)
+        painel_image = SpriteSheet().cria_painel(SCREEN_WIDTH-100)
 
         while running:
             pygame.display.set_caption("Selecionando skin")
             screen.fill("white")
             screen.blit(fundo_image, (0,0))
-            screen.blit(painel_image, (-25,-150))
+            screen.blit(painel_image, (50,20))
 
             selecao_carro_mouse = pygame.mouse.get_pos()
 

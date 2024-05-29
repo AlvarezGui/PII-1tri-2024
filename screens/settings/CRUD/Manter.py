@@ -1,6 +1,7 @@
 import pygame
 import sys
 from components.Button import Button
+from components.SpriteSheet import SpriteSheet
 from screens.settings.CRUD.Manter_enitdades import Manter_entidades
 from screens.screen import Screen, Screen_manager
 
@@ -14,13 +15,13 @@ class Manter:
         running = True
 
         # IMAGEM DO BOTÃO
-        fundo_button = Screen.cria_fundo_botao(250)
+        fundo_button = SpriteSheet().cria_fundo_botao(250)
 
         #IMAGEM DO PAINEL
-        fundo_painel = Screen.cria_painel(SCREEN_WIDTH+250)
+        fundo_painel = SpriteSheet().cria_painel(SCREEN_WIDTH-100)
 
         while running:
-            screen.blit(fundo_painel, (-125, -230))
+            screen.blit(fundo_painel, (50, 20))
             
             selecao_mouse = pygame.mouse.get_pos()
 

@@ -3,6 +3,7 @@ import pygame
 import sys
 from components.Inputbox import InputBox
 from components.Button import Button
+from components.SpriteSheet import SpriteSheet
 from screens.screen import Screen, Screen_manager
 
 SCREEN_WIDTH = 1020
@@ -22,15 +23,15 @@ class Cria_turma():
         running = True
 
         # IMAGEM DO BOTÃO
-        fundo_button = Screen.cria_fundo_botao(250)
+        fundo_button = SpriteSheet().cria_fundo_botao(250)
         fundo_button_alternativas = Screen.cria_fundo_botao(100)
 
         # IMAGEM PAINEL
-        fundo_painel = Screen.cria_painel(SCREEN_WIDTH+250)
+        fundo_painel = SpriteSheet().cria_painel(SCREEN_WIDTH-100)
 
         while running:
             pygame.display.set_caption("Cria turma")
-            screen.blit(fundo_painel, (-125, -230))
+            screen.blit(fundo_painel, (50, 20))
 
             selecao_mouse = pygame.mouse.get_pos()
 
