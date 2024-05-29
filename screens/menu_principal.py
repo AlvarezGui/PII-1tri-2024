@@ -1,6 +1,7 @@
 import pygame
 import sys
 from components.Button import Button
+from components.SpriteSheet import SpriteSheet
 from screens.screen import Screen_manager, Screen
 from screens.play.selecao_fase import Selecao_fase
 from screens.settings.config import config
@@ -30,7 +31,7 @@ class Main_menu():
         fundo_image = Screen.cria_fundo(SCREEN_WIDTH)
 
         # IMAGEM DO BOTÃO
-        fundo_button = Screen.cria_fundo_botao(200)
+        fundo_button = SpriteSheet().cria_fundo_botao(200)
 
         while running:
             pygame.display.set_caption("Menu")

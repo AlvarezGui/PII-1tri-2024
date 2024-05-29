@@ -2,6 +2,8 @@ import pygame
 import random
 import time
 import threading
+
+from components.SpriteSheet import SpriteSheet
 class Obstaculo():
 
     def __init__(self, SCREEN_WIDTH, SCREEN_HEIGHT, screen, dific) -> None:
@@ -10,10 +12,7 @@ class Obstaculo():
         self.screen = screen
 
         # Carregando imagem 
-        self.image = pygame.image.load("assets/enzima.png").convert_alpha()
-        self.image.convert()
-
-        # ATRIBUINDO IMAGEM AO OBJETO
+        self.image = SpriteSheet().image_at(rectangle=(0, 0, 326, 308), colorkey=-1).convert_alpha()
         self.WIDTH = 80
         aspect_ratio = self.image.get_width() / self.image.get_height()
         self.HEIGHT = int(self.WIDTH / aspect_ratio)

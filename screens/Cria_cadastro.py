@@ -2,6 +2,7 @@ import pygame
 import sys
 # from components.connector import connector
 from components.Inputbox import InputBox
+from components.SpriteSheet import SpriteSheet
 from screens.screen import Screen, Screen_manager
 from components.Button import Button
 
@@ -17,8 +18,8 @@ base_font = pygame.font.Font(CAMINHO_FONTE, 32)
 
 class Cria_cadastro():
     def __init__(self):
-        self.fundo_button = Screen.cria_fundo_botao(250)
-        self.painel_image = Screen.cria_painel(SCREEN_WIDTH + 150)
+        self.fundo_button = SpriteSheet().cria_fundo_botao(250)
+        self.painel_image = SpriteSheet().cria_painel(SCREEN_WIDTH-100)
         self.running = True
         self.input_nome = InputBox("NOME:", screen, 200, 146, 600, 40, 32)
         self.input_email = InputBox("E-MAIL:", screen, 200, 246, 600, 40, 32)
@@ -27,7 +28,7 @@ class Cria_cadastro():
 
     def run(self):
         while self.running:
-            screen.blit(self.painel_image, (-80, -190))
+            screen.blit(self.painel_image, (50, 20))
 
             logar_mouse = pygame.mouse.get_pos()
         

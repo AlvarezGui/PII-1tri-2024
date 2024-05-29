@@ -1,5 +1,7 @@
 import pygame
 
+from components.SpriteSheet import SpriteSheet
+
 class Jogador:
     def __init__(self, SCREEN_WIDTH, SCREEN_HEIGHT, screen, model):
         # Carregar imagem normal
@@ -89,9 +91,9 @@ class Jogador:
     @staticmethod
     def carro_modelo(modelo):
         if modelo == "hamburguer":
-            return("assets/hamburguer_normal.png", "assets/hamburguer_boost.png")
+            return(SpriteSheet.image_at((983, 15, 270, 316), -1), SpriteSheet.image_at((662, 15, 270, 316), -1))
         if modelo == "hotdog":
-            return("assets/hotdog_normal.png", "assets/hotdog_boost.png")
+            return(SpriteSheet.image_at((324, 15, 270, 316), -1), SpriteSheet.image_at((640, 0, 309, 645), -1))
         if modelo == "donut":
             return("assets/donut_normal.png", "assets/donut_boost.png")
         if modelo == "abacate":

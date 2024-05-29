@@ -2,6 +2,7 @@
 import pygame
 import sys
 from components.Button import Button
+from components.SpriteSheet import SpriteSheet
 from screens.Cria_cadastro import Cria_cadastro
 from screens.screen import Screen, Screen_manager
 from screens.settings.CRUD.Atualiza_tela import Atualiza
@@ -24,10 +25,10 @@ class Manter_entidades:
         running = True
 
         # IMAGEM DO BOTÃO
-        fundo_button = Screen.cria_fundo_botao(250)
+        fundo_button = SpriteSheet().cria_fundo_botao(250)
 
         # IMAGEM PAINEL
-        fundo_painel = Screen.cria_painel(SCREEN_WIDTH+250)
+        fundo_painel = SpriteSheet().cria_painel(SCREEN_WIDTH-100)
 
         while running:
             if self.tipo == 'perguntas':
@@ -37,7 +38,7 @@ class Manter_entidades:
             if self.tipo == 'contas':
                 pygame.display.set_caption("Contas")
 
-            screen.blit(fundo_painel, (-125, -230))
+            screen.blit(fundo_painel, (50, 20))
 
             selecao_mouse = pygame.mouse.get_pos()
 

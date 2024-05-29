@@ -1,6 +1,7 @@
 import pygame
 import sys
 from components.Button import Button
+from components.SpriteSheet import SpriteSheet
 from screens.screen import Screen, Screen_manager
 
 SCREEN_WIDTH = 1020
@@ -16,7 +17,7 @@ class Dificuldade:
         running = True
 
         # IMAGEM DO BOTÃO
-        fundo_button = Screen.cria_fundo_botao(250)
+        fundo_button = SpriteSheet().cria_fundo_botao(250)
 
         while running:
             selecao_mouse = pygame.mouse.get_pos()
