@@ -30,9 +30,9 @@ class Selecao_carro():
 
             selecao_carro_mouse = pygame.mouse.get_pos()
 
-            hamburguer = pygame.image.load("assets/hamburguer_normal.png")
+            hamburguer = SpriteSheet().image_at((983, 15, 270, 316), -1)
             botao_hamburguer = Button(image=Jogador.mostra_imagem(hamburguer), pos=(SCREEN_WIDTH*2 / 3 + 100, 450), text_input="")
-            hotdog = pygame.image.load("assets/hotdog_normal.png")
+            hotdog = SpriteSheet().image_at((324, 15, 270, 316), -1)
             botao_hotdog = Button(image=Jogador.mostra_imagem(hotdog), pos=(SCREEN_WIDTH / 2, 450), text_input="") 
             donut = pygame.image.load("assets/donut_normal.png")
             botao_donut = Button(image=Jogador.mostra_imagem(donut), pos=(SCREEN_WIDTH / 3 - 100, 450), text_input="") 
