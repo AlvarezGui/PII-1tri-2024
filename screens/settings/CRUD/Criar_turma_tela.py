@@ -2,8 +2,12 @@
 import pygame
 import sys
 from components.Inputbox import InputBox
+<<<<<<< HEAD
+from components.button import Button
+=======
 from components.Button import Button
 from components.SpriteSheet import SpriteSheet
+>>>>>>> e91f491ce415064e5f52df6419698699bf210220
 from screens.screen import Screen, Screen_manager
 
 SCREEN_WIDTH = 1020
