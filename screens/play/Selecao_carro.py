@@ -30,15 +30,15 @@ class Selecao_carro():
 
             selecao_carro_mouse = pygame.mouse.get_pos()
 
-            hamburguer = SpriteSheet().image_at((983, 15, 270, 316), -1)
+            hamburguer = SpriteSheet().image_at((1611, 625, 309, 331), -1).convert_alpha()
             botao_hamburguer = Button(image=Jogador.mostra_imagem(hamburguer), pos=(SCREEN_WIDTH*2 / 3 + 100, 450), text_input="")
-            hotdog = SpriteSheet().image_at((324, 15, 270, 316), -1)
+            hotdog = SpriteSheet().image_at((968, 0, 309, 645), -1).convert_alpha()
             botao_hotdog = Button(image=Jogador.mostra_imagem(hotdog), pos=(SCREEN_WIDTH / 2, 450), text_input="") 
-            donut = pygame.image.load("assets/donut_normal.png")
+            donut = SpriteSheet().image_at((327, 314, 309, 331), -1).convert_alpha()
             botao_donut = Button(image=Jogador.mostra_imagem(donut), pos=(SCREEN_WIDTH / 3 - 100, 450), text_input="") 
-            abacate = pygame.image.load("assets/abacate_normal.png")
+            abacate = SpriteSheet().image_at((320, 660, 319, 624), -1).convert_alpha()
             botao_abacate = Button(image=Jogador.mostra_imagem(abacate), pos=(SCREEN_WIDTH / 2, 200), text_input="") 
-            ovo = pygame.image.load("assets/ovo_normal.png")
+            ovo = SpriteSheet().image_at((960, 650, 324, 331), -1).convert_alpha()
             botao_ovo = Button(image=Jogador.mostra_imagem(ovo), pos=(SCREEN_WIDTH / 3 - 100, 200), text_input="") 
 
             botao_voltar = Button(image=fundo_button, pos=(SCREEN_WIDTH / 2, 650), text_input="VOLTAR")

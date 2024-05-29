@@ -6,7 +6,7 @@ class Jogador:
     def __init__(self, SCREEN_WIDTH, SCREEN_HEIGHT, screen, model):
         # Carregar imagem normal
         modelo = self.carro_modelo(model)
-        self.image_normal = pygame.image.load(modelo[0]).convert_alpha()
+        self.image_normal = modelo[0]
 
         self.SW = SCREEN_WIDTH
         self.SH = SCREEN_HEIGHT
@@ -26,7 +26,7 @@ class Jogador:
         self.vida = 10
 
         # Imagem para indicar movimento
-        self.image_boost = pygame.image.load(modelo[1]).convert_alpha()
+        self.image_boost = modelo[1]
 
         # Criando retângulo
         self.image_rect = self.image_normal.get_rect()
@@ -91,14 +91,14 @@ class Jogador:
     @staticmethod
     def carro_modelo(modelo):
         if modelo == "hamburguer":
-            return(SpriteSheet.image_at((983, 15, 270, 316), -1), SpriteSheet.image_at((662, 15, 270, 316), -1))
+            return(SpriteSheet().image_at((1611, 625, 309, 331), -1).convert_alpha(), SpriteSheet().image_at((1292, 643, 409, 331), -1).convert_alpha())
         if modelo == "hotdog":
-            return(SpriteSheet.image_at((324, 15, 270, 316), -1), SpriteSheet.image_at((640, 0, 309, 645), -1))
+            return(SpriteSheet().image_at((968, 0, 309, 645), -1).convert_alpha(), SpriteSheet().image_at((640, 0, 309, 645), -1).convert_alpha())
         if modelo == "donut":
-            return("assets/donut_normal.png", "assets/donut_boost.png")
+            return(SpriteSheet().image_at((327, 314, 309, 331), -1).convert_alpha(), SpriteSheet().image_at((0, 320, 320, 331), -1).convert_alpha())
         if modelo == "abacate":
-            return("assets/abacate_normal.png", "assets/abacate_boost.png")
+            return(SpriteSheet().image_at((320, 660, 319, 624), -1).convert_alpha(), SpriteSheet().image_at((0, 663, 320, 624), -1).convert_alpha())
         if modelo == "ovo":
-            return("assets/ovo_normal.png", "assets/ovo_boost.png")
+            return(SpriteSheet().image_at((960, 650, 324, 331), -1).convert_alpha(), SpriteSheet().image_at((640, 656, 320, 331), -1).convert_alpha())
         if modelo == None:
-            return("assets/hamburguer_normal.png", "assets/hamburguer_boost.png")
+            return(SpriteSheet().image_at((983, 15, 270, 316), -1).convert_alpha(), SpriteSheet().image_at((662, 15, 270, 316), -1).convert_alpha())

@@ -1,6 +1,8 @@
 import pygame
 import random
 
+from components.SpriteSheet import SpriteSheet
+
 class PerguntaBox():
 
     def __init__(self, SCREEN_WIDTH, SCREEN_HEIGHT, screen) -> None:
@@ -18,7 +20,7 @@ class PerguntaBox():
 
     def desenhar_perguntas(self, jogador):
         # Carregar imagem
-        image_normal = pygame.image.load("assets/question.png").convert_alpha()
+        image_normal = SpriteSheet().image_at((1597, 22, 313, 248), -1).convert_alpha()
 
         # Calcular altura proporcional
         aspect_ratio = image_normal.get_width() / image_normal.get_height()

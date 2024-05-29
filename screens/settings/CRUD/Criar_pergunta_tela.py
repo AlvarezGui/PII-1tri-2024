@@ -25,7 +25,7 @@ class Cria_pergunta():
 
         # IMAGEM DO BOTÃO
         fundo_button = SpriteSheet().cria_fundo_botao(250)
-        fundo_button_alternativas = Screen.cria_fundo_botao(100)
+        fundo_button_alternativas = SpriteSheet().cria_fundo_botao_pequeno(50)
 
         # IMAGEM PAINEL
         fundo_painel = SpriteSheet().cria_painel(SCREEN_WIDTH-100)
