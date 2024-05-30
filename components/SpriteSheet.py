@@ -63,3 +63,13 @@ class SpriteSheet():
         image_obstacle = pygame.transform.scale(image, (WIDTH, HEIGHT))
         image_rect = pygame.Rect(image_rect.x, image_rect.y, WIDTH, HEIGHT)
         return image_obstacle, image_rect
+    
+    def cria_logo(self, width):
+        # Carregando imagem 
+        painel = self.image_at((0, 1413, 647, 365), -1).convert_alpha()
+        PAINEL_WIDTH = width
+        aspect_ratio = painel.get_width() / painel.get_height()
+        PAINEL_HEIGHT = int(PAINEL_WIDTH / aspect_ratio)
+        logo = pygame.transform.scale(painel, (PAINEL_WIDTH, PAINEL_HEIGHT))
+        return logo
+

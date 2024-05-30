@@ -18,7 +18,7 @@ class PerguntaJogo:
     def run(self):
         running = True
         fundo_painel = SpriteSheet().cria_painel(SCREEN_WIDTH-100)
-        fundo_button_alternativas = SpriteSheet().cria_fundo_botao_pequeno(50)
+        fundo_button_alternativas = SpriteSheet().cria_fundo_botao_pequeno(70)
 
         while running:
             pygame.display.set_caption("PERGUNTA!")
