@@ -31,12 +31,16 @@ class Fase():
             self.obstacles.add(obs)
             self.all_sprites.add(obs)
 
-        for c in range(self.dific // 5):
-            quest = PerguntaBox(self.SCREEN_WIDTH, self.SCREEN_HEIGHT, self.screen)
-            self.questions.add(quest)
-            self.all_sprites.add(quest)
+        if self.dific > 5:
+            for c in range(self.dific // 5):
+                quest = PerguntaBox(self.SCREEN_WIDTH, self.SCREEN_HEIGHT, self.screen)
+                self.questions.add(quest)
+                self.all_sprites.add(quest)
 
         botao_sair = Button(image=None, pos=(self.SCREEN_WIDTH * 2/3, 750), text_input="VOLTAR")
+
+        for q in self.questions:
+            q.is_active = False
 
         while running:
             self.screen.blit(fundo_image, (0, 0))
@@ -49,15 +53,33 @@ class Fase():
                     if botao_sair.checkForInput(jogar_mouse):
                         self.screen_manager.pop_screen()
                         running = False
+                    if botao_teste.checkForInput(jogar_mouse):
+                        for q in self.questions:
+                            q.is_active = False
+                            q.respawn()
+                        for o in self.obstacles:
+                            o.respawn()
 
-            keys = pygame.key.get_pressed()
-            jgdr.update(keys)
-            
-            for obs in self.obstacles:
-                obs.update(jgdr)
-            
-            for quest in self.questions:
-                quest.update(jgdr)
+            if self.dific > 5:
+                for quest in self.questions:
+                    if not quest.is_active:
+                        for obs in self.obstacles:
+                            obs.update(jgdr)
+                        
+                        for quest in self.questions:
+                            quest.update(jgdr)
+                        keys = pygame.key.get_pressed()
+                        jgdr.update(keys)
+                    else:
+                        botao_teste = Button(image=None, pos=(self.SCREEN_WIDTH/2, self.SCREEN_HEIGHT/2), text_input="TESTE" )
+                        botao_teste.changeColor(jogar_mouse)
+                        botao_teste.update(self.screen)
+            else:
+                for obs in self.obstacles:
+                    obs.update(jgdr)
+
+                keys = pygame.key.get_pressed()
+                jgdr.update(keys)
 
             self.all_sprites.draw(self.screen)
 

@@ -59,7 +59,7 @@ class Jogador(pygame.sprite.Sprite):
                     SpriteSheet().image_at((1292, 643, 309, 331), -1).convert_alpha())
         if modelo == "hotdog":
             return (SpriteSheet().image_at((968, 0, 309, 645), -1).convert_alpha(),
-                    SpriteSheet().image_at((640, 0, 309, 645), -1).convert_alpha())
+                    SpriteSheet().image_at((1279, 0, 309, 645), -1).convert_alpha())
         if modelo == "donut":
             return (SpriteSheet().image_at((327, 314, 309, 331), -1).convert_alpha(),
                     SpriteSheet().image_at((0, 320, 320, 331), -1).convert_alpha())
