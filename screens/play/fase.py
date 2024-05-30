@@ -3,6 +3,7 @@ from components.Button import Button
 from components.levels.jogador import Jogador
 from components.levels.obstaculo import Obstaculo
 from components.levels.perguntaBox import PerguntaBox
+from components.levels.pergunta_jogo import PerguntaJogo
 from screens.screen import Screen_manager, Screen
 from pygame.sprite import Group
 
@@ -19,6 +20,9 @@ class Fase():
         self.all_sprites = Group()
         self.obstacles = Group()
         self.questions = Group()
+        self.enunciado = ""
+        self.alternativas = 5
+        self.resposta_correta = "a"
 
     def desenhar_fase(self):
         running = True
@@ -53,12 +57,12 @@ class Fase():
                     if botao_sair.checkForInput(jogar_mouse):
                         self.screen_manager.pop_screen()
                         running = False
-                    if botao_teste.checkForInput(jogar_mouse):
-                        for q in self.questions:
-                            q.is_active = False
-                            q.respawn()
-                        for o in self.obstacles:
-                            o.respawn()
+                    # if botao_teste.checkForInput(jogar_mouse):
+                    #     for q in self.questions:
+                    #         q.is_active = False
+                    #         q.respawn()
+                    #     for o in self.obstacles:
+                    #         o.respawn()
 
             if self.dific > 5:
                 for quest in self.questions:
@@ -71,9 +75,14 @@ class Fase():
                         keys = pygame.key.get_pressed()
                         jgdr.update(keys)
                     else:
-                        botao_teste = Button(image=None, pos=(self.SCREEN_WIDTH/2, self.SCREEN_HEIGHT/2), text_input="TESTE" )
-                        botao_teste.changeColor(jogar_mouse)
-                        botao_teste.update(self.screen)
+                        perg = PerguntaJogo(self.enunciado, self.alternativas, self.resposta_correta).run()
+                        self.screen_manager.push_screen(perg)
+                        if perg:
+                            for q in self.questions:
+                                q.is_active = False
+                                q.respawn()
+                            for o in self.obstacles:
+                                o.respawn()
             else:
                 for obs in self.obstacles:
                     obs.update(jgdr)

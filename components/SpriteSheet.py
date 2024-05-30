@@ -33,6 +33,15 @@ class SpriteSheet():
         fundo_button = pygame.transform.scale(button, (BUTTON_WIDTH, BUTTON_HEIGHT))
         return fundo_button
     
+    def cria_fundo_botao_pequeno(self, width):
+        # IMAGEM DO BOTÃO
+        button = self.image_at((647,1600,313,322), -1).convert_alpha()
+        aspect_ratio_button = button.get_width() / button.get_height()
+        BUTTON_WIDTH = width
+        BUTTON_HEIGHT = int(BUTTON_WIDTH / aspect_ratio_button)
+        fundo_button = pygame.transform.scale(button, (BUTTON_WIDTH, BUTTON_HEIGHT))
+        return fundo_button
+
     def cria_painel(self, width):
         # IMAGEM PAINEL
         painel = self.image_at((652, 2016, 1265, 1043), -1).convert_alpha()
