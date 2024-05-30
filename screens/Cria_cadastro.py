@@ -1,6 +1,6 @@
 import pygame
 import sys
-# from backend.connector import connector
+from backend.connector import connector
 from components.Inputbox import InputBox
 from components.SpriteSheet import SpriteSheet
 from screens.screen import Screen, Screen_manager
@@ -11,7 +11,7 @@ SCREEN_WIDTH = 1020
 SCREEN_HEIGHT = 800
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 screen_manager = Screen_manager()
-# cnx = connector()
+cnx = connector()
 
 # FONTE
 CAMINHO_FONTE = "./m6x11plus.ttf"
@@ -27,12 +27,12 @@ class Cria_cadastro():
         self.input_senha = InputBox("SENHA:", screen, 200, 346, 600, 40, 32)
         self.input_turma = InputBox("TURMA:", screen, 200, 446, 600, 40, 32)
 
-    # def criar_conta(self, nome, email, senha, turma):
-    #     print(f"Nome: {nome} \nEmail: {email} \nSenha: {senha} \nTurma: {turma}")
-    #     if turma.lower() == "professor":
-    #         cnx.adicionar_professor(nome, email, senha)
-    #     else:
-    #         cnx.adicionar_aluno(nome, email, senha, turma)
+    def criar_conta(self, nome, email, senha, turma):
+        print(f"Nome: {nome} \nEmail: {email} \nSenha: {senha} \nTurma: {turma}")
+        if turma.lower() == "professor":
+            cnx.adicionar_professor(nome, email, senha)
+        else:
+            cnx.adicionar_aluno(nome, email, senha, turma)
         
 
     def run(self):
@@ -60,7 +60,7 @@ class Cria_cadastro():
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_cadastrar.checkForInput(logar_mouse):
                         print("Tentou criar conta")
-                        # self.criar_conta(self.input_nome.get_input(), self.input_email.get_input(), self.input_senha.get_input(), self.input_turma.get_input())
+                        self.criar_conta(self.input_nome.get_input(), self.input_email.get_input(), self.input_senha.get_input(), self.input_turma.get_input())
                     if botao_sair.checkForInput(logar_mouse):
                         screen_manager.pop_screen()
                         self.running = False

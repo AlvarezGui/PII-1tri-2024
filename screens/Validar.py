@@ -1,7 +1,7 @@
 import pygame
 import sys
 import pygame.mixer
-# from backend.connector import connector
+from backend.connector import connector
 from components.Music import Music
 from screens.screen import Screen, Screen_manager
 from screens.Cria_cadastro import Cria_cadastro
@@ -15,7 +15,7 @@ SCREEN_WIDTH = 1020
 SCREEN_HEIGHT = 800
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 screen_manager = Screen_manager()
-# cnx = connector()
+cnx = connector()
 
 # FONTE
 CAMINHO_FONTE = "./m6x11plus.ttf"
@@ -31,12 +31,12 @@ class Validar():
         self.input_usuario = InputBox("E-MAIL:", screen, 200, 196, 600, 40, 32)
         self.input_senha = InputBox("SENHA:", screen, 200, 296, 600, 40, 32)
 
-    # def entrar(self, usuario, senha):
-    #     print(f"Usuario: {usuario} \nSenha: {senha}")
-    #     if usuario.endswith("@jpiaget.pro.br"):
-    #         cnx.verificar_professor(usuario, senha)
-    #     elif usuario.endswith("@jpiaget.g12.br"):
-    #         cnx.verificar_aluno(usuario, senha)
+    def entrar(self, usuario, senha):
+        print(f"Usuario: {usuario} \nSenha: {senha}")
+        if usuario.endswith("@jpiaget.pro.br"):
+            cnx.verificar_professor(usuario, senha)
+        elif usuario.endswith("@jpiaget.g12.br"):
+            cnx.verificar_aluno(usuario, senha)
             
 
     def run(self):
@@ -69,7 +69,7 @@ class Validar():
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_logar.checkForInput(logar_mouse):
                         print(f"Tentou logar com usuário: {self.input_usuario.get_input()} e senha: {self.input_senha.get_input()}")
-                        # self.entrar(self.input_usuario.get_input(), self.input_senha.get_input())
+                        self.entrar(self.input_usuario.get_input(), self.input_senha.get_input())
                         screen_manager.push_screen(Main_menu().abre_menu_principal())
                     if botao_criar_conta.checkForInput(logar_mouse):
                         print("Tentou criar conta")

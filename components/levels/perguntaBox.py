@@ -1,11 +1,10 @@
 import pygame
 import random
-
 from components.SpriteSheet import SpriteSheet
 
-class PerguntaBox():
-
-    def __init__(self, SCREEN_WIDTH, SCREEN_HEIGHT, screen) -> None:
+class PerguntaBox(pygame.sprite.Sprite):
+    def __init__(self, SCREEN_WIDTH, SCREEN_HEIGHT, screen):
+        super().__init__()
         self.SW = SCREEN_WIDTH
         self.SH = SCREEN_HEIGHT
         self.screen = screen
@@ -15,36 +14,31 @@ class PerguntaBox():
 
         self.x = random.randrange(0, self.SW)
         self.y = -20
-        self.speed = random.randrange(1,6)
+        self.speed = random.randrange(1, 6)
         self.is_active = False
 
-    def desenhar_perguntas(self, jogador):
-        # Carregar imagem
-        image_normal = SpriteSheet().image_at((1597, 22, 313, 248), -1).convert_alpha()
-
-        # Calcular altura proporcional
-        aspect_ratio = image_normal.get_width() / image_normal.get_height()
+        self.image = SpriteSheet().image_at((1597, 22, 313, 248), -1).convert_alpha()
+        aspect_ratio = self.image.get_width() / self.image.get_height()
         new_height = int(self.WIDTH / aspect_ratio)
+        self.image = pygame.transform.scale(self.image, (self.WIDTH, new_height))
+        self.rect = self.image.get_rect()
+        self.rect.topleft = (self.x, self.y)
 
-        # Redimensionar imagem
-        question_image = pygame.transform.scale(image_normal, (self.WIDTH, new_height))
-
-        # Desenhar imagem
-        self.screen.blit(question_image, (self.x, self.y))
-
-        # Movimentar pergunta
+    def update(self, jogador):
         self.y += self.speed
+        self.rect.y = self.y
 
-        # Checar colisão com jogador
         rect = pygame.Rect(self.x, self.y, self.WIDTH, self.HEIGHT)
-        jogador.rect_jogador = pygame.Rect(jogador.x, jogador.y, jogador.JOGADOR_WIDTH, jogador.JOGADOR_HEIGHT)
+        jogador_rect = pygame.Rect(jogador.x, jogador.y, jogador.JOGADOR_WIDTH, jogador.JOGADOR_HEIGHT)
 
-
-        if rect.colliderect(jogador.rect_jogador):
-            # TODO acessar pergunta.
+        if rect.colliderect(jogador_rect):
             self.is_active = True
 
         if self.y > self.SH + 50:
-            self.x = random.randrange(0, self.SW)
-            self.y = -20
-            self.speed = random.randrange(2,6)
+            self.respawn()
+
+    def respawn(self):
+        self.x = random.randrange(0, self.SW)
+        self.y = -20
+        self.rect.topleft = (self.x, self.y)
+        self.speed = random.randrange(2, 6)

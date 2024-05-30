@@ -30,16 +30,35 @@ class Selecao_carro():
 
             selecao_carro_mouse = pygame.mouse.get_pos()
 
-            hamburguer = SpriteSheet().image_at((983, 15, 270, 316), -1)
-            botao_hamburguer = Button(image=Jogador.mostra_imagem(hamburguer), pos=(SCREEN_WIDTH*2 / 3 + 100, 450), text_input="")
-            hotdog = SpriteSheet().image_at((324, 15, 270, 316), -1)
-            botao_hotdog = Button(image=Jogador.mostra_imagem(hotdog), pos=(SCREEN_WIDTH / 2, 450), text_input="") 
-            donut = pygame.image.load("assets/donut_normal.png")
-            botao_donut = Button(image=Jogador.mostra_imagem(donut), pos=(SCREEN_WIDTH / 3 - 100, 450), text_input="") 
-            abacate = pygame.image.load("assets/abacate_normal.png")
-            botao_abacate = Button(image=Jogador.mostra_imagem(abacate), pos=(SCREEN_WIDTH / 2, 200), text_input="") 
-            ovo = pygame.image.load("assets/ovo_normal.png")
-            botao_ovo = Button(image=Jogador.mostra_imagem(ovo), pos=(SCREEN_WIDTH / 3 - 100, 200), text_input="") 
+            image_normal = Jogador.carro_modelo("hamburguer")[0]
+            aspect_ratio = image_normal.get_width() / image_normal.get_height()
+            JOGADOR_HEIGHT = int(80/ aspect_ratio)
+            imagem_hamburger = pygame.transform.scale(image_normal, (80, JOGADOR_HEIGHT))
+            botao_hamburguer = Button(image=imagem_hamburger, pos=(SCREEN_WIDTH*2 / 3 + 100, 450), text_input="")
+
+            image_normal = Jogador.carro_modelo("hotdog")[0]
+            aspect_ratio = image_normal.get_width() / image_normal.get_height()
+            JOGADOR_HEIGHT = int(80/ aspect_ratio)
+            imagem_hotdog = pygame.transform.scale(image_normal, (80, JOGADOR_HEIGHT))
+            botao_hotdog = Button(image=imagem_hotdog, pos=(SCREEN_WIDTH / 2, 450), text_input="") 
+
+            image_normal = Jogador.carro_modelo("donut")[0]
+            aspect_ratio = image_normal.get_width() / image_normal.get_height()
+            JOGADOR_HEIGHT = int(80/ aspect_ratio)
+            imagem_donut = pygame.transform.scale(image_normal, (80, JOGADOR_HEIGHT))
+            botao_donut = Button(image=imagem_donut, pos=(SCREEN_WIDTH / 3 - 100, 450), text_input="") 
+
+            image_normal = Jogador.carro_modelo("abacate")[0]
+            aspect_ratio = image_normal.get_width() / image_normal.get_height()
+            JOGADOR_HEIGHT = int(80/ aspect_ratio)
+            imagem_abacate = pygame.transform.scale(image_normal, (80, JOGADOR_HEIGHT))
+            botao_abacate = Button(image=imagem_abacate, pos=(SCREEN_WIDTH / 2, 200), text_input="")
+            
+            image_normal = Jogador.carro_modelo("ovo")[0]
+            aspect_ratio = image_normal.get_width() / image_normal.get_height()
+            JOGADOR_HEIGHT = int(80/ aspect_ratio)
+            imagem_ovo = pygame.transform.scale(image_normal, (80, JOGADOR_HEIGHT))
+            botao_ovo = Button(image=imagem_ovo, pos=(SCREEN_WIDTH / 3 - 100, 200), text_input="") 
 
             botao_voltar = Button(image=fundo_button, pos=(SCREEN_WIDTH / 2, 650), text_input="VOLTAR")
 

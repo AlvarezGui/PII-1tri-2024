@@ -41,3 +41,16 @@ class SpriteSheet():
         PAINEL_HEIGHT = int(PAINEL_WIDTH / aspect_ratio)
         painel_image = pygame.transform.scale(painel, (PAINEL_WIDTH, PAINEL_HEIGHT))
         return painel_image
+    
+    def cria_enzima(self):
+        # Carregando imagem 
+        image = self.image_at(rectangle=(0, 0, 326, 308), colorkey=-1).convert_alpha()
+        WIDTH = 80
+        aspect_ratio = image.get_width() / image.get_height()
+        HEIGHT = int(WIDTH / aspect_ratio) 
+
+        # Fazendo o retângulo
+        image_rect = image.get_rect()
+        image_obstacle = pygame.transform.scale(image, (WIDTH, HEIGHT))
+        image_rect = pygame.Rect(image_rect.x, image_rect.y, WIDTH, HEIGHT)
+        return image_obstacle, image_rect
