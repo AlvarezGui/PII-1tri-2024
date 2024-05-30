@@ -24,6 +24,9 @@ class Selecao_fase():
         running = True
         model = None
 
+        if type(dific) == None:
+            dific = 1
+
         while running:
             pygame.display.set_caption("Seleção de level")
 
@@ -49,14 +52,26 @@ class Selecao_fase():
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_fase1.checkForInput(selecao_mouse):
-                        fs = Fase(3*dific, model)
-                        screen_manager.push_screen(fs.desenhar_fase())
+                        try:
+                            fs = Fase(3*dific, model)
+                            screen_manager.push_screen(fs.desenhar_fase())
+                        except:
+                            fs = Fase(3, model)
+                            screen_manager.push_screen(fs.desenhar_fase())
                     if botao_fase2.checkForInput(selecao_mouse):
-                        fs = Fase(6*dific, model)
-                        screen_manager.push_screen(fs.desenhar_fase())
+                        try:
+                            fs = Fase(6*dific, model)
+                            screen_manager.push_screen(fs.desenhar_fase())
+                        except:
+                            fs = Fase(6, model)
+                            screen_manager.push_screen(fs.desenhar_fase())
                     if botao_fase3.checkForInput(selecao_mouse):
-                        fs = Fase(12*dific, model)
-                        screen_manager.push_screen(fs.desenhar_fase())
+                        try:
+                            fs = Fase(12*dific, model)
+                            screen_manager.push_screen(fs.desenhar_fase())
+                        except:
+                            fs = Fase(12, model)
+                            screen_manager.push_screen(fs.desenhar_fase())
                     if botao_selecionar_veiculo.checkForInput(selecao_mouse):
                         model = Selecao_carro.escolhe_modelo()
                         screen_manager.push_screen(Selecao_carro.escolhe_modelo())
