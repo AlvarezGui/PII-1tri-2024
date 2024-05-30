@@ -34,14 +34,14 @@ class Main_menu():
         fundo_button = SpriteSheet().cria_fundo_botao(200)
 
         # LOGO
-        logo_image = SpriteSheet().cria_logo(SCREEN_WIDTH - 400)
+        logo_image = SpriteSheet().cria_logo(SCREEN_WIDTH - 500)
 
         while running:
             pygame.display.set_caption("Menu")
 
             #Sobreposição de telas
             screen.blit(fundo_image, (0,0))
-            screen.blit(logo_image, (SCREEN_WIDTH/2 - logo_image.get_width()/2, 50))
+            screen.blit(logo_image, (SCREEN_WIDTH/2 - logo_image.get_width()/2, 30))
 
             menu_mouse = pygame.mouse.get_pos()
 
