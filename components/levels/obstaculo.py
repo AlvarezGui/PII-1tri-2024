@@ -41,7 +41,7 @@ class Obstaculo(pygame.sprite.Sprite):
         rectJogador = pygame.Rect(jogador.x, jogador.y, jogador.JOGADOR_WIDTH, jogador.JOGADOR_HEIGHT)
         if self.rect.colliderect(rectJogador):
             jogador.tira_vida()
-            print(jogador.vida)
+            self.respawn()
 
         # Checar se o objeto está fora da tela
         if self.y > self.SH + 50:

@@ -27,9 +27,11 @@ class Fase():
         self.alternativas = 4
         self.resposta_correta = "B"
 
+        self.qnt_pontos = 0
+
         # FONTE
-        CAMINHO_FONTE = "./m6x11plus.ttf"
-        self.base_font = pygame.font.Font(CAMINHO_FONTE, 60)
+        self.CAMINHO_FONTE = "./m6x11plus.ttf"
+        self.base_font = pygame.font.Font(self.CAMINHO_FONTE, 60)
 
     def desenhar_fase(self):
         running = True
@@ -37,7 +39,7 @@ class Fase():
         fundo_image = Screen.cria_fundo(self.SCREEN_WIDTH)
         fundo_crono = SpriteSheet().cria_fundo_crono(150)
 
-        # CIRANDO COMPONENTES DE FASE
+        # CRIANDO COMPONENTES DE FASE
         #JOGADOR
         jgdr = Jogador(self.SCREEN_WIDTH, self.SCREEN_HEIGHT, self.screen, self.model)
         self.all_sprites.add(jgdr)
@@ -70,8 +72,15 @@ class Fase():
             self.screen.blit(fundo_crono, (25, 40))
             self.screen.blit(crono, (50, 50))
 
+            label_vidas = pygame.font.Font(self.CAMINHO_FONTE, 20).render("VIDAS", True, ("white"))
+            self.screen.blit(label_vidas, (200, 30))
             vidas = self.base_font.render(str(jgdr.vida), True, ("white"))
             self.screen.blit(vidas, (200, 50))
+
+            label_pontos = pygame.font.Font(self.CAMINHO_FONTE, 20).render("PONTOS", True, ("white"))
+            self.screen.blit(label_pontos, (300, 30))
+            pontos = self.base_font.render(str(self.qnt_pontos), True, ("white"))
+            self.screen.blit(pontos, (300, 50))
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -81,6 +90,7 @@ class Fase():
                     if botao_sair.checkForInput(jogar_mouse):
                         self.screen_manager.pop_screen()
                         running = False
+                        return self.qnt_pontos
 
             if self.dific > 5:
                 for quest in self.questions:
@@ -96,6 +106,7 @@ class Fase():
                         perg = PerguntaJogo(self.enunciado, self.alternativas, self.resposta_correta, self.repostas).run()
                         self.screen_manager.push_screen(perg)
                         if perg:
+                            self.qnt_pontos += 100
                             for q in self.questions:
                                 q.is_active = False
                                 q.respawn()
@@ -125,4 +136,5 @@ class Fase():
             if jgdr.vida <= 0:
                 running = False
                 self.screen_manager.pop_screen()
+                return self.qnt_pontos
             clock.tick(60)

@@ -26,7 +26,7 @@ class Jogador(pygame.sprite.Sprite):
         self.vida = 10
         self.image_boost = modelo[1]
         self.invencivel = False
-        self.tempo_invencivel = 2  # Tempo de invencibilidade em segundos
+        self.tempo_invencivel = 0.8  # Tempo de invencibilidade em segundos
         self.ultimo_hit = 0
 
     def update(self, keys):

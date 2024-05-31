@@ -13,10 +13,11 @@ screen_manager = Screen_manager()
 
 
 class Selecao_fase():
-    def seleciona_fase(dific):
+    def __init__(self):
+        self.pontos = 0
+    def seleciona_fase(self, dific):
         # IMAGEM DO BOTÃO
         fundo_button = SpriteSheet().cria_fundo_botao(200)
-
 
         # FUNDO DA TELA
         fundo_image = Screen.cria_fundo(SCREEN_WIDTH)
@@ -54,24 +55,36 @@ class Selecao_fase():
                     if botao_fase1.checkForInput(selecao_mouse):
                         try:
                             fs = Fase(3*dific, model)
-                            screen_manager.push_screen(fs.desenhar_fase())
+                            result = fs.desenhar_fase()
+                            screen_manager.push_screen(result)
+                            self.pontos += result
                         except:
                             fs = Fase(3, model)
-                            screen_manager.push_screen(fs.desenhar_fase())
+                            result = fs.desenhar_fase()
+                            screen_manager.push_screen(result)
+                            self.pontos += result
                     if botao_fase2.checkForInput(selecao_mouse):
                         try:
                             fs = Fase(6*dific, model)
-                            screen_manager.push_screen(fs.desenhar_fase())
+                            result = fs.desenhar_fase()
+                            screen_manager.push_screen(result)
+                            self.pontos += result
                         except:
                             fs = Fase(6, model)
-                            screen_manager.push_screen(fs.desenhar_fase())
+                            result = fs.desenhar_fase()
+                            screen_manager.push_screen(result)
+                            self.pontos += result
                     if botao_fase3.checkForInput(selecao_mouse):
                         try:
                             fs = Fase(12*dific, model)
-                            screen_manager.push_screen(fs.desenhar_fase())
+                            result = fs.desenhar_fase()
+                            screen_manager.push_screen(result)
+                            self.pontos += result
                         except:
                             fs = Fase(12, model)
-                            screen_manager.push_screen(fs.desenhar_fase())
+                            result = fs.desenhar_fase()
+                            screen_manager.push_screen(result)
+                            self.pontos += result
                     if botao_selecionar_veiculo.checkForInput(selecao_mouse):
                         model = Selecao_carro.escolhe_modelo()
                         screen_manager.push_screen(Selecao_carro.escolhe_modelo())
@@ -79,4 +92,6 @@ class Selecao_fase():
                         screen_manager.pop_screen()
                         running = False  # Volta para a tela anterior
                     
+    def get_pontos(self):
+        return self.pontos
 

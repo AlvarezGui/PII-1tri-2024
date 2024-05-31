@@ -119,7 +119,6 @@ class PerguntaJogo:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if self.alternativas == 5:
                         if botao_a.checkForInput(selecao_mouse):
-                            print("Alternativa A")
                             if self.resposta_correta == "a":
                                 screen_manager.pop_screen()
                                 return True
@@ -127,7 +126,6 @@ class PerguntaJogo:
                                 screen_manager.pop_screen()
                                 return False
                         if botao_b.checkForInput(selecao_mouse):
-                            print("Alternativa B")
                             if self.resposta_correta == "b":
                                 screen_manager.pop_screen()
                                 return True
@@ -135,7 +133,6 @@ class PerguntaJogo:
                                 screen_manager.pop_screen()
                                 return False
                         if botao_c.checkForInput(selecao_mouse):
-                            print("Alternativa C")
                             if self.resposta_correta == "c":
                                 screen_manager.pop_screen()
                                 return True
@@ -143,7 +140,6 @@ class PerguntaJogo:
                                 screen_manager.pop_screen()
                                 return False
                         if botao_d.checkForInput(selecao_mouse):
-                            print("Alternativa D")
                             if self.resposta_correta == "d":
                                 screen_manager.pop_screen()
                                 return True
@@ -151,7 +147,6 @@ class PerguntaJogo:
                                 screen_manager.pop_screen()
                                 return False
                         if botao_e.checkForInput(selecao_mouse):
-                            print("Alternativa E")
                             if self.resposta_correta == "e":
                                 screen_manager.pop_screen()
                                 return True
@@ -161,7 +156,6 @@ class PerguntaJogo:
                             
                     else:
                         if botao_a.checkForInput(selecao_mouse):
-                            print("Alternativa A")
                             if self.resposta_correta == "a":
                                 screen_manager.pop_screen()
                                 return True
@@ -169,7 +163,6 @@ class PerguntaJogo:
                                 screen_manager.pop_screen()
                                 return False
                         if botao_b.checkForInput(selecao_mouse):
-                            print("Alternativa B")
                             if self.resposta_correta == "b":
                                 screen_manager.pop_screen()
                                 return True
@@ -177,7 +170,6 @@ class PerguntaJogo:
                                 screen_manager.pop_screen()
                                 return False
                         if botao_c.checkForInput(selecao_mouse):
-                            print("Alternativa C")
                             if self.resposta_correta == "c":
                                 screen_manager.pop_screen()
                                 return True
@@ -185,7 +177,6 @@ class PerguntaJogo:
                                 screen_manager.pop_screen()
                                 return False
                         if botao_d.checkForInput(selecao_mouse):
-                            print("Alternativa D")
                             if self.resposta_correta == "d":
                                 screen_manager.pop_screen()
                                 return True

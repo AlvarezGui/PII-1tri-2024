@@ -16,6 +16,9 @@ SCREEN_HEIGHT = 800
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 screen_manager = Screen_manager()
 
+CAMINHO_FONTE = "./m6x11plus.ttf"
+base_font = pygame.font.Font(CAMINHO_FONTE, 60)
+
 
 class Main_menu():
     dific: int
@@ -36,6 +39,8 @@ class Main_menu():
         # LOGO
         logo_image = SpriteSheet().cria_logo(SCREEN_WIDTH - 500)
 
+        selecao = Selecao_fase()
+
         while running:
             pygame.display.set_caption("Menu")
 
@@ -49,10 +54,15 @@ class Main_menu():
             botao_jogar = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 400), text_input="JOGAR")
             botao_config = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 525), text_input="AJUSTES")
             botao_sair = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 650), text_input="SAIR")
-            botao_deslogar = Button(image=fundo_button, pos=(100, 70), text_input="DESLOGAR")
+            botao_deslogar = Button(image=fundo_button, pos=(120, 70), text_input="DESLOGAR")
             for button in [botao_jogar, botao_config, botao_sair, botao_deslogar]:
                 button.changeColor(menu_mouse)
                 button.update(screen)
+
+            label_pontos = pygame.font.Font(CAMINHO_FONTE, 20).render("PONTOS", True, ("white"))
+            screen.blit(label_pontos, (200, 580))
+            pontos = base_font.render(str(selecao.get_pontos()), True, ("white"))
+            screen.blit(pontos, (200, 600))
 
             pygame.display.update()
 
@@ -64,7 +74,7 @@ class Main_menu():
                 #Manejando os botões
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_jogar.checkForInput(menu_mouse):
-                        screen_manager.push_screen(Selecao_fase.seleciona_fase(self.dific))
+                        screen_manager.push_screen(selecao.seleciona_fase(self.dific))
                     if botao_config.checkForInput(menu_mouse):
                         screen_manager.push_screen(configu.mostra_config())
                         self.dific = configu.get_dific()
