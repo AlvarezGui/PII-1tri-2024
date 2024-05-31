@@ -18,7 +18,7 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 screen_manager = Screen_manager()
 
 CAMINHO_FONTE = "./m6x11plus.ttf"
-base_font = pygame.font.Font(CAMINHO_FONTE, 60)
+base_font = pygame.font.Font(CAMINHO_FONTE, 50)
 
 
 class Main_menu():
@@ -67,9 +67,9 @@ class Main_menu():
             screen.blit(pontos, (20, 600))
 
             label_usuario = pygame.font.Font(CAMINHO_FONTE, 20).render("PONTOS", True, ("white"))
-            screen.blit(label_usuario, (20, 560))
+            screen.blit(label_usuario, (20, 520))
             user = base_font.render(str(usuario), True, ("white"))
-            screen.blit(user, (20, 570))
+            screen.blit(user, (20, 530))
 
             pygame.display.update()
 

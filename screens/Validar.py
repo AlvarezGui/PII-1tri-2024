@@ -42,7 +42,8 @@ class Validar():
             return result
         else:
             # TODO avisar que o email tem que ser da escola
-            return "E-MAIL INVÁLIDO"
+            # "E-MAIL INVÁLIDO"
+            return None
             
 
     def run(self):
@@ -85,6 +86,7 @@ class Validar():
                         else:
                             mensagem_erro = None
                             resultado = self.entrar(usuario, senha)
+                            print(resultado)
                             try: 
                                 if resultado:
                                     screen_manager.push_screen(Main_menu().abre_menu_principal(usuario))

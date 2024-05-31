@@ -1,3 +1,4 @@
+from random import randint
 import time
 import pygame
 from components.Button import Button
@@ -24,18 +25,11 @@ class Fase():
         self.all_sprites = Group()
         self.obstacles = Group()
         self.questions = Group()
-        self.pergunta = cnx.solicitar_pergunta(1)
-        print(self.pergunta)
-        print(self.pergunta[1])
-        self.enunciado = self.pergunta[1]
-        self.respostas = (self.pergunta[3], self.pergunta[4], self.pergunta[5], self.pergunta[6], self.pergunta[7])
-        self.alternativas = 5
-        self.resposta_correta = self.pergunta[2]
         
-        # self.enunciado = "Quanto é 6 + 7?"
-        # self.repostas = ("12", "13", "14", "15")
-        # self.alternativas = 4
-        # self.resposta_correta = "B"
+        # PERGUNTAS
+        self.perguntas = []
+        for c in range(dific):
+            self.perguntas.append(cnx.solicitar_pergunta(c))
 
         self.qnt_pontos = 0
 
@@ -113,6 +107,15 @@ class Fase():
                         keys = pygame.key.get_pressed()
                         jgdr.update(keys)
                     else:
+                        # DECIDINDO UMA PERGUNTA
+                        selecao = randint(len(self.perguntas))-1
+                        agora = self.perguntas[selecao]
+                        self.enunciado = agora[1]
+                        self.respostas = (agora[3], agora[4], agora[5], agora[6], agora[7])
+                        self.alternativas = len(self.respostas)
+                        self.resposta_correta = agora[2]
+
+                        # FAZENDO A PERGUNTA
                         perg = PerguntaJogo(self.enunciado, self.alternativas, self.resposta_correta, self.respostas).run()
                         self.screen_manager.push_screen(perg)
                         if perg:

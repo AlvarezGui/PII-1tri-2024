@@ -3,7 +3,7 @@ from mysql.connector import (connection)
 class connector():
     
     def __init__(self):
-        self.cnx = connection.MySQLConnection(user='user', password='senha', host='host', port='port') 
+        self.cnx = connection.MySQLConnection(user=user, password=password, host=host, port=port) 
         self.cursor = self.cnx.cursor(buffered=True)
 
         self.cursor.execute("USE teste")
