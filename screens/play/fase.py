@@ -1,5 +1,7 @@
+import time
 import pygame
 from components.Button import Button
+from components.SpriteSheet import SpriteSheet
 from components.levels.jogador import Jogador
 from components.levels.obstaculo import Obstaculo
 from components.levels.perguntaBox import PerguntaBox
@@ -20,21 +22,31 @@ class Fase():
         self.all_sprites = Group()
         self.obstacles = Group()
         self.questions = Group()
-        self.enunciado = ""
-        self.alternativas = 5
-        self.resposta_correta = "a"
+        self.enunciado = "Quanto é 6 + 7?"
+        self.repostas = ("12", "13", "14", "15")
+        self.alternativas = 4
+        self.resposta_correta = "B"
+
+        # FONTE
+        CAMINHO_FONTE = "./m6x11plus.ttf"
+        self.base_font = pygame.font.Font(CAMINHO_FONTE, 60)
 
     def desenhar_fase(self):
         running = True
+        # CRIANDO IMAGENS
         fundo_image = Screen.cria_fundo(self.SCREEN_WIDTH)
+        fundo_crono = SpriteSheet().cria_fundo_crono(150)
+
+        # CIRANDO COMPONENTES DE FASE
+        #JOGADOR
         jgdr = Jogador(self.SCREEN_WIDTH, self.SCREEN_HEIGHT, self.screen, self.model)
         self.all_sprites.add(jgdr)
-
+        # OBSTÁCULOS
         for i in range(self.dific):
             obs = Obstaculo(self.SCREEN_WIDTH, self.SCREEN_HEIGHT, self.screen, self.dific)
             self.obstacles.add(obs)
             self.all_sprites.add(obs)
-
+        # PERGUNTASBOX
         if self.dific > 5:
             for c in range(self.dific // 5):
                 quest = PerguntaBox(self.SCREEN_WIDTH, self.SCREEN_HEIGHT, self.screen)
@@ -43,11 +55,23 @@ class Fase():
 
         botao_sair = Button(image=None, pos=(self.SCREEN_WIDTH * 2/3, 750), text_input="VOLTAR")
 
+        #DEFININDO O TEMPO COMEÇO
+        self.tempo_inicio = time.time()
+        
+        # SETANDO QUESTÕES COMO NÃO ATIVAS
         for q in self.questions:
             q.is_active = False
 
         while running:
+            # SETANDO O CRONOMETRO
+            self.tempo_atual = time.strftime("%M:%S", time.gmtime(time.time() - self.tempo_inicio))
+            crono = self.base_font.render(self.tempo_atual, True, ('white'))
             self.screen.blit(fundo_image, (0, 0))
+            self.screen.blit(fundo_crono, (25, 40))
+            self.screen.blit(crono, (50, 50))
+
+            vidas = self.base_font.render(str(jgdr.vida), True, ("white"))
+            self.screen.blit(vidas, (200, 50))
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -57,12 +81,6 @@ class Fase():
                     if botao_sair.checkForInput(jogar_mouse):
                         self.screen_manager.pop_screen()
                         running = False
-                    # if botao_teste.checkForInput(jogar_mouse):
-                    #     for q in self.questions:
-                    #         q.is_active = False
-                    #         q.respawn()
-                    #     for o in self.obstacles:
-                    #         o.respawn()
 
             if self.dific > 5:
                 for quest in self.questions:
@@ -75,7 +93,7 @@ class Fase():
                         keys = pygame.key.get_pressed()
                         jgdr.update(keys)
                     else:
-                        perg = PerguntaJogo(self.enunciado, self.alternativas, self.resposta_correta).run()
+                        perg = PerguntaJogo(self.enunciado, self.alternativas, self.resposta_correta, self.repostas).run()
                         self.screen_manager.push_screen(perg)
                         if perg:
                             for q in self.questions:
@@ -83,6 +101,13 @@ class Fase():
                                 q.respawn()
                             for o in self.obstacles:
                                 o.respawn()
+                        if not perg:
+                            for q in self.questions:
+                                q.is_active = False
+                                q.respawn()
+                            for o in self.obstacles:
+                                o.respawn()
+                            jgdr.tira_vida()
             else:
                 for obs in self.obstacles:
                     obs.update(jgdr)

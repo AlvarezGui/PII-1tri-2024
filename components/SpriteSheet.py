@@ -72,4 +72,12 @@ class SpriteSheet():
         PAINEL_HEIGHT = int(PAINEL_WIDTH / aspect_ratio)
         logo = pygame.transform.scale(painel, (PAINEL_WIDTH, PAINEL_HEIGHT))
         return logo
+    
+    def cria_fundo_crono(self, width):
+        fundo_crono = SpriteSheet().image_at(rectangle=(717, 1026, 792, 427), colorkey=-1).convert_alpha()
+        FUND_WIDTH = width
+        aspect_ratio = fundo_crono.get_width() / fundo_crono.get_height()
+        FUND_HEIGHT = int(FUND_WIDTH / aspect_ratio)
+        fundo_crono = pygame.transform.scale(fundo_crono, (FUND_WIDTH, FUND_HEIGHT))
+        return fundo_crono
 
