@@ -113,7 +113,7 @@ class Fase():
                         keys = pygame.key.get_pressed()
                         jgdr.update(keys)
                     else:
-                        perg = PerguntaJogo(self.enunciado, self.alternativas, self.resposta_correta, self.repostas).run()
+                        perg = PerguntaJogo(self.enunciado, self.alternativas, self.resposta_correta, self.respostas).run()
                         self.screen_manager.push_screen(perg)
                         if perg:
                             self.qnt_pontos += 100
