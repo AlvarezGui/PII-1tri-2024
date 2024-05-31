@@ -41,6 +41,7 @@ class Validar():
             
 
     def run(self):
+        mensagem_erro = None
         while self.running:
             musica = Music()
             musica.play()
@@ -69,15 +70,16 @@ class Validar():
 
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_logar.checkForInput(logar_mouse):
-                        print(f"Tentou logar com usuário: {self.input_usuario.get_input()} e senha: {self.input_senha.get_input()}")
-                        self.entrar(self.input_usuario.get_input(), self.input_senha.get_input())
-                        for c in [self.input_usuario, self.input_senha]:
-                            if c.get_input() == "":
-                                erro = base_font.render("TODOS OS CAMPOS DEVEM SER PREENCHIDOS!", True, ('white'))
-                                screen.blit(erro, (SCREEN_WIDTH/2 , 50))
-                            else:
-                                self.valida += 1
-                        if self.valida == 2:
+                        usuario = self.input_usuario.get_input()
+                        senha = self.input_senha.get_input()
+                        print(f"Tentou logar com usuário: {usuario} e senha: {senha}")
+                        
+                        # Verifique se os campos estão preenchidos
+                        if not usuario or not senha:
+                            mensagem_erro = "TODOS OS CAMPOS DEVEM SER PREENCHIDOS!"
+                        else:
+                            mensagem_erro = None
+                            self.entrar(usuario, senha)
                             screen_manager.push_screen(Main_menu().abre_menu_principal())
                     if botao_criar_conta.checkForInput(logar_mouse):
                         print("Tentou criar conta")
@@ -85,6 +87,10 @@ class Validar():
                     if botao_sair.checkForInput(logar_mouse):
                         pygame.quit()
                         sys.exit()
+
+            if mensagem_erro:
+                erro = base_font.render(mensagem_erro, True, ('white'))
+                screen.blit(erro, (SCREEN_WIDTH/2 - erro.get_width() / 2, 50))
 
             self.input_usuario.run_inputbox()
             self.input_senha.run_inputbox()
