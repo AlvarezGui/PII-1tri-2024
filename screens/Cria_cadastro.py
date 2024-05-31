@@ -3,7 +3,7 @@ import sys
 from backend.connector import connector
 from components.Inputbox import InputBox
 from components.SpriteSheet import SpriteSheet
-from screens.screen import Screen, Screen_manager
+from screens.screen import Screen_manager
 from components.Button import Button
 
 # SCREEN PARAMETERS
@@ -30,9 +30,11 @@ class Cria_cadastro():
     def criar_conta(self, nome, email, senha, turma):
         print(f"Nome: {nome} \nEmail: {email} \nSenha: {senha} \nTurma: {turma}")
         if turma.lower() == "professor":
-            cnx.adicionar_professor(nome, email, senha)
+            result = cnx.adicionar_professor(nome, email, senha)
+            return result
         else:
-            cnx.adicionar_aluno(nome, email, senha, turma)
+            result = cnx.adicionar_aluno(nome, email, senha, turma)
+            return result
         
 
     def run(self):
@@ -59,8 +61,22 @@ class Cria_cadastro():
 
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_cadastrar.checkForInput(logar_mouse):
-                        print("Tentou criar conta")
-                        self.criar_conta(self.input_nome.get_input(), self.input_email.get_input(), self.input_senha.get_input(), self.input_turma.get_input())
+                        usuario = self.input_nome.get_input()
+                        email = self.input_email.get_input()
+                        senha = self.input_senha.get_input()
+                        turma = self.input_turma.get_input()
+
+                        # Verifique se os campos estão preenchidos
+                        if not usuario or not senha or not email or not turma:
+                            mensagem_erro = "TODOS OS CAMPOS DEVEM SER PREENCHIDOS!"
+                        else:
+                            mensagem_erro = None
+                            resultado = self.criar_conta(usuario, email, senha, turma)
+                            if resultado:
+                                screen_manager.pop_screen()
+                            else:
+                                mensagem_erro = "ERRO AO CADASTRAR!"
+                       
                     if botao_sair.checkForInput(logar_mouse):
                         screen_manager.pop_screen()
                         self.running = False
@@ -69,4 +85,8 @@ class Cria_cadastro():
             self.input_email.run_inputbox()
             self.input_senha.run_inputbox()
             self.input_turma.run_inputbox()
+
+            if mensagem_erro:
+                erro = base_font.render(mensagem_erro, True, ('white'))
+                screen.blit(erro, (SCREEN_WIDTH/2 - erro.get_width() / 2, 50))
             pygame.display.update()

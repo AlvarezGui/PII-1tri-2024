@@ -14,7 +14,13 @@ CAMINHO_FONTE = "./m6x11plus.ttf"
 base_font = pygame.font.Font(CAMINHO_FONTE, 32)
 
 class PerguntaJogo:
+    enunciado = str
+    alternativas = int
+    resposta_correta = str
+    respostas = []
+    
     def __init__(self, enunciado, alternativas, resposta_correta, respostas):
+        print(12)
         self.enunciado = enunciado
         self.alternativas = alternativas
         self.resposta_correta = resposta_correta.lower()

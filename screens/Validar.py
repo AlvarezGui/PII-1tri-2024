@@ -35,9 +35,14 @@ class Validar():
     def entrar(self, usuario, senha):
         print(f"Usuario: {usuario} \nSenha: {senha}")
         if usuario.endswith("@jpiaget.pro.br"):
-            cnx.verificar_professor(usuario, senha)
+            result = cnx.verificar_professor(usuario, senha)
+            return result
         elif usuario.endswith("@jpiaget.g12.br"):
-            cnx.verificar_aluno(usuario, senha)
+            result = cnx.verificar_aluno(usuario, senha)
+            return result
+        else:
+            # TODO avisar que o email tem que ser da escola
+            return "E-MAIL INVÁLIDO"
             
 
     def run(self):
@@ -79,8 +84,14 @@ class Validar():
                             mensagem_erro = "TODOS OS CAMPOS DEVEM SER PREENCHIDOS!"
                         else:
                             mensagem_erro = None
-                            self.entrar(usuario, senha)
-                            screen_manager.push_screen(Main_menu().abre_menu_principal())
+                            resultado = self.entrar(usuario, senha)
+                            try: 
+                                if resultado:
+                                    screen_manager.push_screen(Main_menu().abre_menu_principal(usuario))
+                                else:
+                                    mensagem_erro = "USUÁRIO OU SENHA INVÁLIDOS!"
+                            except:
+                                mensagem_erro = resultado
                     if botao_criar_conta.checkForInput(logar_mouse):
                         print("Tentou criar conta")
                         screen_manager.push_screen(Cria_cadastro().run())

@@ -1,6 +1,7 @@
 import time
 import pygame
 from components.Button import Button
+from backend.connector import connector
 from components.SpriteSheet import SpriteSheet
 from components.levels.jogador import Jogador
 from components.levels.obstaculo import Obstaculo
@@ -10,6 +11,7 @@ from screens.screen import Screen_manager, Screen
 from pygame.sprite import Group
 
 clock = pygame.time.Clock()
+cnx = connector()
 
 class Fase():
     def __init__(self, dific, model):
@@ -22,10 +24,18 @@ class Fase():
         self.all_sprites = Group()
         self.obstacles = Group()
         self.questions = Group()
-        self.enunciado = "Quanto é 6 + 7?"
-        self.repostas = ("12", "13", "14", "15")
-        self.alternativas = 4
-        self.resposta_correta = "B"
+        self.pergunta = cnx.solicitar_pergunta(1)
+        print(self.pergunta)
+        print(self.pergunta[1])
+        self.enunciado = self.pergunta[1]
+        self.respostas = (self.pergunta[3], self.pergunta[4], self.pergunta[5], self.pergunta[6], self.pergunta[7])
+        self.alternativas = 5
+        self.resposta_correta = self.pergunta[2]
+        
+        # self.enunciado = "Quanto é 6 + 7?"
+        # self.repostas = ("12", "13", "14", "15")
+        # self.alternativas = 4
+        # self.resposta_correta = "B"
 
         self.qnt_pontos = 0
 

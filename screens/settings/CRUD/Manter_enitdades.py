@@ -31,8 +31,6 @@ class Manter_entidades:
         fundo_painel = SpriteSheet().cria_painel(SCREEN_WIDTH-100)
 
         while running:
-            if self.tipo == 'perguntas':
-                pygame.display.set_caption("Perguntas")
             if self.tipo == 'turmas':
                 pygame.display.set_caption("Turmas")
             if self.tipo == 'contas':
@@ -59,8 +57,6 @@ class Manter_entidades:
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_criar.checkForInput(selecao_mouse):
-                        if self.tipo == 'perguntas':
-                            screen_manager.push_screen(Cria_pergunta().run())
                         if self.tipo == 'turmas':
                             screen_manager.push_screen(Cria_turma().run())
                         if self.tipo == 'contas':

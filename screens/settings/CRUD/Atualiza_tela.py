@@ -3,7 +3,7 @@ import pygame
 import sys
 from components.Button import Button
 from components.SpriteSheet import SpriteSheet
-from screens.screen import Screen, Screen_manager
+from screens.screen import Screen_manager
 
 SCREEN_WIDTH = 1020
 SCREEN_HEIGHT = 800
@@ -26,8 +26,6 @@ class Atualiza:
         fundo_painel = SpriteSheet().cria_painel(SCREEN_WIDTH-100)
 
         while running:
-            if self.tipo == 'perguntas':
-                pygame.display.set_caption("Perguntas")
             if self.tipo == 'turmas':
                 pygame.display.set_caption("Turmas")
             if self.tipo == 'contas':
@@ -55,8 +53,6 @@ class Atualiza:
                         print("Tentou editar")
                         if self.tipo == 'turmas':
                             print("tentou editar uma turma")
-                        if self.tipo == 'perguntas':
-                            print("tentou editar perguntas")
                         if self.tipo == 'contas':
                             print("tentou editar contas")
                     if botao_voltar.checkForInput(selecao_mouse):

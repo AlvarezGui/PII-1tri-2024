@@ -26,8 +26,6 @@ class Delete:
         fundo_painel = SpriteSheet().cria_painel(SCREEN_WIDTH-100)
 
         while running:
-            if self.tipo == 'perguntas':
-                pygame.display.set_caption("Perguntas")
             if self.tipo == 'turmas':
                 pygame.display.set_caption("Turmas")
             if self.tipo == 'contas':
@@ -55,8 +53,6 @@ class Delete:
                         print("Tentou deletar")
                         if self.tipo == 'turmas':
                             print("tentou deletar uma turma")
-                        if self.tipo == 'perguntas':
-                            print("tentou deletar perguntas")
                         if self.tipo == 'contas':
                             print("tentou deletar contas")
                     if botao_voltar.checkForInput(selecao_mouse):

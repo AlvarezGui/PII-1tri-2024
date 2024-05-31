@@ -26,11 +26,10 @@ class Manter:
             selecao_mouse = pygame.mouse.get_pos()
 
             botao_turma = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 150), text_input="TURMAS")
-            botao_conta = Button(image=fundo_button, pos=(SCREEN_WIDTH/2 - 250 , 400), text_input="CONTAS")
-            botao_pergunta = Button(image=fundo_button, pos=(SCREEN_WIDTH/2 + 250, 400), text_input="PERGUNTAS")
+            botao_conta = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 400), text_input="CONTAS")
             botao_voltar = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 650), text_input="VOLTAR")
 
-            for button in [botao_pergunta, botao_conta, botao_turma, botao_voltar]:
+            for button in [ botao_conta, botao_turma, botao_voltar]:
                 button.changeColor(selecao_mouse)
                 button.update(screen)
 
@@ -46,8 +45,6 @@ class Manter:
                         screen_manager.push_screen(Manter_entidades('turmas').mostra_entidades())
                     if botao_conta.checkForInput(selecao_mouse):
                         screen_manager.push_screen(Manter_entidades('contas').mostra_entidades())
-                    if botao_pergunta.checkForInput(selecao_mouse):
-                        screen_manager.push_screen(Manter_entidades('perguntas').mostra_entidades())
                     if botao_voltar.checkForInput(selecao_mouse):
                         screen_manager.pop_screen()
                         running = False

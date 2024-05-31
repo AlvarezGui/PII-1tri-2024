@@ -27,7 +27,7 @@ class Main_menu():
     def __init__(self):
         self.dific = 1
 
-    def abre_menu_principal(self):
+    def abre_menu_principal(self, usuario):
         running = True
         configu = config()
 
@@ -65,6 +65,11 @@ class Main_menu():
             screen.blit(label_pontos, (20, 590))
             pontos = base_font.render(str(selecao.get_pontos()), True, ("white"))
             screen.blit(pontos, (20, 600))
+
+            label_usuario = pygame.font.Font(CAMINHO_FONTE, 20).render("PONTOS", True, ("white"))
+            screen.blit(label_usuario, (20, 560))
+            user = base_font.render(str(usuario), True, ("white"))
+            screen.blit(user, (20, 570))
 
             pygame.display.update()
 
