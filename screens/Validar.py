@@ -30,6 +30,7 @@ class Validar():
         self.running = True
         self.input_usuario = InputBox("E-MAIL:", screen, 200, 196, 600, 40, 32)
         self.input_senha = InputBox("SENHA:", screen, 200, 296, 600, 40, 32)
+        self.valida = 0
 
     def entrar(self, usuario, senha):
         print(f"Usuario: {usuario} \nSenha: {senha}")
@@ -70,7 +71,14 @@ class Validar():
                     if botao_logar.checkForInput(logar_mouse):
                         print(f"Tentou logar com usuário: {self.input_usuario.get_input()} e senha: {self.input_senha.get_input()}")
                         self.entrar(self.input_usuario.get_input(), self.input_senha.get_input())
-                        screen_manager.push_screen(Main_menu().abre_menu_principal())
+                        for c in [self.input_usuario, self.input_senha]:
+                            if c.get_input() == "":
+                                erro = base_font.render("TODOS OS CAMPOS DEVEM SER PREENCHIDOS!", True, ('white'))
+                                screen.blit(erro, (SCREEN_WIDTH/2 , 50))
+                            else:
+                                self.valida += 1
+                        if self.valida == 2:
+                            screen_manager.push_screen(Main_menu().abre_menu_principal())
                     if botao_criar_conta.checkForInput(logar_mouse):
                         print("Tentou criar conta")
                         screen_manager.push_screen(Cria_cadastro().run())

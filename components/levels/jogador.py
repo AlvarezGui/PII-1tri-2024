@@ -22,7 +22,6 @@ class Jogador(pygame.sprite.Sprite):
         self.rect.topleft = (self.x, self.y)
 
         self.speed = 6
-        self.pontos = 10
         self.vida = 10
         self.image_boost = modelo[1]
         self.invencivel = False
