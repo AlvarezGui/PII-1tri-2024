@@ -1,3 +1,4 @@
+import time
 import pygame
 from components.SpriteSheet import SpriteSheet
 
@@ -24,6 +25,9 @@ class Jogador(pygame.sprite.Sprite):
         self.pontos = 10
         self.vida = 10
         self.image_boost = modelo[1]
+        self.invencivel = False
+        self.tempo_invencivel = 2  # Tempo de invencibilidade em segundos
+        self.ultimo_hit = 0
 
     def update(self, keys):
         pos_antiga = (self.x, self.y)
@@ -40,6 +44,9 @@ class Jogador(pygame.sprite.Sprite):
         pos_atual = (self.x, self.y)
         self.is_moving = pos_antiga != pos_atual
 
+        if self.invencivel and time.time() - self.ultimo_hit > self.tempo_invencivel:
+            self.invencivel = False
+
         self.rect.topleft = (self.x, self.y)
         if self.is_moving:
             self.image = pygame.transform.scale(self.image_boost, (self.JOGADOR_WIDTH, self.JOGADOR_HEIGHT))
@@ -50,7 +57,10 @@ class Jogador(pygame.sprite.Sprite):
         self.y = max(0, min(self.y, self.SH - self.JOGADOR_HEIGHT))
 
     def tira_vida(self):
-        self.vida -= 1
+        if not self.invencivel:
+            self.vida -= 1
+            self.invencivel = True
+            self.ultimo_hit = time.time()
 
     @staticmethod
     def carro_modelo(modelo):
