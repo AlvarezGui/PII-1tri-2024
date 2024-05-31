@@ -93,7 +93,7 @@ class Validar():
                                 else:
                                     mensagem_erro = "USUÁRIO OU SENHA INVÁLIDOS!"
                             except:
-                                mensagem_erro = resultado
+                                mensagem_erro = "Email inválido"
                     if botao_criar_conta.checkForInput(logar_mouse):
                         print("Tentou criar conta")
                         screen_manager.push_screen(Cria_cadastro().run())
