@@ -2,6 +2,7 @@ import pygame
 import sys
 from components.Button import Button
 from components.SpriteSheet import SpriteSheet
+from screens.ranking import Ranking
 from screens.screen import Screen_manager, Screen
 from screens.play.selecao_fase import Selecao_fase
 from screens.settings.config import config
@@ -55,14 +56,15 @@ class Main_menu():
             botao_config = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 525), text_input="AJUSTES")
             botao_sair = Button(image=fundo_button, pos=(SCREEN_WIDTH/2, 650), text_input="SAIR")
             botao_deslogar = Button(image=fundo_button, pos=(120, 70), text_input="DESLOGAR")
-            for button in [botao_jogar, botao_config, botao_sair, botao_deslogar]:
+            botao_ranking = Button(image=fundo_button, pos=(120, 720), text_input="RANKING")
+            for button in [botao_jogar, botao_config, botao_ranking, botao_sair, botao_deslogar]:
                 button.changeColor(menu_mouse)
                 button.update(screen)
 
             label_pontos = pygame.font.Font(CAMINHO_FONTE, 20).render("PONTOS", True, ("white"))
-            screen.blit(label_pontos, (200, 580))
+            screen.blit(label_pontos, (20, 590))
             pontos = base_font.render(str(selecao.get_pontos()), True, ("white"))
-            screen.blit(pontos, (200, 600))
+            screen.blit(pontos, (20, 600))
 
             pygame.display.update()
 
@@ -81,6 +83,8 @@ class Main_menu():
                     if botao_deslogar.checkForInput(menu_mouse):
                         screen_manager.pop_screen()
                         running = False
+                    if botao_ranking.checkForInput(menu_mouse):
+                        screen_manager.push_screen(Ranking().mostra_ranking())
                     if botao_sair.checkForInput(menu_mouse):
                         pygame.quit()
                         sys.exit()
