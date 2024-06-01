@@ -65,12 +65,23 @@ class Fase():
         # SETANDO QUESTÕES COMO NÃO ATIVAS
         for q in self.questions:
             q.is_active = False
+        
+        y = 0
+        fundo_height = fundo_image.get_height()
 
         while running:
+            self.screen.fill((0, 0, 0))
+            # Move o fundo para criar a ilusão de avanço
+            y += 3  # Ajuste a velocidade de rolagem conforme necessário
+            if y >= fundo_height:
+                y = 0
+
+            self.screen.blit(fundo_image, (0, y))
+            self.screen.blit(fundo_image, (0, y - fundo_height))
+
             # SETANDO O CRONOMETRO
             self.tempo_atual = time.strftime("%M:%S", time.gmtime(time.time() - self.tempo_inicio))
             crono = self.base_font.render(self.tempo_atual, True, ('white'))
-            self.screen.blit(fundo_image, (0, 0))
             self.screen.blit(fundo_crono, (25, 40))
             self.screen.blit(crono, (50, 50))
 
@@ -144,7 +155,7 @@ class Fase():
             botao_sair.changeColor(jogar_mouse)
             botao_sair.update(self.screen)
 
-            pygame.display.flip()
+            pygame.display.update()
             if jgdr.vida <= 0:
                 running = False
                 self.screen_manager.pop_screen()

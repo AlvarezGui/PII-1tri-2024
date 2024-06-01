@@ -43,7 +43,7 @@ class Validar():
         else:
             # TODO avisar que o email tem que ser da escola
             # "E-MAIL INVÁLIDO"
-            return None
+            return "E-MAIL INVÁLIDO"
             
 
     def run(self):
