@@ -38,6 +38,7 @@ class Cria_cadastro():
         
 
     def run(self):
+        mensagem_erro = None
         while self.running:
             screen.blit(self.painel_image, (50, 20))
 

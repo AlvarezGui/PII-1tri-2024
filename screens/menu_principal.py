@@ -66,7 +66,7 @@ class Main_menu():
             pontos = base_font.render(str(selecao.get_pontos()), True, ("white"))
             screen.blit(pontos, (20, 600))
 
-            label_usuario = pygame.font.Font(CAMINHO_FONTE, 20).render("PONTOS", True, ("white"))
+            label_usuario = pygame.font.Font(CAMINHO_FONTE, 20).render("USUÁRIO", True, ("white"))
             screen.blit(label_usuario, (20, 520))
             user = base_font.render(str(usuario), True, ("white"))
             screen.blit(user, (20, 530))
