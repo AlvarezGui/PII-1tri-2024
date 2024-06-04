@@ -79,3 +79,21 @@ class connector():
         numero = self.cursor.fetchall()
 
         return len(numero)
+    
+    def solicitar_ranking(tipo:str):
+        # TODO solicitar o ranking do jogador
+
+    def deletar_turma(id:int):
+        # TODO deletar turma
+
+    def deletar_conta(id:int):
+        # TODO deletar conta
+
+    def solictar_turma():
+        # TODO solicitar turma
+
+    def solicitar_conta():
+        # TODO solicitar conta
+
+    def adicionar_turma(turma:str):
+        # TODO adicionar turma
