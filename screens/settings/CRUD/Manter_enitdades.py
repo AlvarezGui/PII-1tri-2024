@@ -6,7 +6,6 @@ from components.SpriteSheet import SpriteSheet
 from screens.Cria_cadastro import Cria_cadastro
 from screens.screen import Screen, Screen_manager
 from screens.settings.CRUD.Atualiza_tela import Atualiza
-from screens.settings.CRUD.Criar_pergunta_tela import Cria_pergunta
 from screens.settings.CRUD.Criar_turma_tela import Cria_turma
 from screens.settings.CRUD.Delete_tela import Delete
 

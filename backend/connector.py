@@ -82,18 +82,30 @@ class connector():
     
     def solicitar_ranking(tipo:str):
         # TODO solicitar o ranking do jogador
+        # Se o usuario for professor, voltar todos os rankings, se n, voltar apenas os 5 primeiros da turma
+        return
 
     def deletar_turma(id:int):
         # TODO deletar turma
+        # será usado na tela de deletar
+        return
 
     def deletar_conta(id:int):
         # TODO deletar conta
+        # será usado na tela de deletar
+        return
 
     def solictar_turma():
         # TODO solicitar turma
+        # vai ser usado nas telas tanto de atualizar turma quanto de deletar turma
+        return
 
     def solicitar_conta():
         # TODO solicitar conta
+        # vai ser usado nas telas tanto de atualizar conta quanto de deletar conta
+        return
 
     def adicionar_turma(turma:str):
         # TODO adicionar turma
+        # será usado na tela de criar turma
+        return

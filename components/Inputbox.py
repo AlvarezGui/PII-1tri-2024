@@ -50,7 +50,7 @@ class InputBox:
             self.checkForInput(event.pos)
         if event.type == pygame.KEYDOWN and self.active:
             if event.key == pygame.K_RETURN:
-                self.user_text += " "
+                self.user_text += ""
             elif event.key == pygame.K_BACKSPACE:
                 self.user_text = self.user_text[:-1]
             else:
