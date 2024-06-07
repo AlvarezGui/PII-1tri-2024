@@ -80,32 +80,52 @@ class connector():
 
         return len(numero)
     
-    def solicitar_ranking(tipo:str):
+    def solicitar_ranking(self, tipo:str):
         # TODO solicitar o ranking do jogador
         # Se o usuario for professor, voltar todos os rankings, se n, voltar apenas os 5 primeiros da turma
-        return
+        if tipo == "professor":
+            sql = "SELECT * FROM contas ORDER BY pontos"
+        elif tipo == "aluno":
+            sql = "SELECT * FROM contas ORDER BY pontos LIMIT 5"
 
-    def deletar_turma(id:int):
+        self.cursor.execute(sql)
+        contas = self.cursor.fetchall()[0]
+        return contas
+
+    def deletar_turma(self, id:int):
         # TODO deletar turma
         # será usado na tela de deletar
+        sql = "SELECT * FROM turmas WHERE idTurma = %s" % (id)
+        self.cursor.execute(sql)
         return
 
-    def deletar_conta(id:int):
+    def deletar_conta(self, id:int):
         # TODO deletar conta
         # será usado na tela de deletar
+        sql = "SELECT * FROM contas WHERE idConta = %s" % (id)
+        self.cursor.execute(sql)
         return
 
-    def solictar_turma():
+    def solictar_turma(self):
         # TODO solicitar turma
         # vai ser usado nas telas tanto de atualizar turma quanto de deletar turma
-        return
+        sql = "SELECT * FROM turmas"
+        self.cursor.execute(sql)
+        turmas = self.cursor.fetchall()
+        return turmas
 
-    def solicitar_conta():
+    def solicitar_conta(self):
         # TODO solicitar conta
         # vai ser usado nas telas tanto de atualizar conta quanto de deletar conta
-        return
+        sql = "SELECT * FROM contas"
+        self.cursor.execute(sql)
+        contas = self.cursor.fetchall()
+        return contas
 
-    def adicionar_turma(turma:str):
+    def adicionar_turma(self, turma:str):
         # TODO adicionar turma
         # será usado na tela de criar turma
+        sql = "INSERT INTO turmas (nomeTurma) VALUES (%s)" % (turma)
+        self.cursor.execute(sql)
+        self.cnx.commit()
         return
