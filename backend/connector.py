@@ -3,7 +3,7 @@ from mysql.connector import (connection)
 class connector():
     
     def __init__(self):
-        self.cnx = connection.MySQLConnection(user='user', password='senha', host='host', port='port') 
+        self.cnx = connection.MySQLConnection(user=user, password=password, host=host, port=port) 
         self.cursor = self.cnx.cursor(buffered=True)
 
         self.cursor.execute("USE teste")
@@ -54,8 +54,8 @@ class connector():
         self.cursor.executemany(sql, val)
         resultado = self.cursor.fetchone()
 
-        if resultado[0] == 1: print("Essa conta existe")
-        else: print("Essa conta não existe")
+        if resultado[0] == 1: print("Essa aluno existe")
+        else: print("Essa aluno não existe")
 
     # TODO funções das perguntas
     def adicionar_perguntas(self):
@@ -84,13 +84,13 @@ class connector():
         # TODO solicitar o ranking do jogador
         # Se o usuario for professor, voltar todos os rankings, se n, voltar apenas os 5 primeiros da turma
         if tipo == "professor":
-            sql = "SELECT * FROM contas ORDER BY pontos"
+            sql = "SELECT * FROM alunos ORDER BY pontos"
         elif tipo == "aluno":
-            sql = "SELECT * FROM contas ORDER BY pontos LIMIT 5"
+            sql = "SELECT nomeAluno, pontosAluno FROM alunos ORDER BY pontosAluno LIMIT 5"
 
         self.cursor.execute(sql)
-        contas = self.cursor.fetchall()[0]
-        return contas
+        alunos = self.cursor.fetchall()
+        return alunos
 
     def deletar_turma(self, id:int):
         # TODO deletar turma
@@ -99,10 +99,10 @@ class connector():
         self.cursor.execute(sql)
         return
 
-    def deletar_conta(self, id:int):
-        # TODO deletar conta
+    def deletar_aluno(self, id:int):
+        # TODO deletar aluno
         # será usado na tela de deletar
-        sql = "DELETE FROM contas WHERE idConta = %s" % (id)
+        sql = "DELETE FROM alunos WHERE idaluno = %s" % (id)
         self.cursor.execute(sql)
         return print("AAAAAA")
 
@@ -114,13 +114,13 @@ class connector():
         turmas = self.cursor.fetchall()
         return turmas
 
-    def solicitar_conta(self):
-        # TODO solicitar conta
-        # vai ser usado nas telas tanto de atualizar conta quanto de deletar conta
-        sql = "SELECT * FROM contas"
+    def solicitar_aluno(self):
+        # TODO solicitar aluno
+        # vai ser usado nas telas tanto de atualizar aluno quanto de deletar aluno
+        sql = "SELECT * FROM alunos"
         self.cursor.execute(sql)
-        contas = self.cursor.fetchall()
-        return contas
+        alunos = self.cursor.fetchall()
+        return alunos
 
     def adicionar_turma(self, turma:str):
         # TODO adicionar turma
