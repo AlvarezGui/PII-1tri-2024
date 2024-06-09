@@ -3,7 +3,7 @@ from mysql.connector import (connection)
 class connector():
     
     def __init__(self):
-        self.cnx = connection.MySQLConnection( user=user, password=password, host=host, port=port) 
+        self.cnx = connection.MySQLConnection(user='user', password='senha', host='host', port='port') 
         self.cursor = self.cnx.cursor(buffered=True)
 
         self.cursor.execute("USE teste")
@@ -95,21 +95,21 @@ class connector():
     def deletar_turma(self, id:int):
         # TODO deletar turma
         # será usado na tela de deletar
-        sql = "SELECT * FROM turmas WHERE idTurma = %s" % (id)
+        sql = "DELETE FROM turma WHERE idTurma = %s" % (id)
         self.cursor.execute(sql)
         return
 
     def deletar_conta(self, id:int):
         # TODO deletar conta
         # será usado na tela de deletar
-        sql = "SELECT * FROM contas WHERE idConta = %s" % (id)
+        sql = "DELETE FROM contas WHERE idConta = %s" % (id)
         self.cursor.execute(sql)
-        return
+        return print("AAAAAA")
 
     def solictar_turma(self):
         # TODO solicitar turma
         # vai ser usado nas telas tanto de atualizar turma quanto de deletar turma
-        sql = "SELECT * FROM turmas"
+        sql = "SELECT * FROM turma"
         self.cursor.execute(sql)
         turmas = self.cursor.fetchall()
         return turmas
