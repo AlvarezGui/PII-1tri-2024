@@ -106,7 +106,7 @@ class connector():
         self.cursor.execute(sql)
         return print("AAAAAA")
 
-    def solictar_turma(self):
+    def solicitar_turma(self):
         # TODO solicitar turma
         # vai ser usado nas telas tanto de atualizar turma quanto de deletar turma
         sql = "SELECT * FROM turma"
@@ -117,7 +117,7 @@ class connector():
     def solicitar_aluno(self):
         # TODO solicitar aluno
         # vai ser usado nas telas tanto de atualizar aluno quanto de deletar aluno
-        sql = "SELECT * FROM alunos"
+        sql = "SELECT idAluno, nomeAluno FROM alunos"
         self.cursor.execute(sql)
         alunos = self.cursor.fetchall()
         return alunos
