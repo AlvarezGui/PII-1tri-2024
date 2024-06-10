@@ -53,7 +53,7 @@ class Cria_turma():
 
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_criar.checkForInput(selecao_mouse):
-                        cnx.adicionar_turma(self.input_nome_turma.get_input())
+                        cnx.adicionar_turma(turma=self.input_nome_turma.get_input())
                         screen_manager.pop_screen()
                         running = False
                     if botao_voltar.checkForInput(selecao_mouse):
