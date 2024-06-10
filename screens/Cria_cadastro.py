@@ -77,7 +77,7 @@ class Cria_cadastro():
                                 screen_manager.pop_screen()
                             else:
                                 mensagem_erro = "ERRO AO CADASTRAR!"
-                       
+            
                     if botao_sair.checkForInput(logar_mouse):
                         screen_manager.pop_screen()
                         self.running = False

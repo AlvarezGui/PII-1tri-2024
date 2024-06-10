@@ -125,7 +125,7 @@ class connector():
     def adicionar_turma(self, turma:str):
         # TODO adicionar turma
         # será usado na tela de criar turma
-        sql = "INSERT INTO turmas (nomeTurma) VALUES (%s)" % (turma)
+        sql = "INSERT INTO turma (turma) VALUES (%s)" % (turma)
         self.cursor.execute(sql)
         self.cnx.commit()
         return

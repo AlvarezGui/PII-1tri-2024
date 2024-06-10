@@ -5,11 +5,13 @@ from components.Inputbox import InputBox
 from components.Button import Button
 from components.SpriteSheet import SpriteSheet
 from screens.screen import Screen, Screen_manager
+from backend.connector import connector
 
 SCREEN_WIDTH = 1020
 SCREEN_HEIGHT = 800
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 screen_manager = Screen_manager()
+cnx = connector()
 
 class Cria_turma():
     def __init__(self):
@@ -51,7 +53,7 @@ class Cria_turma():
 
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if botao_criar.checkForInput(selecao_mouse):
-                        print("Turma criada")
+                        cnx.adicionar_turma(self.input_nome_turma.get_input())
                         screen_manager.pop_screen()
                         running = False
                     if botao_voltar.checkForInput(selecao_mouse):
